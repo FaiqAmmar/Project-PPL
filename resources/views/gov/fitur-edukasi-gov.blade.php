@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Modul (Government)</title>
+  <title>Edukasi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="output.css">
 </head>
@@ -13,13 +13,14 @@
     <div class="px-9 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
-        <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="#">Dashboard</a>
+          <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="dashboard-modul-gov">Dashboard</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="fitur-edukasi-gov">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Konsultasi</a>
         </div>
         <div class="flex items-center ">
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
-          <a class="group" href="#">
+          <a class="group" href="profil-gov">
             <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
@@ -45,7 +46,8 @@
           <li class="hover:bg-[#D6E8EE] rounded-xl text-center">Modul #11</li>
         </ul>
       </a>
-      <button class=""></button>
+      <button class="">
+      </button>
     </div> 
   </div>
 
@@ -55,7 +57,7 @@
         <ul class="text-base mb-2">
           <li class="flex flex-row underline"><a href="#">
             Sub Materi #1</a>
-            <a href="#"><button><img  class=" ml-16 h-[24px]" src="{{ asset('storage/tombol-download.png') }}" alt="tombol-download"></button></a>
+            <a href="#"><button><img  class=" ml-16 h-[20px]" src="{{ asset('storage/tombol-download.png') }}" alt="tombol-download"></button></a>
           </li>
           <li class="hover:underline"><a href="#">Sub Materi #2</a></li>
           <li class="hover:underline"><a href="#">Sub Materi #3</a></li>
@@ -68,7 +70,7 @@
       <span class="text-xl font-semibold mb-2">Materi #4</span>
     </div>
     <div class="bg-[#D6E8EE] rounded p-4">
-      tes 
+      <span class="text-2xl font-bold">Sub Materi #1</span>
     </div>
   </div>
 

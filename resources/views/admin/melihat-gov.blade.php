@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Modul (Government)</title>
+  <title>Akun Pemerintah</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="output.css">
@@ -15,14 +15,14 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
           <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Dashboard</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="dashboard-modul-admin">Dashboard</a>
+            <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-admin">Edukasi</a>
         </div>
         <div class="flex items-center ">
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
-          <a class="" href="#">
+          <a class="group" href="profil-admin">
             <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
-            <hr class="mt-2 border border-black rounded">
+            <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>
       </div>
@@ -39,8 +39,8 @@
           <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Admin</span>
         </div>
         <div class="flex flex-col font-semibold pt-3 text-base gap-y-2 justify-center">
-          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl">Akun Pemerintah</button>
-          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl">Akun Pengguna</button>
+        <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl"><a href="melihat-gov">Akun Pemerintah</a></button>
+          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl"><a href="melihat-user">Akun Pengguna</a></button>
           <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl">Edit</button>
           <button class="bg-[#FF0000] w-[140px] h-[60px] justify-center self-center rounded-xl text-white">Logout</button>
         </div>
