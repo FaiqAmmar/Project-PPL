@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Agro Edu</title>
 </head>
-<body class="s">
+<body class="">
     <div class="">
         <div class="mx-auto max-w-7xl">
             <div class="relative isolate overflow-hidden  px-6 pt-16  sm:px-16 md:pt-24 lg:flex lg:gap-x-1 lg:px-24 lg:pt-0">

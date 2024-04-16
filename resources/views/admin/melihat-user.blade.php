@@ -48,36 +48,66 @@
     </div>
     <div class="bg-[#D6E8EE] rounded px-14 pt-12">
       <span class="text-3xl font-semibold">Akun Pengguna</span>
-      <div class="bg-white h-[325px]">
-        <table class="table-fixed gap-x-2">
-          <thead>
+      <div class="relative overflow-x-auto mt-4">
+        <table class="text-xs w-full text-left rtl:text-right">
+          <thead class="font-bold text-white bg-[#365486]">
             <tr>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Nomor Handphone</th>
-              <th>Gender</th>
-              <th>Alamat</th>
+              <th scope="col" class="px-2 py-2">Nama</th>
+              <th scope="col" class="px-2 py-2">Email</th>
+              <th scope="col" class="px-2 py-2">Password</th>
+              <th scope="col" class="px-2 py-2">Nomor Handphone</th>
+              <th scope="col" class="px-2 py-2">Gender</th>
+              <th scope="col" class="px-2 py-2">Alamat</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Abyan Athar</td>
-              <td>abyanath12@gmail.com</td>
-              <td>abyanathar12</td>
-              <td>089872618187</td>
-              <td>Laki-Laki</td>
-              <td>Jl. Rembangan 18 Kemuning lor, Arjasa, Jember Jawa Timur</td>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Abyan Athar</td>
+              <td class="px-2 py-2">abyanath12@gmail.com</td>
+              <td class="px-2 py-2">abyanathar12</td>
+              <td class="px-2 py-2">089872618187</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Rembangan 18 Kemuning lor, Arjasa, Jember Jawa Timur</td>
             </tr>
-            <tr>
-              <td>Witchy Woman</td>
-              <td>The Eagles</td>
-              <td>1972</td>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Muhammad Tri</td>
+              <td class="px-2 py-2">muhtri@gmail.com</td>
+              <td class="px-2 py-2">Tri12345678</td>
+              <td class="px-2 py-2">082143233069</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Ahmad Yani, Banyuwangi, Jawa Timur</td>
             </tr>
-            <tr>
-              <td>Shining Star</td>
-              <td>Earth, Wind, and Fire</td>
-              <td>1975</td>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Sri Ayu</td>
+              <td class="px-2 py-2">sriayu@gmail.com</td>
+              <td class="px-2 py-2">sri9868</td>
+              <td class="px-2 py-2">085249693948</td>
+              <td class="px-2 py-2">Perempuan</td>
+              <td class="px-2 py-2">Jl Dewi Rengganis, Krucil, Probolinggo, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Dewi Putri</td>
+              <td class="px-2 py-2">dewiiput@gmail.com</td>
+              <td class="px-2 py-2">Dewieeeput</td>
+              <td class="px-2 py-2">085776422447</td>
+              <td class="px-2 py-2">Perempuan</td>
+              <td class="px-2 py-2">Jln Manggis 20B, Kaliwates, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Farouk Rais</td>
+              <td class="px-2 py-2">faroukr@gmail.com</td>
+              <td class="px-2 py-2">Farrais9</td>
+              <td class="px-2 py-2">085338534457</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jln Manggis 7, Tenggrang, Bondowoso, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Achmad Fadjar</td>
+              <td class="px-2 py-2">achfadjar@gmail.com</td>
+              <td class="px-2 py-2">Fajarsenja</td>
+              <td class="px-2 py-2">081219550857</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jln Basuki 20, Krucil, Probolinggo, Jawa Timur</td>
             </tr>
           </tbody>
         </table>

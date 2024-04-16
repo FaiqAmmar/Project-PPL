@@ -48,8 +48,69 @@
     </div>
     <div class="bg-[#D6E8EE] rounded px-14 pt-12">
       <span class="text-3xl font-semibold">Akun Pemerintah</span>
-      <div class="flex bg-white h-[325px]">
-        tes
+      <div class="relative overflow-x-auto mt-4">
+        <table class="text-xs w-full text-left rtl:text-right">
+          <thead class="font-bold text-white bg-[#365486]">
+            <tr>
+              <th scope="col" class="px-2 py-2">Nama</th>
+              <th scope="col" class="px-2 py-2">Email</th>
+              <th scope="col" class="px-2 py-2">Password</th>
+              <th scope="col" class="px-2 py-2">Nomor Handphone</th>
+              <th scope="col" class="px-2 py-2">Gender</th>
+              <th scope="col" class="px-2 py-2">Alamat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Guntur Cahyadi</td>
+              <td class="px-2 py-2">gunturcahyadi50@gmail.com</td>
+              <td class="px-2 py-2">guntur50</td>
+              <td class="px-2 py-2">082748302341</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl.Kertajaya no 90, Sukosari, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Cipto Dierja</td>
+              <td class="px-2 py-2">ciptodierja1010@gmail.com</td>
+              <td class="px-2 py-2">ciptod1010</td>
+              <td class="px-2 py-2">089533920203</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Gajah Mada V, Kaliwates, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Endra Estiawan </td>
+              <td class="px-2 py-2">endraaa23@gmail.com</td>
+              <td class="px-2 py-2">endraa23</td>
+              <td class="px-2 py-2">082174930205</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Sriwijaya, Sukorejo, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Sri Janitra Dewi</td>
+              <td class="px-2 py-2">srijanitrad34@gmail.com</td>
+              <td class="px-2 py-2">srijandewi</td>
+              <td class="px-2 py-2">085132849502</td>
+              <td class="px-2 py-2">Perempuan</td>
+              <td class="px-2 py-2">Jl. Hayam Wuruk, Mojogemi, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Dwi Laksamana</td>
+              <td class="px-2 py-2">dwilaksmana965@gmail.com</td>
+              <td class="px-2 py-2">dwilaks32</td>
+              <td class="px-2 py-2">087153749272</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Danau Toba VII, Sumber Sari, Jember, Jawa Timur</td>
+            </tr>
+            <tr class="bg-white border-b ">
+              <td class="font-semibold underline px-2 py-2">Ogya Mandaka</td>
+              <td class="px-2 py-2">ogyamandaka32@gmail.com</td>
+              <td class="px-2 py-2">ogyamandaka</td>
+              <td class="px-2 py-2">085117492621</td>
+              <td class="px-2 py-2">Laki-Laki</td>
+              <td class="px-2 py-2">Jl. Tawangmangu no 7, Mojogemi, Jember, Jawa Timur</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

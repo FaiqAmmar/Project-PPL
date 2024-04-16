@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route Public
 Route::get('/', function () {
-    return view('user.profil-user');
+    return view('landing-page');
 });
 
 Route::get('/login-page', function () {
