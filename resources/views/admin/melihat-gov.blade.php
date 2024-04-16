@@ -19,9 +19,9 @@
             <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-admin">Edukasi</a>
         </div>
         <div class="flex items-center ">
-          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
+          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Faiq Ammar</span>
           <a class="group" href="profil-admin">
-            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
+            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/admin.jpg') }}" alt="admin-pic">
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>
@@ -33,8 +33,8 @@
     <div class="bg-[#7FC7D9] rounded px-8 py-[22px]">
       <div class="grid grid-rows-[240px_200px]">
         <div class="flex flex-col justify-center">
-          <img class="self-center w-26 h-26 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="">
-          <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">(Nama Akun)</span>
+          <img class="self-center w-32 h-32 rounded-full" src="{{ asset('storage/admin.jpg') }}" alt="admin-pic">
+          <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">Faiq Ammar</span>
           <hr class="self-center my-2 w-24 border border-black rounded">
           <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Admin</span>
         </div>

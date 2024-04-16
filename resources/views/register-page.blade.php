@@ -48,6 +48,6 @@
         </div>
         <button style="grid-area: button;" type="submit" class="mt-2 bg-[#1D46A6] h-10 rounded-xl text-white font-semibold tracking-wide hover:bg-blue-950 hover:scale-105 hover:shadow-2xl transition col-span-2">Daftar</button>
     </form>
-    <p class="text-xs mt-7">Sudah Punya Akun?<a class="text-blue-500 hover:font-bold hover:text-blue-900 transition" href="index.html"> Masuk Sekarang</a></p>
+    <p class="text-xs mt-7">Sudah Punya Akun?<a class="text-blue-500 hover:font-bold hover:text-blue-900 transition" href="login-page"> Masuk Sekarang</a></p>
 </body>
 </html>

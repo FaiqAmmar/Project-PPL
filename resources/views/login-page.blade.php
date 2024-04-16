@@ -11,7 +11,7 @@
 <body class="bg-[#D6E8EE] flex justify-center items-center h-svh font-poppins gap-8 scale-75">
     <div>
         <h1 class="text-7xl font-bold">Silahkan Masuk</h1>
-        <h5 class="text-xl font-bold mb-12">Tidak Punya Akun? <a class="text-blue-700" href="#">Daftar Sekarang</a></h5>
+        <h5 class="text-xl font-bold mb-12">Tidak Punya Akun? <a class="text-blue-700" href="register-page">Daftar Sekarang</a></h5>
         <form action="" method="POST" class="flex flex-col justify-center">
             <label class="text-3xl font-bold ml-2 mb-4" for="email">Email</label>
             <input class="h-14 rounded-xl pl-7 invalid:focus:ring-red-500 focus:outline-none focus:ring-1 focus:ring-slate-700" id="email" type="email" name="email" placeholder="contoh : satriabelvanararya@gmail.com" required>

@@ -19,9 +19,9 @@
             <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-gov">Edukasi</a>
           </div>
           <div class="flex items-center ">
-            <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
-            <a class="" href="#">
-              <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
+            <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Guntur Cahyadi</span>
+            <a class="" href="profil-gov">
+              <img class="w-8 h-8 rounded-full" src="{{ asset('storage/gov.jpg') }}" alt="gov-pic">
               <hr class="mt-2 border border-black rounded">
             </a>
           </div>
@@ -33,8 +33,8 @@
       <div class="bg-[#7FC7D9] rounded px-8 py-[22px]">
         <div class="grid grid-rows-[240px_200px] gap-y-9">
           <div class="flex flex-col justify-center">
-            <img class="self-center w-26 h-26 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="">
-            <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">(Nama Akun)</span>
+            <img class="self-center w-32 h-32 rounded-full" src="{{ asset('storage/gov.jpg') }}" alt="gov-pic">
+            <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">Guntur Cahyadi</span>
             <hr class="self-center my-2 w-24 border border-black rounded">
             <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Pemerintah</span>
           </div>
@@ -46,8 +46,49 @@
       </div>
       <div class="bg-[#D6E8EE] rounded px-14 pt-12">
         <span class="text-3xl font-semibold">Profil</span>
-        <div class="flex bg-white h-[375px]">
-          tes
+        <div class="py-6 text-lg h-auto">
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Nama</span>
+            <div>
+              <span class="font-light">Guntur Cahyadi</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Email</span>
+            <div>
+              <span class="font-light">gunturcahyadi50@gmail.com</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Password</span>
+            <div>
+              <span class="font-light">guntur50</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Nomor Handphone</span>
+            <div>
+              <span class="font-light">082748302341</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Gender</span>
+            <div>
+              <span class="font-light">Laki-Laki</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
+          <div class="grid grid-cols-[25%_75%] mb-4">
+            <span class="font-bold">Alamat</span>
+            <div>
+              <span class="font-light">Jl.Kertajaya no 90, Sukosari, Jember, Jawa Timur</span>
+              <hr class="border border-black rounded">
+            </div>
+          </div>
         </div>
         <div class="grid w-[50%] ml-[75%] grid-cols-[25%_27%] font-semibold text-white text-base">
           <button class="flex justify-center p-1 rounded-xl mr-8 bg-[#FF0000]">Batal</button>

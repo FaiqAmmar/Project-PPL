@@ -14,13 +14,13 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
         <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="dashboard-modul-gov">Dashboard</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-gov">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="dashboard-modul-admin">Dashboard</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-admin">Edukasi</a>
         </div>
         <div class="flex items-center ">
-          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
+          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Faiq Ammar</span>
           <a class="group" href="profil-admin">
-            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
+            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/admin.jpg') }}" alt="admin-pic">
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>

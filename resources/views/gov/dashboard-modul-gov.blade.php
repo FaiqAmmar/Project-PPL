@@ -18,9 +18,9 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-gov">Edukasi</a>
         </div>
         <div class="flex items-center ">
-          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang,(Nama Akun)</span>
+          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Guntur Cahyadi</span>
           <a class="group" href="profil-gov">
-            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo-test.png') }}" alt="profile-pic">
+            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/gov.jpg') }}" alt="gov-pic">
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>
