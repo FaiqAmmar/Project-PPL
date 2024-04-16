@@ -28,7 +28,8 @@
     </div>
   </nav>
 
-  <div class="mx-4 mt-4 mb-4 rounded bg-[#D6E8EE]">
+  <div class="h-[85vh] mx-4 mt-4 mb-4 rounded bg-[#D6E8EE]">
+  <div class="h- mx-4 mt-4 mb-4 rounded bg-[#D6E8EE]">
     <div class="flex items-center justify-between px-14 pt-8">
       <div class="flex items-center justify-start rtl:justify-end">
         <span class="text-3xl font-semibold">Modul Bahan Ajar</span>
@@ -38,6 +39,52 @@
           <img class="w-3 h-3" src="{{ asset('storage/tombol-tambah.png') }}" alt="button">
         </button>
       </div>
+    </div>
+    <div class="relative overflow-x-auto mt-4 px-14">
+    <table class="text-xs w-full text-center rtl:text-right table-auto">
+          <thead class="font-semibold text-center text-sm">
+            <tr>
+              <th scope="col" class="px-2 py-2 w-10">No</th>
+              <th scope="col" class="px-2 py-2">Judul Modul</th>
+              <th scope="col" class="px-2 py-2 w-96">Deskripsi Modul</th>
+              <th scope="col" class="px-2 py-2">Video</th>
+              <th scope="col" class="px-2 py-2">Tanggal upload</th>
+              <th scope="col" class="px-2 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="">
+              <td class="px-2 py-2">1</td>
+              <td class="px-2 py-2">Padi</td>
+              <td class="px-2 py-2 text-justify">Padi merupakan salah satu tanaman budidaya terpenting dalam peradaban. Meskipun terutama mengacu pada jenis tanaman budidaya, padi juga digunakan untuk mengacu pada beberapa jenis dari marga yang sama, yang biasa disebut sebagai padi liar.</td>
+              <td class="px-2 py-2">padi.mp4</td>
+              <td class="px-2 py-2">25 Februari 2024</td>
+              <td class="px-2 py-2 font-bold">Menunggu</td>
+            </tr>
+            <tr class="">
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">Jagung</td>
+              <td class="px-2 py-2 text-justify">Jagung adalah salah satu tanaman pangan penghasil karbohidrat yang terpenting di dunia, selain gandum dan padi. Bagi penduduk Amerika Tengah dan Selatan, bulir jagung adalah pangan pokok, sebagaimana bagi sebagian penduduk Afrika dan beberapa daerah di Indonesia.</td>
+              <td class="px-2 py-2">jagung.mp4</td>
+              <td class="px-2 py-2">30 Januari 2023</td>
+              <td class="px-2 py-2 font-bold text-[#04AA6D]">Disetujui</td>
+            </tr>
+            <tr class="">
+              <td class="px-2 py-2">3</td>
+              <td class="px-2 py-2">Cabai</td>
+              <td class="px-2 py-2 text-justify">Cabai adalah buah dan tumbuhan anggota genus Capsicum. Sebagai bumbu, buah cabai yang pedas sangat populer di Asia Tenggara sebagai penguatatannya. Sebagai bumbu, buah cabai yang pedas sangat populer di Asia Tenggara sebagai penguat rasa untuk makanan.</td>
+              <td class="px-2 py-2">cabai.mp4</td>
+              <td class="px-2 py-2">13 Juli 2023</td>
+              <td class="px-2 py-2 font-bold text-[#FF0000]">Ditolak</td>
+            </tr>
+            <tr class="">
+              <td class="px-2 py-2">4</td>
+              <td class="px-2 py-2">Ubi</td>
+              <td class="px-2 py-2 text-justify">Umbi adalah organ tumbuhan yang mengalami perubahan ukuran dan bentuk sebagai akibat perubahan fungsinya.</td>
+              <td class="px-2 py-2">ubi.mp4</td>
+              <td class="px-2 py-2">15 April 2022</td>
+              <td class="px-2 py-2 font-bold text-[#04AA6D]">Disetujui</td>
+            </tr>
     </div>
   </div>
 
