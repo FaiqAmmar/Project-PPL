@@ -13,7 +13,7 @@
     <div class="px-9 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
-          <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
+          <img class="w-8 h-8 rounded-full" src="{{ url('logo.png') }}" alt="logo">
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="dashboard-modul-admin">Dashboard</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="fitur-edukasi-admin">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Konsultasi</a>
@@ -21,7 +21,7 @@
         <div class="flex items-center ">
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Faiq Ammar</span>
           <a class="group" href="profil-admin">
-            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/admin.jpg') }}" alt="admin-pic">
+            <img class="w-8 h-8 rounded-full" src="{{ url('admin.jpg') }}" alt="admin-pic">
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>
@@ -47,7 +47,7 @@
         </ul>
       </a>
       <button class="ml-4 flex w-7 p-2 bg-[#365486] hover:bg-[#304b78] rounded-full items-center justify-center">
-        <img class="w-3 h-3" src="{{ asset('storage/tombol-tambah.png') }}" alt="tombol-tambah">
+        <img class="w-3 h-3" src="{{ url('tombol-tambah.png') }}" alt="tombol-tambah">
       </button>
     </div> 
   </div>
@@ -108,7 +108,7 @@
       <div class="flex flex-row h-[auto] justify-between">
         <div class="flex flex-row gap-x-4">
           <span class="text-2xl font-bold">Sub Materi #1</span>
-          <button><img class="h-6 w-6" src="{{ asset('storage/tombol-edit.png') }}" alt="tombol-edit"></button>
+          <button><img class="h-6 w-6" src="{{ url('tombol-edit.png') }}" alt="tombol-edit"></button>
         </div>
         <span class="font-light mt-2">diunggah: 7 April 2024</span>
       </div>
@@ -116,7 +116,7 @@
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa tempora adipisci labore modi nostrum inventore atque iste ducimus nobis, nam suscipit debitis repellendus hic ullam necessitatibus a quam provident! Incidunt, sint dolor molestiae alias blanditiis illo in itaque odit. Ab facere neque adipisci nulla eaque. Totam non nemo optio voluptate porro at consectetur veniam, sunt ducimus labore nam omnis praesentium molestiae quis. Odio provident itaque veritatis harum aut! Dolore officiis porro molestias vel a necessitatibus illo temporibus earum cum provident itaque, debitis omnis quibusdam possimus aspernatur maxime placeat vitae magni voluptates numquam nesciunt deleniti sunt. Quos nostrum obcaecati blanditiis et.
       </p>
       <div class="grid grid-cols-[auto_auto] gap-x-4 mt-2">
-        <img class="justify-center item-center h-[175px] rounded-xl" src="{{ asset('storage/dummy2.png') }}" alt="petani">
+        <img class="justify-center item-center h-[175px] rounded-xl" src="{{ url('dummy2.png') }}" alt="petani">
         <p class="font-sm justify-content text-justify">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat nostrum, exercitationem dignissimos, possimus ipsa sunt eveniet est modi delectus, deleniti illum atque deserunt? Deserunt provident est illo excepturi consequatur itaque, fugiat similique eius natus voluptate ut amet fuga consectetur veritatis ad aliquid esse voluptatum impedit distinctio illum! Harum laudantium dicta animi assumenda eius beatae ipsa quisquam dolorem asperiores magnam sunt id exercitationem iste nesciunt, fuga explicabo sapiente cumque. Totam, saepe.
         </p>
@@ -124,12 +124,12 @@
       <div class="bg-[#7FC7D9] mt-4 p-4">
         <span class="text-2xl font-bold">Video Materi</span>
         <a href="#">
-          <img class="p-4 h-auto w-auto" src="{{ asset('storage/video-test.png') }}" alt="">
+          <img class="p-4 h-auto w-auto" src="{{ url('video-test.png') }}" alt="">
         </a>
         <div>
           <span class="p-4 text-2xl font-bold underline underline-offset-8">Penilaian</span>
           <div class="flex flex-row p-4">
-            <img class="h-10" src="{{ asset('storage/bintang.png') }}" alt="">
+            <img class="h-10" src="{{ url('bintang.png') }}" alt="">
             <span class="flex ml-4 items-center font-light justify-center">5/5 (100 ulasan)</span>
           </div>
           <span class="p-4 text-2xl font-bold underline underline-offset-8">Komentar</span>

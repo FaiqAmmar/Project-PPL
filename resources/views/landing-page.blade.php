@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="relative mt-16 h-80 lg:mt-8">
-                    <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="{{ asset('storage/dashboard-gov.jpg') }}" alt="App screenshot" width="auto" height="1080">
+                    <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="{{ url('dashboard-gov.jpg') }}" alt="App screenshot" width="auto" height="1080">
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                 </p>
             </div>
             <div class="flex flex-col justify-center items-center h-full">
-                <a class="border hover:scale-90 transition h-48 w-48 rounded-lg" target="_blank" href="https://www.php.net/manual/en/control-structures.match.ph" style="background: url('{{ asset('storage/dummy.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
+                <a class="border hover:scale-90 transition h-48 w-48 rounded-lg" target="_blank" href="https://www.php.net/manual/en/control-structures.match.ph" style="background: url('dummy.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
                 </a>
                 <a target="_blank" href="https://www.php.net/manual/en/control-structures.match.php">Selengkapnya</a>
             </div>

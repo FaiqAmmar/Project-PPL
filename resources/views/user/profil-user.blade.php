@@ -14,13 +14,13 @@
       <div class="px-9 py-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center justify-start rtl:justify-end">
-            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/logo.png') }}" alt="logo">
+            <img class="w-8 h-8 rounded-full" src="{{ url('logo.png') }}" alt="logo">
             <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="fitur-edukasi-user">Edukasi</a>
           </div>
           <div class="flex items-center ">
             <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, Abyan Athar</span>
             <a class="" href="profil-user">
-              <img class="w-8 h-8 rounded-full" src="{{ asset('storage/user.jpg') }}" alt="user-pic">
+              <img class="w-8 h-8 rounded-full" src="{{ url('user.jpg') }}" alt="user-pic">
               <hr class="mt-2 border border-black rounded">
             </a>
           </div>
@@ -32,7 +32,7 @@
       <div class="bg-[#7FC7D9] rounded px-8 py-[22px]">
         <div class="grid grid-rows-[240px_200px] gap-y-9">
           <div class="flex flex-col justify-center">
-            <img class="self-center w-32 h-32 rounded-full" src="{{ asset('storage/user.jpg') }}" alt="user-pic">
+            <img class="self-center w-32 h-32 rounded-full" src="{{ url('user.jpg') }}" alt="user-pic">
             <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">Abyan Athar</span>
             <hr class="self-center my-2 w-24 border border-black rounded">
             <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Pengguna</span>

@@ -28,7 +28,7 @@
         </a>
     </div>
     <div class="flex justify-center items-center ml-11">
-        <img class="h-[500px] rounded-full" src=".{{ asset('storage/logo.png') }}" alt="Logo Agro Edu" title="Logo Agro Edu">
+        <img class="h-[500px] rounded-full" src=" url('logo.png') }}" alt="Logo Agro Edu" title="Logo Agro Edu">
     </div>
 </body>
 </html>
