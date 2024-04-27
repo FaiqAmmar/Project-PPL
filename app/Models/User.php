@@ -21,8 +21,11 @@ class User extends Authenticatable
         'nama',
         'email',
         'password',
+        'super_password',
+        'roles_id   ',
         'nomor_handphone',
         'gender',
+        'foto_profil',
         'alamat',
     ];
 
@@ -33,6 +36,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'super_password',
         'remember_token',
     ];
 
@@ -44,4 +48,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        // Logic to determine if the user is an admin
+        return false;
+    }
+
+    public function isGov()
+    {
+        // Logic to determine if the user is a government official
+        return false;
+    }
+
+    public function isUser()
+    {
+        // Logic to determine if the user is a regular user
+        return true;
+    }
 }
