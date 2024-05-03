@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_JenisEdukasi;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,10 @@ Route::get('/', function () {return view('landing-page');});
 //Route Login
 Route::get('/login-page', function () {return view('login-page');});
 Route::post('/login-page',[LoginController::class, 'login']);
+
+//Route Edukasi
+Route::post('/fitur-edukasi-admin', [C_JenisEdukasi::class, 'store'])->name('judulEdu.store');
+
 
 Route::get('/register-page', function () {
     return view('register-page');
