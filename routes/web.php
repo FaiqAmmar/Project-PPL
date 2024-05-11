@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\C_JenisEdukasi;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\C_Login;
+use App\Http\Controllers\C_Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route Public
-Route::get('/', function () {return view('landing-page');});
+//Route Getting Started
+// Route::get('/', function () {return view('V_landing-page');});
+Route::get('/', function () {return view('auth.V_landing');});
+
+//Route Signup
+Route::get('/register-role', function() {return view('auth.V_register-role');})->name('register-role');
+Route::get('/register-user', [C_Register::class ,'user']);
+Route::get('/register-gov', [C_Register::class ,'gov']);
+Route::post('/register-user', [C_Register::class ,'register_user']);
+Route::post('/register-user', [C_Register::class ,'register_gov']);
+
 
 
 //Route Login
-Route::get('/login-page', function () {return view('login-page');});
-Route::post('/login-page',[LoginController::class, 'login']);
+Route::get('/login', function () {return view('auth.V_login');})->name('login');
+Route::post('/login',[C_Login::class, 'login']);
 
 //Route Edukasi
 Route::post('/fitur-edukasi-admin', [C_JenisEdukasi::class, 'store'])->name('judulEdu.store');
