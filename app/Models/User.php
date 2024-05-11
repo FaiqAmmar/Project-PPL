@@ -22,11 +22,14 @@ class User extends Authenticatable
         'email',
         'password',
         'super_password',
-        'roles_id   ',
+        'roles_id',
         'nomor_handphone',
         'gender',
         'foto_profil',
         'alamat',
+        'province_code',
+        'city_code',
+        'district_code',
     ];
 
     /**

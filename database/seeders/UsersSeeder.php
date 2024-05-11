@@ -22,25 +22,10 @@ class UsersSeeder extends Seeder
                 'roles_id' => '1',
                 'nomor_handphone' => '089364728192',
                 'gender' => 'Laki-Laki',
-                'alamat' => 'Jl. Mastrip no 56, Sumber Sari, Jember, Jawa Timur'
-            ],
-            [
-                'nama' => 'Abyan Athar',
-                'email' => 'abyanath12@gmail.com',
-                'password' => bcrypt('abyanathar12'),
-                'roles_id' => '2',
-                'nomor_handphone' => '089872618187',
-                'gender' => 'Laki-Laki',
-                'alamat' => 'Jl. Rembangan 18, Arjasa, Jember Jawa Timur'
-            ],
-            [
-                'nama' => 'Guntur Cahyadi',
-                'email' => 'gunturcahyadi50@gmail.com',
-                'password' => bcrypt('guntur50'),
-                'roles_id' => '3',
-                'nomor_handphone' => '082748302341',
-                'gender' => 'Laki-Laki',
-                'alamat' => 'Jl.Kertajaya no 90, Sukosari, Jember, Jawa Timur'
+                'alamat' => 'Jl. Mastrip no 56',
+                'province_code'=> '35',
+                'city_code'=> '3509',
+                'district_code'=> '350921',
             ]
         ];
 

@@ -11,7 +11,7 @@
           <span class="text-black font-bold text-2xl">Daftar Sebagai</span>
           <hr class="w-auto h-1 mx-auto my-1 bg-gray-400 border-0 rounded">
         </div>
-        <img class="flex my-4 w-40" src="{{ url("web-component/gov-pic.png")}}" alt="gov">
+        <img class="flex my-4 w-40" src="{{ url("assets/img/gov-pic.png")}}" alt="gov">
         <form action="/register-gov" method="GET">
           <button class="transition-all duration-75 flex bg-gray-200 my-2 py-2 px-12 rounded-lg text-black font-bold text-xl 
           hover:bg-gray-300 hover:underline active:bg-gray-500 active:text-slate-200">
@@ -24,7 +24,7 @@
             <span class="text-black font-bold text-2xl">Daftar Sebagai</span>
             <hr class="w-auto h-1 mx-auto my-1 bg-gray-400 border-0 rounded">
           </div>
-          <img class="flex my-4 w-40" src="{{ url("web-component/user-pic.png")}}" alt="gov">
+          <img class="flex my-4 w-40" src="{{ url("assets/img/user-pic.png")}}" alt="gov">
           <form action="/register-user" method="GET">
             <button class="transition-all duration-75 flex bg-gray-200 my-2 py-2 px-12 rounded-lg text-black font-bold text-xl 
             hover:bg-gray-300 hover:underline active:bg-gray-500 active:text-slate-200">

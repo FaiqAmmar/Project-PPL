@@ -36,7 +36,7 @@ class C_Login extends Controller
             return redirect('/fitur-edukasi-gov');
         }
         else {
-            return redirect('/login-page')->with('failed', 'Username atau Password Salah!');
+            return redirect('/login')->with('failed', 'Username atau Password Salah!');
         }
     }
 }

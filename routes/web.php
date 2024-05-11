@@ -25,7 +25,7 @@ Route::get('/register-role', function() {return view('auth.V_register-role');})-
 Route::get('/register-user', [C_Register::class ,'user']);
 Route::get('/register-gov', [C_Register::class ,'gov']);
 Route::post('/register-user', [C_Register::class ,'register_user']);
-Route::post('/register-user', [C_Register::class ,'register_gov']);
+Route::post('/register-gov', [C_Register::class ,'register_gov']);
 
 
 
