@@ -32,9 +32,9 @@
         id="nama" name="nama" type="text" placeholder="contoh : Satria Belva Nararya" required>
       </div>
       <div class="flex flex-col"  style="grid-area: telepon;">
-        <label class="ml-1 font-bold" for="nomorTelepon">Nomor Telepon</label>
+        <label class="ml-1 font-bold" for="nomor_handphone">Nomor Telepon</label>
         <input class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10 invalid:focus:border-red-600 invalid:focus:ring-red-500 focus:outline-none focus:ring-1 focus:ring-slate-700"
-        id="nomor_handphone" name="nomor_handphone" type="tel" pattern="08\d{9,}" placeholder="contoh : 081230666004">
+        id="nomor_handphone" name="nomor_handphone" type="text" pattern="08\d{9,}" placeholder="contoh : 081230666004">
       </div>
       <div class="flex flex-col"  style="grid-area: email;">
         <label class="ml-1 font-bold" for="email">Email</label>
@@ -61,7 +61,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="province_code" id="province" required>
               <option value="">Provinsi</option>
               @foreach ($provinces as $province)
-              <option value="{{ $province->code }}"> {{ $province->name }} </option>
+              <option value="{{ $province->id }}"> {{ $province->name }} </option>
               @endforeach
             </select>
           </div>
@@ -70,7 +70,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="city_code" id="city" required>
               <option value="">Kabupaten</option>
               @foreach ($cities as $city)
-              <option value="{{ $city->code }}" data-province="{{ $city->province_code }}"> {{ $city->name }} </option>
+              <option value="{{ $city->id }}" data-province="{{ $city->province_code }}"> {{ $city->name }} </option>
               @endforeach
             </select>
           </div>
@@ -79,7 +79,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="district_code" id="district" required>
               <option value="">Kecamatan</option>
               @foreach ($districts as $district)
-              <option value="{{ $district->code }}" data-city="{{ $district->city_code }}"> {{ $district->name }} </option>
+              <option value="{{ $district->id }}" data-city="{{ $district->city_code }}"> {{ $district->name }} </option>
               @endforeach
             </select>
           </div>
@@ -150,7 +150,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="province_code" id="province" required>
               <option value="">Provinsi</option>
               @foreach ($provinces as $province)
-              <option value="{{ $province->code }}"> {{ $province->name }} </option>
+              <option value="{{ $province->id }}"> {{ $province->name }} </option>
               @endforeach
             </select>
           </div>
@@ -159,7 +159,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="city_code" id="city" required>
               <option value="">Kabupaten</option>
               @foreach ($cities as $city)
-              <option value="{{ $city->code }}" data-province="{{ $city->province_code }}"> {{ $city->name }} </option>
+              <option value="{{ $city->id }}" data-province="{{ $city->province_code }}"> {{ $city->name }} </option>
               @endforeach
             </select>
           </div>
@@ -168,7 +168,7 @@
             <select class="bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="district_code" id="district" required>
               <option value="">Kecamatan</option>
               @foreach ($districts as $district)
-              <option value="{{ $district->code }}" data-city="{{ $district->city_code }}"> {{ $district->name }} </option>
+              <option value="{{ $district->id }}" data-city="{{ $district->city_code }}"> {{ $district->name }} </option>
               @endforeach
             </select>
           </div>
@@ -184,7 +184,7 @@
   @endif
 
   
-  <script src="{{ url('/assets/js/register.js')}}"></script>
+  <script src="{{ url('/assets/js/dropdown-places.js')}}"></script>
 </section>
 
 @endsection

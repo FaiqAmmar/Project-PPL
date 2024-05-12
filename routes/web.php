@@ -3,6 +3,7 @@
 use App\Http\Controllers\C_JenisEdukasi;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Register;
+use App\Http\Controllers\C_User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route Getting Started
-// Route::get('/', function () {return view('V_landing-page');});
 Route::get('/', function () {return view('auth.V_landing');});
 
 //Route Signup
@@ -27,19 +27,30 @@ Route::get('/register-gov', [C_Register::class ,'gov']);
 Route::post('/register-user', [C_Register::class ,'register_user']);
 Route::post('/register-gov', [C_Register::class ,'register_gov']);
 
-
-
 //Route Login
 Route::get('/login', function () {return view('auth.V_login');})->name('login');
 Route::post('/login',[C_Login::class, 'login']);
+Route::get('/logout', [C_login::class ,'logout'])->name('logout');
+
+//Route Profil
+Route::get('/profil', [C_User::class ,'index'])->name('view.profil');
+Route::get('/edit-profil/{id}', [C_User::class ,'edit'])->name('edit.profil');
+Route::put('/edit-profil', [C_User::class ,'update'])->name('update.profil');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/lihat-user', [C_User::class , 'lihatuser']);
+    Route::get('/lihat-gov', [C_User::class , 'lihatgov']);
+});
+
+//Route Dashboard
+
 
 //Route Edukasi
+Route::get('/edukasi', function() {return view('edukasi.V_edukasi');})->name('edukasi');
 Route::post('/fitur-edukasi-admin', [C_JenisEdukasi::class, 'store'])->name('judulEdu.store');
 
+//Route Bahan Ajar
 
-Route::get('/register-page', function () {
-    return view('register-page');
-});
+
 
 //Route User
 Route::get('/profil-user', function () {
@@ -74,10 +85,6 @@ Route::get('/melihat-user', function () {
 
 Route::get('/melihat-gov', function () {
     return view('admin.melihat-gov');
-});
-
-Route::get('/dashboard-modul-admin', function () {
-    return view('admin.dashboard-modul-admin');
 });
 
 Route::get('/fitur-edukasi-admin', function () {

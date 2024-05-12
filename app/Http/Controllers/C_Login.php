@@ -29,15 +29,25 @@ class C_Login extends Controller
 
         if(Auth::attempt($infoLogin)){
             if(Auth::user()->roles_id == '1')
-            return redirect('/fitur-edukasi-admin');
+            return redirect('/edukasi');
             elseif(Auth::user()->roles_id == '2')
-            return redirect('/fitur-edukasi-user');
+            return redirect('/edukasi');
             elseif(Auth::user()->roles_id == '3')
-            return redirect('/fitur-edukasi-gov');
+            return redirect('/edukasi');
         }
         else {
             return redirect('/login')->with('failed', 'Username atau Password Salah!');
         }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
     

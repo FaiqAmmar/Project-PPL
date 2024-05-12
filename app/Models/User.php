@@ -69,4 +69,18 @@ class User extends Authenticatable
         // Logic to determine if the user is a regular user
         return true;
     }
+    public function getDistrictNameAttribute()
+    {
+        return District::find($this->district_code)->name ?? 'District Not Found';
+    }
+
+    public function getCityNameAttribute()
+    {
+        return City::find($this->city_code)->name ?? 'City Not Found';
+    }
+
+    public function getProvinceNameAttribute()
+    {
+        return Province::find($this->province_code)->name ?? 'Province Not Found';
+    }
 }
