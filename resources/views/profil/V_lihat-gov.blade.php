@@ -8,7 +8,7 @@
     <table class="text-xs w-full text-left rtl:text-right">
       <thead class="font-bold text-white bg-[#365486]">
         <tr>
-          <th scope="col" class="px-2 py-2">Nama</th>
+          <th scope="col" class="w-1/3 px-2 py-2">Nama</th>
           <th scope="col" class="px-2 py-2">Email</th>
         </tr>
       </thead>

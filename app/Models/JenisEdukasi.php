@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\MateriEdukasi;
 
-class M_JenisEdukasi extends Model
+class JenisEdukasi extends Model
 {
     use HasFactory;
 
@@ -19,6 +21,10 @@ class M_JenisEdukasi extends Model
     protected $fillable = [
         'judul_modul',
     ];
+    public function materiEdukasi(): HasMany
+    {
+        return $this->hasMany(MateriEdukasi::class, 'jenis_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -50,7 +50,7 @@ class C_Register extends Controller
             'province_code'=> 'required',
             'city_code'=> 'required',
             'district_code'=> 'required',
-        ]);
+        ], $messages);
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
         $validatedRegister['roles_id'] = '2';
         User::create($validatedRegister);

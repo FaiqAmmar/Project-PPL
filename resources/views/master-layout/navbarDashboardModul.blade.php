@@ -19,7 +19,25 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
-
+  <style>
+    input[type="file"]::file-selector-button {
+      margin: 0px 10px 0px 0px;
+      border: 2px solid #1D46A6;
+      padding: 5px 20px;
+      border-radius: 25px;
+      background-color: #1D46A6;
+      transition: 0.1s;
+    }
+    input[type="file"]::file-selector-button:hover {
+      background-color: #1D46A6;
+      text-decoration: underline;
+      transition: 0.1s;
+    } 
+    input[type="file"]::file-selector-button:active {
+      background-color: #163682;
+      transition: 0.1s;
+    }
+  </style>
 </head>
 
 <body class="font-Poppins bg-[#365486]">
@@ -33,8 +51,8 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Konsultasi</a>
         @else
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/modul">Dashboard</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="edukasi">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="/modul">Dashboard</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="#">Konsultasi</a>
         @endif
         </div>

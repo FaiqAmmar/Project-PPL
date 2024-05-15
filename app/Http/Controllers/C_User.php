@@ -19,7 +19,7 @@ class C_User extends Controller
 
         return view("profil.V_profil", compact('currentuser'));
     }
-    public function edit($id)
+    public function edit_profil($id)
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -29,7 +29,7 @@ class C_User extends Controller
 
         return view('profil.V_profil-edit', compact('currentuser', "provinces","cities","districts"));
     }
-    public function update(Request $request)
+    public function update_profil(Request $request)
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -48,7 +48,7 @@ class C_User extends Controller
         $currentuser->update($validatedProfile);
         return redirect('/profil')->with('success', 'Profil Anda Berhasil Diubah!');
     }
-    public function lihatuser()
+    public function lihat_user()
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -56,7 +56,7 @@ class C_User extends Controller
 
         return view('profil.V_lihat-user', compact('currentuser','user'));
     }
-    public function lihatgov()
+    public function lihat_gov()
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);

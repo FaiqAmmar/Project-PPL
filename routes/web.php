@@ -4,6 +4,7 @@ use App\Http\Controllers\C_JenisEdukasi;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_User;
+use App\Http\Controllers\C_Modul;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,15 +35,22 @@ Route::get('/logout', [C_login::class ,'logout'])->name('logout');
 
 //Route Profil
 Route::get('/profil', [C_User::class ,'index'])->name('view.profil');
-Route::get('/edit-profil/{id}', [C_User::class ,'edit'])->name('edit.profil');
-Route::put('/edit-profil', [C_User::class ,'update'])->name('update.profil');
+Route::get('/edit-profil/{id}', [C_User::class ,'edit_profil'])->name('edit.profil');
+Route::put('/edit-profil', [C_User::class ,'update_profil'])->name('update.profil');
 Route::middleware(['admin'])->group(function () {
-    Route::get('/lihat-user', [C_User::class , 'lihatuser']);
-    Route::get('/lihat-gov', [C_User::class , 'lihatgov']);
+    Route::get('/lihat-user', [C_User::class , 'lihat_user']);
+    Route::get('/lihat-gov', [C_User::class , 'lihat_gov']);
 });
 
 //Route Dashboard
-
+Route::get('/modul', [C_Modul::class , 'index']);
+Route::middleware(['gov'])->group(function () {
+    Route::post('/tambah-modul', [C_Modul::class , 'nambah_modul'])->name('add.modul');
+});
+Route::middleware(['admin'])->group(function () {
+    Route::get('/edit-modul', [C_User::class ,'edit_modul'])->name('edit.modul');
+    Route::put('/edit-modul/{id}', [C_Modul::class , 'update_modul'])->name('update.modul');
+});
 
 //Route Edukasi
 Route::get('/edukasi', function() {return view('edukasi.V_edukasi');})->name('edukasi');

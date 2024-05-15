@@ -36,9 +36,10 @@
       <div class="grid grid-cols-[25%_75%] mb-4">
         <label for="gender" class="font-bold">Gender</label>
         <select class="w-40 bg-[#EEEEEE] border-0 p-2 rounded-lg text-xs h-10" name="gender" id="gender" 
-        value="{{ $currentuser->gender }}"" required>
-          <option value="Laki-Laki">Laki-Laki</option>
-          <option value="Perempuan">Perempuan</option>
+        value="{{ $currentuser->gender }}" required>
+        @foreach (['Laki-Laki', 'Perempuan'] as $gender)
+          <option value="{{ $gender }}" @selected(old('gender', $currentuser->gender) == $gender)>{{ $gender }}</option>
+        @endforeach
         </select>
       </div>
       <div class="grid grid-cols-[25%_75%] mb-4">
