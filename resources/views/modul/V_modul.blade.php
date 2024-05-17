@@ -72,9 +72,6 @@
                     @endif
                   @endforeach
                 </select>
-                  {{-- <option class="font-bold" value="Menunggu">Menunggu</option>
-                  <option class="font-bold text-[#04AA6D]" value="Disetujui">Disetujui</option>
-                  <option class="font-bold text-[#FF0000]" value="Ditolak">Ditolak</option> --}}
               </form>
             </td>
           @endif

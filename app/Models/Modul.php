@@ -20,7 +20,6 @@ class Modul extends Model
         "deskripsi_modul",
         "modul",
         "video",
-        "tanggal_upload",
         "status",
     ];
 

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\JenisEdukasi;
 
-class C_JenisEdukasi extends Controller
+class C_SubMateri extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return view('edukasi.V_edukasi');
+        //
     }
+
 }

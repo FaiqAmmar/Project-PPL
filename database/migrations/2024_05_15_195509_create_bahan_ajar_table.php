@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('bahan_ajar', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_modul');
-            $table->text('deskripsi_modul');
-            $table->string('modul');
-            $table->string('video');
-            $table->enum('status', ['Menunggu','Disetujui', 'Ditolak'])->default('Menunggu');
+            $table->text('ajuan');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('bahan_ajar');
     }
 };

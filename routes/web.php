@@ -1,11 +1,19 @@
 <?php
 
+use App\Http\Controllers\C_BahanAjar;
 use App\Http\Controllers\C_JenisEdukasi;
+use App\Http\Controllers\pemerintahEdukasiController;
+use App\Http\Controllers\PenggunaEdukasi;
+use App\Http\Controllers\MateriEdukasiController;
+use App\Http\Controllers\SubMateriEdukasiController;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_User;
 use App\Http\Controllers\C_Modul;
 use Illuminate\Support\Facades\Route;
+use App\Models\JenisEdukasi;
+use App\Models\MateriEdukasi;
+use App\Models\SubMateriEdukasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,48 +61,8 @@ Route::middleware(['admin'])->group(function () {
 });
 
 //Route Edukasi
-Route::get('/edukasi', function() {return view('edukasi.V_edukasi');})->name('edukasi');
-Route::post('/fitur-edukasi-admin', [C_JenisEdukasi::class, 'store'])->name('judulEdu.store');
+Route::get('/edukasi', [C_JenisEdukasi::class , 'index'])->name('edukasi');
 
 //Route Bahan Ajar
-
-
-
-//Route User
-Route::get('/profil-user', function () {
-    return view('user.profil-user');
-});
-
-Route::get('/fitur-edukasi-user', function () {
-    return view('user.fitur-edukasi-user');
-});
-
-//Route Gov
-Route::get('/profil-gov', function () {
-    return view('gov.profil-gov');
-});
-
-Route::get('/dashboard-modul-gov', function () {
-    return view('gov.dashboard-modul-gov');
-});
-
-Route::get('/fitur-edukasi-gov', function () {
-    return view('gov.fitur-edukasi-gov');
-});
-
-//Route Admin
-Route::get('/profil-admin', function () {
-    return view('admin.profil-admin');
-});
-
-Route::get('/melihat-user', function () {
-    return view('admin.melihat-user');
-});
-
-Route::get('/melihat-gov', function () {
-    return view('admin.melihat-gov');
-});
-
-Route::get('/fitur-edukasi-admin', function () {
-    return view('admin.fitur-edukasi-admin');
-});
+Route::get('/bahan-ajar', [C_BahanAjar::class , 'index'])->name('bahan-ajar');
+Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'nambah_bahan_ajar'])->name('add.bahan-ajar');
