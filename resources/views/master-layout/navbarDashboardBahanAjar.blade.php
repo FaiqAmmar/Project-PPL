@@ -40,7 +40,7 @@
           @if (Auth::user()->roles_id == 3)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="bahan-ajar">Bahan Ajar</a>
           @else
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="detail-bahan-ajar">Bahan Ajar</a>
           @endif
         @endif
         </div>

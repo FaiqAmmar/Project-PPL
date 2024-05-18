@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('bahan_ajar', function (Blueprint $table) {
             $table->id();
             $table->text('ajuan');
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

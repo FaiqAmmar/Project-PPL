@@ -12,7 +12,7 @@
           <p class="font-semibold text-[#5D5D5D] text-lg">Ajukan Materi yang Ingin Anda Pelajari di Sini!</p>
         </div>
         <div class="flex items-center">
-          <a class="font-semibold hover:underline mr-4" href="#">
+          <a class="font-semibold hover:underline mr-4" href="/edit-bahan-ajar">
             Lihat Detail Ajuan
           </a>
         </div>
@@ -22,11 +22,12 @@
       class="rounded-xl p-2" style="resize:none"></textarea>
       <div class="flex justify-center">
         <button class="rounded-xl transition-all text-white bg-[#1D46A6] hover:bg-[#3354a3] focus:ring-inset focus:ring-4 focus:outline-none shadow-inner focus:shadow-2xl focus:bg-[#163682] focus:ring-[#3354a3] font-medium text-smtext-center py-2 px-16" 
-         type="submit">Ajukan</button>
+        data-modal-target="modal-konfirmasi" data-modal-toggle="modal-konfirmasi"
+        type="submit">Ajukan</button>
       </div>
     </div>
 
-    {{-- <!-- Modal Konfirmasi -->
+    <!-- Modal Konfirmasi -->
     <div id="modal-konfirmasi" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
       <div class="relative p-4 w-full max-w-screen-sm max-h-full">
         <!-- Modal content -->
@@ -46,7 +47,7 @@
           </div>
         </div>
       </div>
-    </div>  --}}
+    </div> 
 
   </form>
 </div>

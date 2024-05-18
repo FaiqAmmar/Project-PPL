@@ -4,7 +4,7 @@
 
 <div class="bg-[#D6E8EE] rounded px-14 pt-12">
   <span class="text-3xl font-semibold">Akun Pengguna</span>
-  <div class="relative overflow-x-auto mt-4">
+  <div class="relative h-96 overflow-y-auto overflow-x-auto mt-4">
     <table class="text-xs w-full text-left rtl:text-right">
       <thead class="font-bold text-white bg-[#365486]">
         <tr>

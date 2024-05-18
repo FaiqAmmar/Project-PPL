@@ -54,12 +54,6 @@ class C_Modul extends Controller
 
         return redirect('/modul')->with('success','');
     }
-    public function edit_modul($id)
-    {
-        $status_modul = Modul::find($id)->first();
-
-        return view('', compact('status_modul'));
-    }
     public function update_modul(Request $request, $id)
     {
         $currentmodul = Modul::find($id);

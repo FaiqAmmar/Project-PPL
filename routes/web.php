@@ -52,17 +52,18 @@ Route::middleware(['admin'])->group(function () {
 
 //Route Dashboard
 Route::get('/modul', [C_Modul::class , 'index']);
-Route::middleware(['gov'])->group(function () {
-    Route::post('/tambah-modul', [C_Modul::class , 'nambah_modul'])->name('add.modul');
-});
-Route::middleware(['admin'])->group(function () {
-    Route::get('/edit-modul', [C_User::class ,'edit_modul'])->name('edit.modul');
-    Route::put('/edit-modul/{id}', [C_Modul::class , 'update_modul'])->name('update.modul');
-});
+Route::post('/tambah-modul', [C_Modul::class , 'nambah_modul'])->name('add.modul')->middleware(['gov']);
+Route::put('/edit-modul/{id}', [C_Modul::class , 'update_modul'])->name('update.modul')->middleware(['admin']);
+
 
 //Route Edukasi
 Route::get('/edukasi', [C_JenisEdukasi::class , 'index'])->name('edukasi');
 
 //Route Bahan Ajar
-Route::get('/bahan-ajar', [C_BahanAjar::class , 'index'])->name('bahan-ajar');
-Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'nambah_bahan_ajar'])->name('add.bahan-ajar');
+Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'view_detail_bahan_ajar'])->name('detail-bahan-ajar')->middleware(['admin']);
+Route::withoutMiddleware(['admin'])->group(function () {
+    Route::get('/bahan-ajar', [C_BahanAjar::class , 'index'])->name('bahan-ajar');
+    Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'create_bahan_ajar'])->name('add.bahan-ajar');
+    Route::get('/edit-bahan-ajar', [C_BahanAjar::class ,'edit_bahan_ajar'])->name('edit.bahan-ajar');
+    Route::put('/edit-bahan-ajar/{id}', [C_BahanAjar::class , 'update_bahan_ajar'])->name('update.bahan-ajar');
+});
