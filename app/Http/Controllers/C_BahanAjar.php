@@ -29,8 +29,8 @@ class C_BahanAjar extends Controller
     }
     public function edit_bahan_ajar()
     {
-        $id = BahanAjar::get()->id;
-        $currentBahanAjar = BahanAjar::find($id);
+        $currentuser = User::find(Auth::user()->id);
+        $currentBahanAjar = BahanAjar::where('user_id', $currentuser->id)->get();
 
         return view('bahan-ajar.V_bahan-ajar-edit', compact('currentBahanAjar'));
     }
@@ -43,7 +43,7 @@ class C_BahanAjar extends Controller
         ]);
         $currentBahanAjar->update($validatedBahanAjar);
 
-        return redirect('/bahan-ajar')->with('success', 'Bahan Ajar Berhasil Diubah!');
+        return redirect('/edit-bahan-ajar')->with('success', 'Bahan Ajar Berhasil Diubah!');
     }
     public function view_detail_bahan_ajar()
     {

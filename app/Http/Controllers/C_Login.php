@@ -29,11 +29,11 @@ class C_Login extends Controller
 
         if(Auth::attempt($infoLogin)){
             if(Auth::user()->roles_id == '1')
-            return redirect('/edukasi');
+            return redirect('/admin/edukasi/');
             elseif(Auth::user()->roles_id == '2')
-            return redirect('/edukasi');
+            return redirect('/user/edukasi/');
             elseif(Auth::user()->roles_id == '3')
-            return redirect('/edukasi');
+            return redirect('/gov/edukasi/');
         }
         else {
             return redirect('/login')->with('failed', 'Username atau Password Salah!');
