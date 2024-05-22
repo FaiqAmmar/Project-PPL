@@ -19,7 +19,24 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
-
+  <style>
+    /* width */
+  #scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  #scrollbar::-webkit-scrollbar-track {
+    background: #9D9D9D;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  #scrollbar::-webkit-scrollbar-thumb {
+    background: black; 
+    border-radius: 10px;
+  }
+  </style>
 </head>
 
 <body class="font-Poppins bg-[#365486]">

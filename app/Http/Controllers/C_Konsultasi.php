@@ -12,10 +12,35 @@ class C_Konsultasi extends Controller
 {
     public function index()
     {
-        $id = Auth::user()->id;
-        $currentuser = User::find($id);
-        $konsultasi = Konsultasi::get();
+        $konsultasi = Konsultasi::orderBy('created_at', 'desc')->get(); //untuk menampilkan semua jenis di header 
+        $balasanArray = [];
+        foreach ($konsultasi as $item) {
+            $balasan = BalasanKonsultasi::where('konsultasi_id', $item->id)
+                                        ->orderBy('created_at', 'desc')
+                                        ->first(); // Fetch the latest BalasanKonsultasi for each Konsultasi
         
-        return view('konsultasi.V_konsultasi', compact('konsultasi', 'currentuser'));
+            $balasanArray[] = [
+                'konsultasi' => $item,
+                'latest_balasan' => $balasan,
+            ];
+        }              
+        if ($balasan != null) {
+            $firstbalasan = BalasanKonsultasi::where('konsultasi_id', $balasan->konsultasi_id)->get(); //mengambil semua materi berdasarkan jenis yang paling baru
+        } else {
+            $firstbalasan = null;
+        }
+        return view('konsultasi.V_konsultasi', compact('konsultasi', 'balasanArray', 'balasan', 'firstbalasan'));
+    }
+    public function store(Request $Request)
+    {
+        $user = Auth::user()->id;
+
+        $validatedKonsul = $Request->validate([
+            'konsultasi' => 'required',
+        ]);
+        $validatedKonsul['user_id'] = $user;
+        $newKonsul = Konsultasi::create($validatedKonsul);
+
+        return redirect()->route('konsultasi')->with('success','');
     }
 }

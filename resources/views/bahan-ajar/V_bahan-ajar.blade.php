@@ -23,7 +23,7 @@
       <div class="flex justify-center">
         <button class="rounded-xl transition-all text-white bg-[#1D46A6] hover:bg-[#3354a3] focus:ring-inset focus:ring-4 focus:outline-none shadow-inner focus:shadow-2xl focus:bg-[#163682] focus:ring-[#3354a3] font-medium text-smtext-center py-2 px-16" 
         data-modal-target="modal-konfirmasi" data-modal-toggle="modal-konfirmasi"
-        type="submit">Ajukan</button>
+        type="button">Ajukan</button>
       </div>
     </div>
 

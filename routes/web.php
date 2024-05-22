@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\C_BahanAjar;
+use App\Http\Controllers\C_BalasanKonsultasi;
 use App\Http\Controllers\C_JenisEdukasi;
 use App\Http\Controllers\C_EdukasiGov;
 use App\Http\Controllers\C_EdukasiUser;
@@ -94,6 +95,9 @@ Route::group(['prefix'=> 'user','as'=> 'user.'], function () {
 
 //Route Konsultasi
 Route::get('/konsultasi', [C_Konsultasi::class,'index'])->name('konsultasi');
+Route::post('/tambah-konsultasi', [C_Konsultasi::class,'store'])->name('konsultasi.store');     
+Route::get('/balasan-konsultasi/{id}', [C_BalasanKonsultasi::class,'index'])->name('balasan');
+Route::post('/tambah-balasan-konsultasi', [C_BalasanKonsultasi::class,'store'])->name('balasan.store');
 
 //Route Bahan Ajar
 Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'view_detail_bahan_ajar'])->name('detail-bahan-ajar')->middleware(['admin']);

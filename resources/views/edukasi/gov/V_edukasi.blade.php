@@ -93,7 +93,7 @@
                       @endif
                       <div class="p-4 md:p-5">
                           <form class="space-y-4" method="post"
-                              action="{{ route('pengguna.edukasi.ulasan', [$firstSub?->id]) }}">
+                              action="{{ route('gov.edukasi.ulasan', [$firstSub?->id]) }}">
                               @csrf
                               <div>
                                   <label for="author"
