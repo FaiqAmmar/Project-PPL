@@ -16,7 +16,7 @@
           <hr class="border border-black rounded">
         </div>
       </div>
-      <div class="grid grid-cols-[25%_75%]">
+      <div class="grid grid-cols-[25%_75%] mb-4">
         <label for="email" class="font-bold">Email</label>
         <div>
           <input id="email" name="email" type="text" placeholder="nama@email.com" value="{{ $currentuser->email }}"
@@ -24,7 +24,14 @@
           <hr class="border border-black rounded">
         </div>
       </div>
-      </div>
+      <div class="grid grid-cols-[25%_75%] mb-4">
+        <label for="password" class="font-bold">Password</label>
+        <div>
+            <input id="password" name="password" type="password" placeholder="Enter new password"
+            class="bg-transparent focus:border-black focus:ring-0 font-light flex w-full"></input>
+            <hr class="border border-black rounded">
+        </div>
+    </div>
       <div class="grid grid-cols-[25%_75%] mb-4">
         <label for="nomor_handphone" class="font-bold">Nomor Handphone</label>
         <div>
