@@ -19,7 +19,51 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
-
+  <style>
+    input[type="file"]::file-selector-button {
+      margin: 0px 10px 0px 0px;
+      border: 2px solid #1D46A6;
+      padding: 5px 20px;
+      border-radius: 25px;
+      background-color: #1D46A6;
+      transition: 0.1s;
+    }
+    input[type="file"]::file-selector-button:hover {
+      background-color: #1D46A6;
+      text-decoration: underline;
+      transition: 0.1s;
+    } 
+    input[type="file"]::file-selector-button:active {
+      background-color: #163682;
+      transition: 0.1s;
+    }
+    .file-input-wrapper {
+      position: relative;
+    }
+    .file-input {
+      display: none;
+    }
+    .file-input-label {
+      display: inline-block;
+      margin: 0px 10px 0px 0px;
+      border: 2px solid #1D46A6;
+      padding: 5px 20px;
+      border-radius: 25px;
+      background-color: #1D46A6;
+      color: white;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .file-input-label:hover {
+      background-color: #1D46A6;
+      text-decoration: underline;
+      transition: 0.1s;
+    } 
+    .file-input-label:active {
+      background-color: #163682;
+      transition: 0.1s;
+    }
+  </style>
 </head>
 
 <body class="font-Poppins bg-[#365486]">
@@ -48,7 +92,11 @@
         <div class="flex items-center ">
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{ Auth::user()->nama }}</span>
           <a class="group" href="/profil">
-            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            @if (Auth::user()->foto_profil != null)
+            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
+            @else
+            <img class="bg-white w-8  h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            @endif
             <hr class="mt-2 border border-black rounded">
           </a>
         </div>
@@ -60,7 +108,11 @@
     <div class="bg-[#7FC7D9] rounded px-8 py-[22px]">
       <div class="grid grid-rows-[240px_200px] gap-y-9">
         <div class="flex flex-col justify-center">
-          <img class="self-center bg-white w-32 h-32 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="admin-pic">
+          @if (Auth::user()->foto_profil != null)
+          <img class="self-center bg-white w-32 h-32 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }}" alt="profile-pic">
+          @else
+          <img class="self-center bg-white w-32 h-32 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profile-pic">
+          @endif
           <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">{{ Auth::user()->nama }}</span>
           <hr class="self-center my-2 w-24 border border-black rounded">
           @if (Auth::user()->roles_id == 1)
@@ -88,6 +140,7 @@
     </div>
 
   @yield('content')
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>

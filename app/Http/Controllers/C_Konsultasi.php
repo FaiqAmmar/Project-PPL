@@ -16,7 +16,7 @@ class C_Konsultasi extends Controller
         $balasanArray = [];
         foreach ($konsultasi as $item) {
             $balasan = BalasanKonsultasi::where('konsultasi_id', $item->id)
-                                        ->orderBy('created_at', 'desc')
+                                        ->orderBy('created_at', 'asc')
                                         ->first(); // Fetch the latest BalasanKonsultasi for each Konsultasi
         
             $balasanArray[] = [

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Vermaysha\Wilayah\Models\Province;
 use Vermaysha\Wilayah\Models\City;
 use Vermaysha\Wilayah\Models\District;
@@ -43,8 +44,20 @@ class C_User extends Controller
             'province_code'=> 'required',
             'city_code'=> 'required',
             'district_code'=> 'required',
+            'foto_profil' => 'required|mimes:png,jpg,jpeg',
         ]);
 
+        if ($request->hasFile('foto_profil')) {
+            if ($validatedProfile['foto_profil'] !== null) {
+            Storage::delete('public/fotoprofil/' . $validatedProfile['foto_profil']);
+            }
+            $file = $request->file('foto_profil');
+            $extension = $file->getClientOriginalExtension();
+            $nama_file = $currentuser->id.'.'.$extension;
+            $file->storeAs('public/fotoprofil', $nama_file);
+            $validatedProfile['foto_profil'] = $nama_file;
+        }
+        
         $currentuser->update($validatedProfile);
         return redirect('/profil')->with('success', 'Profil Anda Berhasil Diubah!');
     }

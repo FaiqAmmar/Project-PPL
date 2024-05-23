@@ -4,7 +4,7 @@
 
 <div class="bg-[#D6E8EE] rounded px-14 pt-12 pb-4">
   <span class="text-3xl font-semibold">Edit Profil</span>
-  <form action="{{ route('update.profil', $currentuser->id) }}" method="post">
+  <form action="{{ route('update.profil', $currentuser->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="py-6 text-lg h-auto">
@@ -84,6 +84,14 @@
           <input id="alamat" name="alamat" type="text" placeholder="Alamat Lengkap" value="{{ $currentuser->alamat }}"
           class="bg-transparent focus:border-black focus:ring-0 font-light flex w-full" required></input>
           <hr class="border border-black rounded">
+        </div>
+      </div>
+      <div class="grid grid-cols-[25%_75%] mb-4">
+        <label class="ml-1 mb-1 text-xs font-bold text-[#666666]">Foto profil</label>
+        <div class="file-input-wrapper"> 
+          <input type="file" accept="image/*" name="foto_profil" id="foto_profil"
+          class="file-input m-2 rounded-xl border-dashed border-[#1D46A6] border-4 p-2">
+          <label for="foto_profil" class="file-input-label">Upload Foto Disini</label>
         </div>
       </div>
       <div class="flex flex-row gap-5 font-semibold text-white text-base justify-end">

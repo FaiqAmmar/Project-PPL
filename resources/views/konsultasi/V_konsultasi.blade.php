@@ -22,7 +22,6 @@
                 <p class="text-base font-semibold">Balasan Kosong</p>
             @endif
         </div>
-        {{-- <p class="text-base font-semibold">{{$balasan->balasan}}</p> --}}
       </div>
       <div class="flex flex-col w-auto">
         <p class="text-xs font-semibold">{{$item['konsultasi']->created_at->format('j F Y')}}</p>

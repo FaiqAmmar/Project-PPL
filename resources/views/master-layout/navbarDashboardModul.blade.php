@@ -66,7 +66,11 @@
         <div class="flex items-center ">
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{Auth::user()->nama}}</span>
           <a class="group" href="/profil">
+            @if (Auth::user()->foto_profil != null)
+            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
+            @else
             <img class="bg-white w-8  h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            @endif
             <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
           </a>
         </div>
