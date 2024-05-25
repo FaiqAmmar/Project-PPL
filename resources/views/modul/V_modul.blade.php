@@ -13,10 +13,10 @@
 </div>
 @endif
 
-<div class="h-[85vh] mx-4 mt-4 mb-4 rounded bg-[#D6E8EE]">
+<div class="h-[85vh] mx-4 mt-3 mb-3 rounded bg-[#FFFFFF]">
   <div class="flex items-center justify-between px-14 pt-8">
     <div class="flex items-center justify-start rtl:justify-end">
-      <span class="text-3xl font-semibold">Modul Bahan Ajar</span>
+      <span class="text-3xl font-semibold text-[#48B477]">Modul</span>
     </div>
     <div class="flex items-center">
       @if (Auth::user()->roles_id == 3)
@@ -28,47 +28,58 @@
       @endif
     </div>
   </div>
-  <div class="relative h-96 overflow-y-auto mt-4 px-14">
+  <div id="scrollbar" class="relative h-96 overflow-y-auto mt-4 px-14">
     <table class="text-xs w-full text-center rtl:text-right table-auto">
-      <thead class="font-semibold text-center text-sm">
+      <thead class="font-semibold text-center text-sm text-[#EEEEEE] bg-[#48B477] border-x border-[#48B477]">
         <tr>
           <th scope="col" class="px-2 py-2 w-10">No</th>
-          <th scope="col" class="px-2 py-2">Judul Modul</th>
+          <th scope="col" class="px-2 py-2 w-60">Judul Modul</th>
           <th scope="col" class="px-2 py-2 w-96">Deskripsi Modul</th>
-          <th scope="col" class="px-2 py-2">Video</th>
-          <th scope="col" class="px-2 py-2">Tanggal upload</th>
-          <th scope="col" class="px-2 py-2">Status</th>
+          <th scope="col" class="px-2 py-2 w-56">Video</th>
+          <th scope="col" class="px-2 py-2 ">Tanggal upload</th>
+          <th scope="col" class="px-2 py-2 ">Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="border-b border-[#48B477]">
         @foreach ($modul as $index => $tablemodul)
-        <tr>
-          <td class="px-2 py-2">{{ $index + 1 }}</td>
-          <td class="px-2 py-2">{{ $tablemodul->judul_modul }}</td>
-          <td class="px-2 py-2 text-justify">{{ $tablemodul->deskripsi_modul }}</td>
-          <td class="px-2 py-2">{{ $tablemodul->video }}</td>
-          <td class="px-2 py-2">{{ $tablemodul->created_at->format('j F Y') }}</td>
+        <tr class="border-b border-[#48B477]">
+          <td class="px-2 py-2 border-x border-[#48B477]">{{ $index + 1 }}</td>
+          <td class="px-2 py-2 border-x border-[#48B477] hover:font-semibold hover:text-[#48B477] transition-all duration-75">
+            <button type="button" data-modal-target="modal-pdf{{$tablemodul->id}}" data-modal-toggle="modal-pdf{{$tablemodul->id}}">
+              {{ $tablemodul->judul_modul }}</button></td>
+          <td class="px-2 py-2 text-justify border-x border-[#48B477]">{{ $tablemodul->deskripsi_modul }}</td>
+          <td class="px-2 py-2 border-x border-[#48B477] hover:font-semibold hover:text-[#48B477] transition-all duration-75">
+            <button type="button" data-modal-target="modal-video{{$tablemodul->id}}" data-modal-toggle="modal-video{{$tablemodul->id}}">
+              {{ $tablemodul->video }}</button></td>
+          <td class="px-2 py-2 border-x border-[#48B477]">{{ $tablemodul->created_at->format('j F Y') }}</td>
           @if (Auth::user()->roles_id == 3)
             @if ($tablemodul->status == 'Menunggu')
-            <td class="px-2 py-2 font-bold">{{ $tablemodul->status }}</td>
+            <td class="px-2 py-2 font-bold border-x border-[#48B477]">{{ $tablemodul->status }}</td>
             @elseif ($tablemodul->status == 'Disetujui')
-            <td class="px-2 py-2 font-bold text-[#04AA6D]">{{ $tablemodul->status }}</td>
+            <td class="px-2 py-2 font-bold text-[#04AA6D] border-x border-[#48B477]">{{ $tablemodul->status }}</td>
             @else
-            <td class="px-2 py-2 font-bold text-[#FF0000]">{{ $tablemodul->status }}</td>
+            <td class="px-2 py-2 font-bold text-[#FF0000] border-x border-[#48B477]">{{ $tablemodul->status }}</td>
             @endif
           @else
-            <td class="px-2 py-2 font-bold text-black">
+            <td class="px-2 py-2 font-bold text-black border-x border-[#48B477]">
               <form action="{{ route('update.modul', $tablemodul->id) }}" method="post">
                 @csrf
                 @method('PUT')
-                <select onchange="this.form.submit()" class="p-2 rounded-2xl border-0 bg-[#7FC7D9]" name="status" id="status">
+                <select onchange="this.form.submit()" name="status" id="status"
+                @if ($tablemodul->status == "Ditolak")
+                class="p-2 rounded-2xl border-0 bg-[#48B477]/[0.5] text-[#FF0000]"
+                @elseif ($tablemodul->status == "Disetujui")
+                class="p-2 rounded-2xl border-0 bg-[#48B477]/[0.5] text-[#04AA6D]"
+                @else
+                class="p-2 rounded-2xl border-0 bg-[#48B477]/[0.5] text-black"
+                @endif>
                   @foreach (['Menunggu', 'Ditolak', 'Disetujui'] as $status)
                     @if ($status == "Ditolak")
                     <option class="font-bold text-[#FF0000]" value="{{ $status }}" @selected(old('status', $tablemodul->status) == $status)>{{ $status }}</option>
                     @elseif ($status == "Disetujui")
                     <option class="font-bold text-[#04AA6D]"  value="{{ $status }}" @selected(old('status', $tablemodul->status) == $status)>{{ $status }}</option>
                     @else
-                    <option class="font-bold"  value="{{ $status }}" @selected(old('status', $tablemodul->status) == $status)>{{ $status }}</option>
+                    <option class="font-bold text-black"  value="{{ $status }}" @selected(old('status', $tablemodul->status) == $status)>{{ $status }}</option>
                     @endif
                   @endforeach
                 </select>
@@ -76,6 +87,33 @@
             </td>
           @endif
         </tr>
+
+        <div tabindex="-1" aria-hidden="true" id="modal-pdf{{$tablemodul->id}}" data-modal-backdrop="dynamic"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+          <div class="relative w-full max-w-[632px] max-h-full">
+            <!-- Modal content -->
+            <div class="bg-[#EEEEEE] border-[#48B477] border-2 rounded-lg">
+              <!-- Modal body -->
+              <div class="flex flex-col items-center p-4 px-auto">
+                <embed src="{{ url('storage/file_moduls/'. $tablemodul->modul) }}" type="application/pdf" width="600" height="500">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div tabindex="-1" aria-hidden="true" id="modal-video{{$tablemodul->id}}" data-modal-backdrop="dynamic"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-[886px] max-h-full">
+              <!-- Modal content -->
+              <div class="bg-[#EEEEEE] border-[#48B477] border-2 rounded-lg">
+                <!-- Modal body -->
+                <div class="flex flex-col items-center p-4 px-auto">
+                  <embed src="{{ url('storage/file_videos/'. $tablemodul->video) }}" type="video/mp4" width="854" height="480">
+                </div>
+              </div>
+            </div>
+          </div>
+
         @endforeach
       </tbody>
     </table>
@@ -112,7 +150,7 @@
                 </div>
                 <div>
                   <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
-                  <input type="file" accept="video/*" name="video" 
+                  <input type="file" accept="video/mp4" name="video" 
                   class="m-2 rounded-xl border-dashed border-[#1D46A6]	border-4 p-2">
                 </div>
               </div>

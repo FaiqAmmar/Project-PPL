@@ -79,7 +79,7 @@
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/bahan-ajar">Bahan Ajar</a>
         @elseif (Auth::user()->roles_id == 3)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Dashboard</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/gov/edukasi/">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -88,7 +88,7 @@
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/bahan-ajar">Bahan Ajar</a>
         @else
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Dashboard</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/admin/edukasi/">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 

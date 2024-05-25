@@ -27,7 +27,7 @@ class C_Modul extends Controller
         $validatedModul = $request->validate([
             'judul_modul' => 'required',
             'deskripsi_modul'=> 'required',
-            'video'=> 'required',
+            'video'=> 'required|mimes:mp4',
             'modul' => 'required|mimes:pdf',
         ], $messages);
 
