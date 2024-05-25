@@ -144,9 +144,9 @@
         </div>
         @else
         <div class="flex flex-col font-semibold pt-20 text-base gap-y-2 justify-center">
-          <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+          <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[45px] justify-center items-center self-center rounded-xl
             hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Edit</a>
-          <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[60px] justify-center items-center self-center rounded-xl text-white
+          <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[45px] justify-center items-center self-center rounded-xl text-white
           hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Logout</a>
         </div>
         @endif

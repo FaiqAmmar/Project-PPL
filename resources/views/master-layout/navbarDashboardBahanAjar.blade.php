@@ -22,43 +22,55 @@
 
 </head>
 
-<body class="font-Poppins bg-[#365486]">
+<body class="font-Poppins bg-[#F5F5F5]">
 
-  <nav class="top-0 w-full bg-[#7FC7D9]">
+  <nav class="top-0 w-full bg-[#F5F5F5] drop-shadow-[0px_2px_4px_rgba(0,0,0,0.25)]">
     <div class="px-9 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/user/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="/bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/user/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          underline underline-offset-8 text-[#48B477]" href="/bahan-ajar">Bahan Ajar</a>
         @elseif (Auth::user()->roles_id == 3)
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/modul">Modul</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/gov/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="/bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/modul">Modul</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/gov/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          underline underline-offset-8 text-[#48B477]" href="/bahan-ajar">Bahan Ajar</a>
         @else
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/modul">Modul</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/admin/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap underline underline-offset-8 text-black" href="/detail-bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/admin/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          underline underline-offset-8 text-[#48B477]" href="/detail-bahan-ajar">Bahan Ajar</a>
         @endif
         </div>
         <div class="flex items-center ">
-          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{Auth::user()->nama}}</span>
+          <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{ Auth::user()->nama }}</span>
           <a class="group" href="/profil">
             @if (Auth::user()->foto_profil != null)
             <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
             @else
-            <img class="bg-white w-8  h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
             @endif
-            <hr class="opacity-0 group-hover:opacity-100 mt-2 border border-black rounded">
+            <hr class="mt-2 opacity-0 group-hover:opacity-100 border border-[#48B477] rounded transition-all duration-100">
           </a>
         </div>
       </div>
     </div>
   </nav>
+
   @yield('content')
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

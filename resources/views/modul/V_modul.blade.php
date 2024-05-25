@@ -20,7 +20,8 @@
     </div>
     <div class="flex items-center">
       @if (Auth::user()->roles_id == 3)
-      <button data-modal-target="modal-tambah" data-modal-toggle="modal-tambah" type="button" class="flex p-1 bg-[#365486] hover:bg-[#304b78] hover:text-gray-300 rounded-full text-white items-center justify-center">
+      <button data-modal-target="modal-tambah" data-modal-toggle="modal-tambah" type="button" class="flex text-white items-center justify-center p-1 bg-[#48B477] rounded-full
+      hover:bg-[#39905f] hover:scale-105 transition-all duration-100">
         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 16 16">
           <path fill="currentColor" d="M8.25 3a.5.5 0 0 1 .5.5v3.75h3.75a.5.5 0 0 1 .5.5v.5a.5.5 0 0 1-.5.5H8.75v3.75a.5.5 0 0 1-.5.5h-.5a.5.5 0 0 1-.5-.5V8.75H3.5a.5.5 0 0 1-.5-.5v-.5a.5.5 0 0 1 .5-.5h3.75V3.5a.5.5 0 0 1 .5-.5z"/>
         </svg>
@@ -121,7 +122,8 @@
 </div>
 
 <!-- Modal Tambah -->
-<div id="modal-tambah" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+<div id="modal-tambah" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
   <div class="relative p-4 w-full max-w-screen-md max-h-full">
     <!-- Modal content -->
     <div class="relative bg-white rounded-lg shadow">
@@ -133,36 +135,44 @@
       </div>
       <!-- Modal body -->
       <div class="px-4 pb-2">
-        <form action="/tambah-modul" method="post" enctype="multipart/form-data">
+        <form id="modulForm" action="/tambah-modul" method="post" enctype="multipart/form-data">
         @csrf
           <div>
             <div class="flex flex-col py-2 px-4">
               <label class="font-semibold text-black text-lg" for="judul_modul">Judul Modul</label>
-              <input class="rounded-xl border-dashed border-[#1D46A6]	border-4 focus:border-[#1D46A6] focus:ring-transparent" 
-              type="text" name="judul_modul" id="judul_modul">
+              <input class="rounded-xl border-dashed border-[#48B477]	border-4 focus:border-[#48B477] focus:ring-transparent" 
+              type="text" name="judul_modul" id="judul_modul" placeholder="Isi Judul Disini" autocomplete="off">
             </div>
-            <div class="flex flex-row gap-4">
-              <div class="w-1/2 p-3">
-                <div>
+            <div class="flex flex-col py-2 px-4">
+              <div class="flex flex-row gap-10">                                
+                <div class="form-field w-[47%]">
                   <label class="font-semibold text-black text-lg" for="modul">File Modul</label>
-                  <input type="file" accept=".pdf" name="modul" 
-                  class="m-2 rounded-xl border-dashed border-[#1D46A6]	border-4 p-2">
+                  <label for="fileModul" class="custom-file-label">
+                    <span id="fileModulText">Pilih File PDF</span>
+                  </label>
+                  <input type="file" accept=".pdf" name="modul" id="fileModul" class="hidden">
                 </div>
-                <div>
+                <div class="form-field w-[47%]">
                   <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
-                  <input type="file" accept="video/mp4" name="video" 
-                  class="m-2 rounded-xl border-dashed border-[#1D46A6]	border-4 p-2">
+                  <label for="fileVideo" class="custom-file-label">
+                    <span id="fileVideoText">Pilih File Video MP4</span>
+                  </label>
+                  <input type="file" accept="video/mp4" name="video" id="fileVideo" class="hidden">
                 </div>
               </div>
-              <div class="w-1/2 p-3 flex flex-col">
+              <div class="flex flex-col">
                 <label class="font-semibold text-black text-lg" for="deskripsi_modul">Deskripsi Modul</label>
-                <textarea class="p-2 rounded-xl border-dashed border-[#1D46A6]	border-4 focus:border-[#1D46A6] focus:ring-transparent"
-                name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="6" style="resize:none"></textarea>
+                <textarea class="h-auto p-2 rounded-xl border-dashed border-[#48B477]	border-4 focus:border-[#48B477] focus:ring-transparent"
+                name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off"></textarea>
               </div>
             </div>
-            <div class="flex flex-row gap-24 justify-center">
-              <button type="button" class="w-1/4 text-white bg-[#FF0000] hover:bg-[#cc0000] focus:ring-inset focus:ring-4 focus:outline-none focus:ring-[#FF0000] font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-hide="modal-tambah">Batal</button>
-              <button type="submit" class="w-1/4 text-white bg-[#1D46A6] hover:bg-[#163682] focus:ring-inset focus:ring-4 focus:outline-none focus:ring-[#1D46A6] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Simpan</button>
+            <div class="flex flex-row mt-2 gap-24 justify-center">
+              <button type="submit" 
+              class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
+              hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Simpan</button>
+              <button type="button" data-modal-hide="modal-tambah" id="cancelButton"
+              class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
+              hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
             </div>
         </form>
       </div>
@@ -170,5 +180,40 @@
   </div>
 </div> 
 
+<script>
+  // Function to update file input text
+  function updateFileInputText(fileInput, textElement, defaultText) {
+    fileInput.addEventListener('change', function() {
+      const fileName = this.files[0] ? this.files[0].name : defaultText;
+      textElement.textContent = fileName !== defaultText ? fileName : defaultText;
+    });
+  }
+
+  // Update File Modul input text
+  updateFileInputText(
+    document.getElementById('fileModul'),
+    document.getElementById('fileModulText'),
+    'Pilih File PDF'
+  );
+
+  // Update Video Modul input text
+  updateFileInputText(
+    document.getElementById('fileVideo'),
+    document.getElementById('fileVideoText'),
+    'Pilih File Video MP4'
+  );
+
+    // Reset form function
+    function resetForm() {
+    document.getElementById('modulForm').reset();
+    document.getElementById('fileModulText').textContent = 'Choose a PDF file';
+    document.getElementById('fileVideoText').textContent = 'Choose an MP4 video';
+  }
+
+  // Event listener for cancel button
+  document.getElementById('cancelButton').addEventListener('click', function() {
+    resetForm();
+  });
+</script>
 
 @endsection

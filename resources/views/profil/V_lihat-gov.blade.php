@@ -26,20 +26,21 @@
             </button>
           </td>
         </tr>
+
         <div tabindex="-1" aria-hidden="true" id="modal-detail{{$seegov->id}}" data-modal-backdrop="dynamic"
           class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-[332px] max-h-full">
               <!-- Modal content -->
               <div class="bg-[#EEEEEE] border-[#48B477] border-2 rounded-lg">
                 <!-- Modal header -->
-                <div class="flex items-center justify-center px-4 pt-4 w-full mb-4">
+                <div class="flex items-center justify-center px-4 pt-2 w-full mb-4">
                   <h3 class="text-3xl font-medium text-black">
                       Profil Pengguna
                   </h3>
                 </div>
                 <!-- Modal body -->
                 <div class="flex flex-col items-center">
-                  <div class="flex justify-center px-4 pb-4 w-full">
+                  <div class="flex justify-center px-4 pb-2 w-full">
                     @if ($seegov->foto_profil != null)
                     <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full" src="{{ url('storage/fotoprofil/'. $seegov->foto_profil) }} " alt="profil-pic">
                     @else
@@ -62,7 +63,7 @@
                     <label class="w-full text-left pl-2 font-medium" for="gender">Gender</label>
                     <div class="bg-[#E5E5E5] w-full py-1 px-2 text-left text-sm rounded-md ">{{$seegov->gender}}</div>
                   </div>
-                  <div class="flex flex-col items-center px-8 pb-4 gap-0 w-full">
+                  <div class="flex flex-col items-center px-8 pb-3 gap-0 w-full">
                     <label class="w-full text-left pl-2 font-medium" for="alamat">Alamat</label>
                     <textarea style="resize:none" cols="10" rows="3" readonly
                     class="alamat-textarea bg-[#E5E5E5] w-full py-1 px-2 text-left text-sm rounded-md border-0 ring-0 focus:ring-0"

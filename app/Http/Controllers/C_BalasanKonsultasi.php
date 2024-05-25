@@ -13,7 +13,7 @@ class C_BalasanKonsultasi extends Controller
     public function index(Request $request, $id)
     {
         $konsultasi = Konsultasi::where("id", $id)->first();
-        $balasan = BalasanKonsultasi::where("konsultasi_id", $id)->orderBy('created_at', 'desc')->get(); //untuk menampilkan semua jenis di header                
+        $balasan = BalasanKonsultasi::where("konsultasi_id", $id)->orderBy('created_at', 'asc')->get(); //untuk menampilkan semua jenis di header                
         $first = BalasanKonsultasi::orderBy('created_at', 'desc')->first(); //untuk menampilkan jenis yang terbaru
 
         return view('konsultasi.V_balasan', compact('konsultasi','balasan', 'first'));
