@@ -13,7 +13,7 @@
             <a href="login" class="rounded-md bg-[#A4E2BF] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm 
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white 
             hover:scale-110 hover:shadow-2xl transition-all duration-100">Masuk</a>
-            <a href="register-role" class="rounded-md bg-white ring-2 px-3.5 py-2.5 text-sm font-semibold text-[#48B477] shadow-sm 
+            <a href="register-role" class="rounded-md bg-white ring-2 px-3.5 py-2.5 text-sm font-semibold text-[#48B477] ring-[#48B477] shadow-sm 
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white 
             hover:scale-110 hover:shadow-2xl transition-all duration-100">Daftar →</a>
           </div>

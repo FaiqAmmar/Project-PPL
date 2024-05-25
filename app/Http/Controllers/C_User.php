@@ -36,6 +36,18 @@ class C_User extends Controller
         $id = Auth::user()->id;
         $currentuser = User::find($id);
         
+        $messages = [
+            'nama.required' => 'nama isi',
+            'email.required'=> 'email isi',
+            'password'=> 'pass isi',
+            'nomor_handphone.required' => 'hp isi',
+            'gender.required'=> 'gender isi',
+            'alamat.required'=> 'alamat isi',
+            'province_code.required'=> 'provinsi isi',
+            'city_code.required'=> 'kota isi',
+            'district_code.required'=> 'kec isi',
+            'foto_profil' => 'foto isi',
+        ];
         $validatedProfile= $request->validate([
             'nama' => 'required',
             'email'=> 'required',
@@ -45,9 +57,9 @@ class C_User extends Controller
             'province_code'=> 'required',
             'city_code'=> 'required',
             'district_code'=> 'required',
-            'foto_profil' => 'mimes:png,jpg,jpeg',
-            'password' => 'min:8',
-        ]);
+            'foto_profil' => 'nullable|mimes:png,jpg,jpeg',
+            'password' => 'nullable|min:8',
+        ], $messages);
 
         if ($request->hasFile('foto_profil')) {
             if ($validatedProfile['foto_profil'] !== null) {

@@ -22,19 +22,18 @@
   <style>
     input[type="file"]::file-selector-button {
       margin: 0px 10px 0px 0px;
-      border: 2px solid #1D46A6;
       padding: 5px 20px;
       border-radius: 25px;
-      background-color: #1D46A6;
+      background-color: #48B477;
       transition: 0.1s;
     }
     input[type="file"]::file-selector-button:hover {
-      background-color: #1D46A6;
+      background-color: #48B477;
       text-decoration: underline;
       transition: 0.1s;
     } 
     input[type="file"]::file-selector-button:active {
-      background-color: #163682;
+      background-color: #39905f;
       transition: 0.1s;
     }
     .file-input-wrapper {
@@ -46,47 +45,56 @@
     .file-input-label {
       display: inline-block;
       margin: 0px 10px 0px 0px;
-      border: 2px solid #1D46A6;
-      padding: 5px 20px;
+      padding: 5px 32px;
       border-radius: 25px;
-      background-color: #1D46A6;
+      background-color: #48B477;
       color: white;
       cursor: pointer;
       transition: 0.1s;
     }
     .file-input-label:hover {
-      background-color: #1D46A6;
-      text-decoration: underline;
+      background-color: #39905f;
       transition: 0.1s;
     } 
     .file-input-label:active {
-      background-color: #163682;
+      background-color: #39905f;
       transition: 0.1s;
     }
   </style>
 </head>
 
-<body class="font-Poppins bg-[#365486]">
+<body class="font-Poppins bg-[#F5F5F5]">
 
-  <nav class="top-0 w-full bg-[#7FC7D9]">
+  <nav class="top-0 w-full bg-[#F5F5F5] drop-shadow-[0px_2px_4px_rgba(0,0,0,0.25)]">
     <div class="px-9 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/user/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/user/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/bahan-ajar">Bahan Ajar</a>
         @elseif (Auth::user()->roles_id == 3)
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/modul">Dashboard</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/gov/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Dashboard</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/gov/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/bahan-ajar">Bahan Ajar</a>
         @else
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/modul">Dashboard</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/admin/edukasi/">Edukasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/konsultasi">Konsultasi</a>
-          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap hover:underline underline-offset-8 text-black" href="/detail-bahan-ajar">Bahan Ajar</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Dashboard</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/admin/edukasi/">Edukasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
+          <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/detail-bahan-ajar">Bahan Ajar</a>
         @endif
         </div>
         <div class="flex items-center ">
@@ -95,9 +103,9 @@
             @if (Auth::user()->foto_profil != null)
             <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
             @else
-            <img class="bg-white w-8  h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
             @endif
-            <hr class="mt-2 border border-black rounded">
+            <hr class="mt-2 border border-[#48B477] rounded">
           </a>
         </div>
       </div>
@@ -105,7 +113,7 @@
   </nav>
 
   <div class="grid grid-cols-[19%_auto] gap-x-7 mx-4 mt-4 mb-4">
-    <div class="bg-[#7FC7D9] rounded px-8 py-[22px]">
+    <div class="bg-[#48B477] rounded px-8 pt-2 pb-4">
       <div class="grid grid-rows-[240px_200px] gap-y-9">
         <div class="flex flex-col justify-center">
           @if (Auth::user()->foto_profil != null)
@@ -125,15 +133,21 @@
         </div>
         @if (Auth::user()->roles_id == 1)
         <div class="flex flex-col font-semibold pt-3 text-base gap-y-2 justify-center">
-          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl"><a href="/lihat-gov">Akun Pemerintah</a></button>
-          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl"><a href="/lihat-user">Akun Pengguna</a></button>
-          <button class="bg-[#D6E8EE] w-[140px] h-[60px] justify-center self-center rounded-xl"><a href="{{ route('edit.profil', $currentuser->id) }}">Edit</a></button>
-          <button class="bg-[#FF0000] w-[140px] h-[60px] justify-center self-center rounded-xl text-white"><a href="/logout">Logout</a></button>
+          <a href="/lihat-gov" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+          hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Akun Pemerintah</a>
+          <a href="/lihat-user" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+          hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Akun Pengguna</a>
+          <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+          hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Edit</a>
+          <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[60px] justify-center items-center self-center rounded-xl text-white
+          hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Logout</a>
         </div>
         @else
         <div class="flex flex-col font-semibold pt-20 text-base gap-y-2 justify-center">
-          <button class="bg-[#D6E8EE] w-[140px] h-[40px] justify-center self-center rounded-xl"><a href="{{ route('edit.profil', $currentuser->id) }}">Edit</a></button>
-          <button class="bg-[#FF0000] w-[140px] h-[40px] justify-center self-center rounded-xl text-white"><a href="/logout">Logout</a></button>
+          <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+            hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Edit</a>
+          <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[60px] justify-center items-center self-center rounded-xl text-white
+          hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Logout</a>
         </div>
         @endif
       </div>

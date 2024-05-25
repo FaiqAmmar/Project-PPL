@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('super_password')->nullable();
             $table->string('nomor_handphone');
             $table->enum('gender', ['Laki-Laki', 'Perempuan']);
-            $table->binary('foto_profil')->nullable();
+            $table->string('foto_profil')->nullable();
             $table->string('alamat');
             $table->rememberToken();
             $table->timestamps();

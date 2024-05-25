@@ -4,7 +4,7 @@
 
 <section class="w-screen h-screen bg-[#48B477]/[0.3]">
   <div class="flex flex-col">
-    <span class="flex my-14 font-bold font text-5xl justify-center text-white">Registrasi</span>
+    <span class="flex my-14 font-bold font text-5xl justify-center text-black">Registrasi</span>
     <div class="flex flex-row gap-16 justify-center">
       <div class="flex flex-col my-auto  py-5 px-20 bg-white rounded-lg justify-center content-center items-center
       transition-all duration-75 hover:scale-110">
