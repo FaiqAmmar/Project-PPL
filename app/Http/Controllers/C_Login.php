@@ -28,12 +28,7 @@ class C_Login extends Controller
         ];
 
         if(Auth::attempt($infoLogin)){
-            if(Auth::user()->roles_id == '1')
-            return redirect('/admin/edukasi/');
-            elseif(Auth::user()->roles_id == '2')
-            return redirect('/user/edukasi/');
-            elseif(Auth::user()->roles_id == '3')
-            return redirect('/gov/edukasi/');
+            return redirect('/edukasi');
         }
         else {
             return redirect('/login')->with('failed', 'Username atau Password Salah!');

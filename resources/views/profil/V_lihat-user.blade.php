@@ -42,9 +42,9 @@
               <div class="flex flex-col items-center">
                 <div class="flex justify-center px-4 pb-2 w-full">
                   @if ($seeuser->foto_profil != null)
-                  <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full" src="{{ url('storage/fotoprofil/'. $seeuser->foto_profil) }} " alt="profil-pic">
+                  <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. $seeuser->foto_profil) }} " alt="profil-pic">
                   @else
-                  <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+                  <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
                   @endif
                 </div>
                 <div class="flex flex-col items-center px-8 pb-1 gap-0 w-full">

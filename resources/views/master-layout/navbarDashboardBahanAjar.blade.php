@@ -31,7 +31,7 @@
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/user/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -40,7 +40,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/gov/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -49,7 +49,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/admin/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -60,9 +60,9 @@
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{ Auth::user()->nama }}</span>
           <a class="group" href="/profil">
             @if (Auth::user()->foto_profil != null)
-            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
             @else
-            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
             @endif
             <hr class="mt-2 opacity-0 group-hover:opacity-100 border border-[#48B477] rounded transition-all duration-100">
           </a>

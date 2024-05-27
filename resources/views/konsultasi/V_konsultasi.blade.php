@@ -48,39 +48,14 @@
     <input placeholder="Tanya disini" autocomplete="off" 
     class="w-1/3 text-sm rounded-3xl border-0 bg-[#EEEEEE]
     focus:ring-2 focus:ring-[#48B477]"
-    type="text" name="konsultasi" id="konsultasi">
-    <button type="button" data-modal-target="modal-konfirmasi" data-modal-toggle="modal-konfirmasi"
+    type="text" name="konsultasi" id="konsultasi" required>
+    <button type="submit"
     class="p-2 bg-[#48B477] rounded-3xl 
     hover:bg-[#39905f] hover:scale-105 transition-all duration-100">
       <svg class="h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 16 16">
         <path fill="currentColor" fill-rule="evenodd" d="M5.254 8.521L9.61 5.86a.75.75 0 0 1 .782 1.28L6.586 9.465L9.77 12.65a1.199 1.199 0 0 0 1.973-.433l2.692-7.308a1.045 1.045 0 0 0-.98-1.408h-.105c-.1 0-.201.013-.298.04L2.022 6.509a.707.707 0 0 0 .046 1.375zm-3.48.834L5 10l3.71 3.71a2.7 2.7 0 0 0 4.44-.976l2.693-7.308A2.544 2.544 0 0 0 13.454 2h-.104c-.232 0-.464.03-.688.091l-11.03 2.97a2.207 2.207 0 0 0 .142 4.294" clip-rule="evenodd"/>
       </svg>
     </button>
-
-    <!-- Modal Konfirmasi -->
-    <div id="modal-konfirmasi" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
-      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
-      <div class="relative w-full max-w-[332px] max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-          <!-- Modal header -->
-          <div class="flex items-center justify-center pt-3 px-6">
-            <h3 class="text-xl font-bold text-black mb-4 text-center">
-              Apakah anda yakin ingin menanyakan ini?
-            </h3>
-          </div>
-          <!-- Modal body -->
-          <div class="flex flex-row justify-center gap-10 px-6 pb-4">
-            <button type="submit" 
-            class="w-1/3 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
-            hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Yakin</button>
-            <button type="button" data-modal-hide="modal-konfirmasi"
-            class="w-1/3 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
-            hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </form>
   @endif
 </div>

@@ -46,11 +46,11 @@
         <tr class="border-b border-[#48B477]">
           <td class="px-2 py-2 border-x border-[#48B477]">{{ $index + 1 }}</td>
           <td class="px-2 py-2 border-x border-[#48B477] hover:font-semibold hover:text-[#48B477] transition-all duration-75">
-            <button type="button" data-modal-target="modal-pdf{{$tablemodul->id}}" data-modal-toggle="modal-pdf{{$tablemodul->id}}">
+            <button class="underline" type="button" data-modal-target="modal-pdf{{$tablemodul->id}}" data-modal-toggle="modal-pdf{{$tablemodul->id}}">
               {{ $tablemodul->judul_modul }}</button></td>
           <td class="px-2 py-2 text-justify border-x border-[#48B477]">{{ $tablemodul->deskripsi_modul }}</td>
           <td class="px-2 py-2 border-x border-[#48B477] hover:font-semibold hover:text-[#48B477] transition-all duration-75">
-            <button type="button" data-modal-target="modal-video{{$tablemodul->id}}" data-modal-toggle="modal-video{{$tablemodul->id}}">
+            <button class="underline" type="button" data-modal-target="modal-video{{$tablemodul->id}}" data-modal-toggle="modal-video{{$tablemodul->id}}">
               {{ $tablemodul->video }}</button></td>
           <td class="px-2 py-2 border-x border-[#48B477]">{{ $tablemodul->created_at->format('j F Y') }}</td>
           @if (Auth::user()->roles_id == 3)
@@ -95,8 +95,11 @@
             <!-- Modal content -->
             <div class="bg-[#EEEEEE] border-[#48B477] border-2 rounded-lg">
               <!-- Modal body -->
-              <div class="flex flex-col items-center p-4 px-auto">
+              <div class="flex flex-col items-center px-4 py-2 gap-2">
                 <embed src="{{ url('storage/file_moduls/'. $tablemodul->modul) }}" type="application/pdf" width="600" height="500">
+                  <a href="{{ url('storage/file_moduls/'. $tablemodul->modul) }}" download="{{$tablemodul->modul}}"
+                    class="w-1/4 flex flex-row text-white font-medium rounded-lg text-sm px-5 py-2.5 justify-center text-center bg-[#48B477]
+                    hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Unduh File</a>
               </div>
             </div>
           </div>
@@ -108,8 +111,11 @@
               <!-- Modal content -->
               <div class="bg-[#EEEEEE] border-[#48B477] border-2 rounded-lg">
                 <!-- Modal body -->
-                <div class="flex flex-col items-center p-4 px-auto">
+                <div class="flex flex-col items-center px-4 py-2.5 gap-3">
                   <embed src="{{ url('storage/file_videos/'. $tablemodul->video) }}" type="video/mp4" width="854" height="480">
+                    <a href="{{ url('storage/file_videos/'. $tablemodul->video) }}" download="{{$tablemodul->video}}"
+                      class="w-1/4 flex flex-row text-white font-medium rounded-lg text-sm px-5 py-2.5 justify-center text-center bg-[#48B477]
+                      hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Unduh Video</a>
                 </div>
               </div>
             </div>

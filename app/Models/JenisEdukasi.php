@@ -26,6 +26,6 @@ class JenisEdukasi extends Model
 
     public function materiEdukasi(): HasMany
     {
-        return $this->hasMany(MateriEdukasi::class, 'jenis_id');
+        return $this->hasMany(MateriEdukasi::class);
     }
 }

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('sub_materi_edukasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id');
             $table->string('judul');
             $table->text('body');
-            $table->string('foto_path')->nullable();
-            $table->string('video_path')->nullable();
+            $table->string('modul');
+            $table->string('video')->nullable();
+            $table->unsignedBigInteger('materi_id');
+            $table->foreign('materi_id')->references('id')->on('materi_edukasi');
             $table->timestamps();
         });
     }

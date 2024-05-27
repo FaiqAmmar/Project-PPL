@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('ulasan_edukasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sub_id');
-            $table->foreignId('user_id')->nullable();
-            $table->string('author')->nullable();
-            $table->string('isi');
+            $table->string('ulasan');
+            $table->unsignedBigInteger('sub_id');
+            $table->foreign('sub_id')->references('id')->on('sub_materi_edukasi');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }

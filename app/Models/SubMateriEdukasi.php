@@ -15,19 +15,26 @@ class SubMateriEdukasi extends Model
 {
     use HasFactory;
     protected $table = 'sub_materi_edukasi';
-    protected $guarded = [ 'id'];
+    protected $guarded = ['id'];
+    protected $fillable = [
+        'judul',
+        'body',
+        'modul',
+        'video',
+        'materi_id',
+    ];
 
     public function materiEdukasi(): BelongsTo
     {
-        return $this->belongsTo(MateriEdukasi::class,'materi_id','id');
+        return $this->belongsTo(MateriEdukasi::class,'materi_id');
     }
 
     public function ulasan(): HasMany
     {
-        return $this->hasMany(UlasanEdukasi::class,'sub_id');
+        return $this->hasMany(UlasanEdukasi::class);
     }
     public function rating(): HasMany
     {
-        return $this->hasMany(RatingEdukasi::class,'sub_id');
+        return $this->hasMany(RatingEdukasi::class);
     }
 }

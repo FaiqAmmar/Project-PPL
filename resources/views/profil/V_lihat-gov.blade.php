@@ -19,7 +19,7 @@
           <td class="font-semibold px-2 py-2">{{ $seegov->nama }}</td>
           <td class="px-2 py-2">{{ $seegov->email }}</td>
           <td class="px-2 py-2">
-            <button type="button" type="button" data-modal-target="modal-detail{{$seegov->id}}" data-modal-toggle="modal-detail{{$seegov->id}}">
+            <button type="button" data-modal-target="modal-detail{{$seegov->id}}" data-modal-toggle="modal-detail{{$seegov->id}}">
               <svg class="text-[#48B477] h-5 w-5 hover:text-[#39905f] transition-all duration-100" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 16 16">
                 <path fill="currentColor" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/>
             </svg>
@@ -35,16 +35,16 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-center px-4 pt-2 w-full mb-4">
                   <h3 class="text-3xl font-medium text-black">
-                      Profil Pengguna
+                      Profil Pemerintah
                   </h3>
                 </div>
                 <!-- Modal body -->
                 <div class="flex flex-col items-center">
                   <div class="flex justify-center px-4 pb-2 w-full">
                     @if ($seegov->foto_profil != null)
-                    <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full" src="{{ url('storage/fotoprofil/'. $seegov->foto_profil) }} " alt="profil-pic">
+                    <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. $seegov->foto_profil) }} " alt="profil-pic">
                     @else
-                    <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+                    <img class="bg-white border-2 border-[#48B477] w-40 h-40 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
                     @endif
                   </div>
                   <div class="flex flex-col items-center px-8 pb-1 gap-0 w-full">

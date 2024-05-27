@@ -19,15 +19,18 @@ class MateriEdukasi extends Model
      */
     protected $table = 'materi_edukasi';
     protected $guarded = ['id'];
-    protected $fillable = ['judul_materi','jenis_id'];
+    protected $fillable = [
+        'judul_materi',
+        'jenis_id',
+    ];
 
     public function jenisEdukasi(): BelongsTo
     {
-        return $this->belongsTo(JenisEdukasi::class, 'jenis_id','id');
+        return $this->belongsTo(JenisEdukasi::class, 'jenis_id');
     }
 
     public function subMateri(): HasMany
     {
-        return $this->hasMany(SubMateriEdukasi::class,'materi_id');
+        return $this->hasMany(SubMateriEdukasi::class);
     }
 }

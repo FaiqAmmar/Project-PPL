@@ -72,7 +72,7 @@
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/user/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -81,7 +81,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/gov/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -90,7 +90,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/admin/edukasi/">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -101,9 +101,9 @@
           <span class="mr-4 self-center text-xl font-semibold sm:text-base whitespace-nowrap text-black">Selamat Datang, {{ Auth::user()->nama }}</span>
           <a class="group" href="/profil">
             @if (Auth::user()->foto_profil != null)
-            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }} " alt="profil-pic">
             @else
-            <img class="bg-white w-8 h-8 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
+            <img class="bg-white w-8 h-8 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profil-pic">
             @endif
             <hr class="mt-2 border border-[#48B477] rounded">
           </a>
@@ -117,9 +117,9 @@
       <div class="grid grid-rows-[240px_200px] gap-y-9">
         <div class="flex flex-col justify-center">
           @if (Auth::user()->foto_profil != null)
-          <img class="self-center bg-white w-32 h-32 rounded-full" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }}" alt="profile-pic">
+          <img class="self-center bg-white w-32 h-32 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }}" alt="profile-pic">
           @else
-          <img class="self-center bg-white w-32 h-32 rounded-full" src="{{ url('assets/img/anon-pic.png') }}" alt="profile-pic">
+          <img class="self-center bg-white w-32 h-32 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profile-pic">
           @endif
           <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">{{ Auth::user()->nama }}</span>
           <hr class="self-center my-2 w-24 border border-black rounded">
