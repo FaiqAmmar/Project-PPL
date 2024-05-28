@@ -3,11 +3,9 @@
 use App\Http\Controllers\C_BahanAjar;
 use App\Http\Controllers\C_BalasanKonsultasi;
 use App\Http\Controllers\C_JenisEdukasi;
-// use App\Http\Controllers\C_EdukasiGov;
-// use App\Http\Controllers\C_EdukasiUser;
 use App\Http\Controllers\C_Konsultasi;
-// use App\Http\Controllers\C_MateriEdukasi;
-// use App\Http\Controllers\C_SubMateriEdukasi;
+use App\Http\Controllers\C_MateriEdukasi;
+use App\Http\Controllers\C_SubMateriEdukasi;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_User;
@@ -57,43 +55,16 @@ Route::put('/edit-modul/{id}', [C_Modul::class , 'update_modul'])->name('update.
 
 //Route Edukasi
 Route::get('/edukasi', [C_JenisEdukasi::class , 'index']);
-
-//Admin
-// Route::put('admin/edukasi/materi/{id}', [C_MateriEdukasi::class, 'update'])->name('admin.materi.edit');
-// Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
-//     Route::group(['prefix' => 'edukasi', 'as' => 'edukasi.'], function () {
-//         Route::post('jenis-edukasi', [C_JenisEdukasi::class, 'store'])->name('jenis.store');
-//         Route::post('materi-edukasi', [C_MateriEdukasi::class, 'store'])->name('materi.store');
-//         Route::post('subMateri', [C_SubMateriEdukasi::class,'store'])->name('sub');
-//         Route::get('{id}', [C_MateriEdukasi::class, 'index'])->name('materi.index');
-//         Route::get('{materi_id}/{sub_id}', [C_MateriEdukasi::class, 'show'])->name('materi.show');         
-//         Route::put('{id}/update', [C_SubMateriEdukasi::class, 'update'])->name('sub.edit');
-//         Route::get('/',[C_JenisEdukasi::class, 'index'])->name('index')->middleware('admin');       
-//         Route::resource('sub-materi-edukasi', 'SubMateriEdukasi');        
-//     });
-// });
-//Gov
-// Route::group(['prefix' => 'gov' ,'as' =>'gov.'],function (){
-//     Route::group(['prefix'=> 'edukasi','as'=> 'edukasi.'], function () {
-//         Route::get('/', [C_EdukasiGov::class, 'index'])->name('index');
-//         Route::get('{id}', [C_EdukasiGov::class, 'materi'])->name('materi.index');
-//         Route::get('{materi_id}/{sub_id}', [C_EdukasiGov::class, 'show'])->name('materi.show');
-//         Route::post('ulasan/{id}', [C_EdukasiGov::class, 'ulasan'])->name('ulasan');
-//         Route::post('rating/{id}', [C_EdukasiGov::class, 'rating'])->name('rating');
-//         Route::post('materi-edukasi', [C_EdukasiGov::class, 'store'])->name('materi.store');
-//         Route::post('subMateri', [C_EdukasiGov::class,'subMateri'])->name('sub');
-//     });
-// });
-//User
-// Route::group(['prefix'=> 'user','as'=> 'user.'], function () {
-//     Route::group(['prefix'=> 'edukasi','as'=> 'edukasi.'], function () {
-//         Route::get('/', [C_EdukasiUser::class, 'index'])->name('index');
-//         Route::get('{id}', [C_EdukasiUser::class, 'materi'])->name('materi.index');
-//         Route::get('{materi_id}/{sub_id}', [C_EdukasiUser::class, 'show'])->name('materi.show');
-//         Route::post('ulasan/{id}', [C_EdukasiUser::class, 'ulasan'])->name('ulasan');
-//         Route::post('rating/{id}', [C_EdukasiUser::class, 'rating'])->name('rating');   
-//     });
-// });
+Route::post('/jenis-edukasi', [C_JenisEdukasi::class , 'store'])->name('jenis.store');
+Route::put('/jenis-edukasi/{id}', [C_JenisEdukasi::class , 'update_jenis_edukasi'])->name('jenis.edit');
+Route::get('/edukasi/{id}', [C_MateriEdukasi::class, 'index'])->name('materi.index');
+Route::get('/edukasi/{materi_edukasi_id}/{sub_id}', [C_MateriEdukasi::class, 'show'])->name('materi.show');
+Route::post('materi-edukasi', [C_MateriEdukasi::class, 'store'])->name('materi.store');
+Route::put('/jenis-edukasi/materi/{id}', [C_MateriEdukasi::class , 'update'])->name('materi.edit');
+Route::post('/jenis-edukasi/materi/subMateri/', [C_SubMateriEdukasi::class,'store'])->name('sub.store');
+Route::put('/update', [C_SubMateriEdukasi::class, 'update'])->name('sub.edit');
+Route::post('/ulasan', [C_SubMateriEdukasi::class,'ulasan'])->name('sub.ulasan');
+Route::post('/rating', [C_SubMateriEdukasi::class,'rating'])->name('sub.rating');
 
 //Route Konsultasi
 Route::get('/konsultasi', [C_Konsultasi::class,'index'])->name('konsultasi');
@@ -102,10 +73,10 @@ Route::get('/balasan-konsultasi/{id}', [C_BalasanKonsultasi::class,'index'])->na
 Route::post('/tambah-balasan-konsultasi', [C_BalasanKonsultasi::class,'store'])->name('balasan.store');
 
 //Route Bahan Ajar
-Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'view_detail_bahan_ajar'])->name('detail-bahan-ajar')->middleware(['admin']);
+Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'BahanAjarDetail'])->name('detail-bahan-ajar')->middleware(['admin']);
 Route::withoutMiddleware(['admin'])->group(function () {
-    Route::get('/bahan-ajar', [C_BahanAjar::class , 'index'])->name('bahan-ajar');
+    Route::get('/bahan-ajar', [C_BahanAjar::class , 'BahanAjar'])->name('bahan-ajar');
     Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'create_bahan_ajar'])->name('add.bahan-ajar');
-    Route::get('/edit-bahan-ajar', [C_BahanAjar::class ,'edit_bahan_ajar'])->name('edit.bahan-ajar');
+    Route::get('/edit-bahan-ajar', [C_BahanAjar::class ,'EditBahanAjar'])->name('edit.bahan-ajar');
     Route::put('/edit-bahan-ajar/{id}', [C_BahanAjar::class , 'update_bahan_ajar'])->name('update.bahan-ajar');
 });

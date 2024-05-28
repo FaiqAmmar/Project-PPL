@@ -18,14 +18,14 @@ class C_MateriEdukasi extends Controller
     public function index(string $id)
     {
         $jenis = JenisEdukasi::orderBy('created_at', 'desc')->with('materiEdukasi')->get(); //untuk menampilkan semua jenis di header                
-        $first = JenisEdukasi::where('id', $id)->first(); //untuk menampilkan jenis yang terbaru        
-        $materi = MateriEdukasi::where('jenis_id', $first->id)->first();        //ntuk mengambil jenis yang paling baru
+        $first = JenisEdukasi::where('id', $id)->first(); //untuk menampilkan jenis yang terbaru
+        $materi = MateriEdukasi::where('jenis_edukasi_id', $first?->id)->first(); //ntuk mengambil jenis yang paling baru
         if ($materi != null) {
-            $firstMateris = MateriEdukasi::where('jenis_id', $materi->jenis_id)->get(); //mengambil semua materi berdasarkan jenis yang paling baru
-            $sub = MateriEdukasi::where('jenis_id', $materi->jenis_id)->first(); //mengambil semua materi berdasarkan jenis yang paling baru
-            $firstSub = SubMateriEdukasi::where('materi_id', $sub->id)->orderBy('created_at', 'asc')->first();
-            $firstRating = RatingEdukasi::where('sub_id', $firstSub?->id)->count('id');
-            $avgRating = RatingEdukasi::where('sub_id', $firstSub?->id)->avg('rating');  
+            $firstMateris = MateriEdukasi::where('jenis_edukasi_id', $materi->jenis_edukasi_id)->get(); //mengambil semua materi berdasarkan jenis yang paling baru
+            $sub = MateriEdukasi::where('jenis_edukasi_id', $materi->jenis_edukasi_id)->first(); //mengambil semua materi berdasarkan jenis yang paling baru
+            $firstSub = SubMateriEdukasi::where('materi_edukasi_id', $sub?->id)->orderBy('created_at', 'asc')->first();
+            $firstRating = RatingEdukasi::where('sub_materi_edukasi_id', $firstSub?->id)->count('id');
+            $avgRating = RatingEdukasi::where('sub_materi_edukasi_id', $firstSub?->id)->avg('rating');  
         } else {
             $firstMateris = null;
             $sub = null;    
@@ -33,8 +33,8 @@ class C_MateriEdukasi extends Controller
             $firstRating = null; 
             $avgRating = null; 
         }
-        // dd($materi);
-        return view('edukasi.admin.V_edukasi', compact('jenis', 'first', 'firstMateris', 'firstSub','firstRating','avgRating'));
+        // dd($firstSub->judul);
+        return view('edukasi.V_edukasi', compact('jenis', 'first', 'firstMateris', 'firstSub','firstRating','avgRating'));
     }
 
     /**
@@ -52,7 +52,7 @@ class C_MateriEdukasi extends Controller
     {
         $Jenis = $request->validate([
             'judul_materi' => 'required',
-            'jenis_id' => 'required'
+            'jenis_edukasi_id' => 'required'
         ]);
         // $test = SubMateriEdukasi::all();
         // dd($test);
@@ -65,17 +65,17 @@ class C_MateriEdukasi extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $materi_id, string $sub_id)
+    public function show(string $materi_edukasi_id, string $sub_materi_edukasi_id)
     {
         $jenis = JenisEdukasi::orderBy('created_at', 'desc')->with('materiEdukasi')->get(); //untuk menampilkan semua jenis di header                
-        $first = JenisEdukasi::where('id', $materi_id)->first(); //untuk menampilkan jenis yang terbaru        
-        $materi = MateriEdukasi::where('jenis_id', $first->id)->first();        //ntuk mengambil jenis yang paling baru
+        $first = JenisEdukasi::where('id', $materi_edukasi_id)->first(); //untuk menampilkan jenis yang terbaru      
+        $materi = MateriEdukasi::where('jenis_edukasi_id', $first?->id)->first(); //ntuk mengambil jenis yang paling baru
         if ($materi != null) {
-            $firstMateris = MateriEdukasi::where('jenis_id', $materi->jenis_id)->get(); //mengambil semua materi berdasarkan jenis yang paling baru
-            $sub = MateriEdukasi::where('jenis_id', $materi->jenis_id)->first(); //mengambil semua materi berdasarkan jenis yang paling baru
-            $firstSub = SubMateriEdukasi::where('id', $sub_id)->first();
-            $firstRating = RatingEdukasi::where('sub_id', $firstSub?->id)->count('id');
-            $avgRating = RatingEdukasi::where('sub_id', $firstSub?->id)->avg('rating');  
+            $firstMateris = MateriEdukasi::where('jenis_edukasi_id', $materi->jenis_edukasi_id)->get(); //mengambil semua materi berdasarkan jenis yang paling baru
+            $sub = MateriEdukasi::where('jenis_edukasi_id', $materi->jenis_edukasi_id)->first(); //mengambil semua materi berdasarkan jenis yang paling baru
+            $firstSub = SubMateriEdukasi::where('id', $sub_materi_edukasi_id)->first();
+            $firstRating = RatingEdukasi::where('sub_materi_edukasi_id', $firstSub?->id)->count('id');
+            $avgRating = RatingEdukasi::where('sub_materi_edukasi_id', $firstSub?->id)->avg('rating');  
         } else {
             $firstMateris = null;
             $sub = null;    
@@ -83,8 +83,7 @@ class C_MateriEdukasi extends Controller
             $firstRating = null; 
             $avgRating = null; 
         }
-        // dd($materi);
-        return view('edukasi.admin.V_edukasi', compact('jenis', 'first', 'firstMateris', 'firstSub','firstRating','avgRating'));
+        return view('edukasi.V_edukasi', compact('jenis', 'first', 'firstMateris', 'firstSub','firstRating','avgRating'));
     }
 
     /**
@@ -98,17 +97,16 @@ class C_MateriEdukasi extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        
-        $Jenis = $request->validate([
+        $currentMateriEdukasi = MateriEdukasi::find($id);
+
+        $validatedMateriEdukasi = $request->validate([
             'judul_materi' => 'required',
-            'materi_id' => 'required'
-        ]);       
-        MateriEdukasi::where('id',$request->materi_id)->update(['judul_materi' => $request->judul_materi ]);
+        ]);
+        $currentMateriEdukasi->update($validatedMateriEdukasi);
 
-        return redirect()->back();
-
+        return redirect()->back()->with('success', 'Materi Edukasi Berhasil Diubah!');
     }
 
     /**

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\JenisEdukasi;
+use Illuminate\Http\Request;
 use App\Models\MateriEdukasi;
+use App\Models\RatingEdukasi; 
+use App\Models\UlasanEdukasi; 
 use App\Models\SubMateriEdukasi;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class C_SubMateriEdukasi extends Controller
@@ -33,65 +37,112 @@ class C_SubMateriEdukasi extends Controller
     {
         $Jenis = $request->validate([
             'judul' => 'required',
-            'materi_id'=> 'required',
             'body'=> 'required',
-            'video' => 'nullable|file', // max size 20MB                    
+            'modul'=> 'required|mimes:pdf',
+            'materi_edukasi_id'=> 'required',
+            'video' => 'nullable|mimes:mp4', // max size 20MB                    
         ]);
-        if ($request->video) {
-            $videoPath = $request->file('video')->store('post-videos', 'public');                        
-            $Jenis['video_path'] = $videoPath;
+        $SubMateri =SubMateriEdukasi::create($Jenis);
+        $file = $request->modul;
+        $video = $request->video;
+
+        if ($video) {
+            $extension = $video->getClientOriginalExtension();
+            $videoName =  $SubMateri->judul.'.' . $extension;
+            $video->storeAs('public/sub_videos', $videoName);
+            $SubMateri->video = $videoName;
+            $SubMateri->update();
         }
-        SubMateriEdukasi::create($Jenis);
 
-        return redirect()->back();
-    }
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+            $fileName =  $SubMateri->judul. '.' . $extension;
+            $file->storeAs('public/sub_moduls', $fileName);
+            $SubMateri->modul = $fileName;
+            $SubMateri->update();
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return redirect()->back()->with('success','');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         $Jenis = $request->validate([
+            'id'=> 'required',
             'judul' => 'required',            
             'body'=> 'required',
-            'video' => 'nullable|file', // max size 20MB                    
+            'modul'=> 'required|mimes:pdf',
+            'video' => 'nullable|mimes:mp4', // max size 20MB                    
         ]);
         $update = [
             'judul' => $request->judul,
             'body' => $request->body,
         ];
-        if ($request->video) {                  
-            $videoPath = $request->file('video')->store('post-videos', 'public');                        
-            $update['video_path'] = $videoPath;            
+        $Jenis = SubMateriEdukasi::where('id', $request->id)->first();
+
+        if ($request->hasFile('modul')) {
+            Storage::delete('public/sub_moduls/' . $Jenis['modul']);
+            $file = $request->file('modul');
+            $extension = $file->getClientOriginalExtension();
+            $nama_file = $update['judul'].'.'.$extension;
+            $file->storeAs('public/sub_moduls', $nama_file);
+            $update['modul'] = $nama_file;
         }
 
-        SubMateriEdukasi::Where('id', $id)
-            ->update($update);
+        if ($request->hasFile('video')) {
+            if ($request['video'] !== null) {
+            Storage::delete('public/sub_videos/' . $Jenis['video']);
+            }
+            $file = $request->file('video');
+            $extension = $file->getClientOriginalExtension();
+            $nama_file = $update['judul'].'.'.$extension;
+            $file->storeAs('public/sub_videos', $nama_file);
+            $update['video'] = $nama_file;
+        }
+
+        SubMateriEdukasi::Where('id', $request->id)->update($update);
 
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function ulasan(Request $request)
     {
-        //
+        $user = Auth::user()->id;
+
+        $validatedUlasan = $request->validate([
+            'ulasan' => 'required',
+            'sub_materi_edukasi_id'=> 'required',
+        ]);
+        $validatedUlasan['user_id'] = $user;
+        UlasanEdukasi::Where('sub_materi_edukasi_id', $request->sub_materi_edukasi_id)->create($validatedUlasan);
+
+        return redirect()->back()->with('success','');
+    }
+    public function rating(Request $request)
+    {        
+        $user = Auth::user()->id;
+    
+        $validatedRating = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'sub_materi_edukasi_id' => 'required',
+        ]);
+        $validatedRating['user_id'] = $user;
+    
+        $rating = RatingEdukasi::where('sub_materi_edukasi_id', $request->sub_materi_edukasi_id)
+                                ->where('user_id', $user)
+                                ->first();
+    
+        if ($rating) {
+            // Update existing rating
+            $rating->update(['rating' => $validatedRating['rating']]);
+        } else {
+            // Create new rating
+            RatingEdukasi::create($validatedRating);
+        }
+    
+        return redirect()->back()->with('success', 'Rating submitted successfully.');
     }
 }

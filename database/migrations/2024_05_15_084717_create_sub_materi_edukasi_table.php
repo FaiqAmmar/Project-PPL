@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('body');
             $table->string('modul');
             $table->string('video')->nullable();
-            $table->unsignedBigInteger('materi_id');
-            $table->foreign('materi_id')->references('id')->on('materi_edukasi');
+            $table->unsignedBigInteger('materi_edukasi_id');
+            $table->foreign('materi_edukasi_id')->references('id')->on('materi_edukasi');
             $table->timestamps();
         });
     }

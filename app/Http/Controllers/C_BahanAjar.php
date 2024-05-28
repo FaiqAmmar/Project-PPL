@@ -10,7 +10,7 @@ use App\Models\BahanAjar;
 
 class C_BahanAjar extends Controller
 {
-    public function index()
+    public function BahanAjar()
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -27,7 +27,7 @@ class C_BahanAjar extends Controller
 
         return redirect()->route('bahan-ajar')->with('success','');
     }
-    public function edit_bahan_ajar()
+    public function EditBahanAjar()
     {
         $currentuser = User::find(Auth::user()->id);
         $currentBahanAjar = BahanAjar::where('user_id', $currentuser->id)->get();
@@ -45,7 +45,7 @@ class C_BahanAjar extends Controller
 
         return redirect('/edit-bahan-ajar')->with('success', 'Bahan Ajar Berhasil Diubah!');
     }
-    public function view_detail_bahan_ajar()
+    public function BahanAjarDetail()
     {
         $detail = BahanAjar::with('user')->get();
 

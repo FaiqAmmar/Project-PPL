@@ -19,7 +19,24 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
-
+  <style>
+    /* width */
+  #scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  #scrollbar::-webkit-scrollbar-track {
+    background: #9D9D9D;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  #scrollbar::-webkit-scrollbar-thumb {
+    background: black; 
+    border-radius: 10px;
+  }
+  </style>
 </head>
 
 <body class="font-Poppins bg-[#F5F5F5]">
@@ -31,7 +48,7 @@
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -40,7 +57,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -49,7 +66,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 

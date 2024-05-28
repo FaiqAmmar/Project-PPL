@@ -28,7 +28,7 @@ class C_Login extends Controller
         ];
 
         if(Auth::attempt($infoLogin)){
-            return redirect('/edukasi');
+            return redirect('/edukasi/2/1');
         }
         else {
             return redirect('/login')->with('failed', 'Username atau Password Salah!');

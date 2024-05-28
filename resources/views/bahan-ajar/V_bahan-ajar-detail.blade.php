@@ -8,7 +8,7 @@
       <span class="text-3xl font-semibold text-[#48B477]">Detail Ajuan Bahan Ajar</span>
     </div>
   </div>
-  <div class="relative h-96 overflow-y-auto mt-4 px-14">
+  <div id="scrollbar" class="relative h-96 overflow-y-auto mt-4 px-14">
     <table class="text-xs w-full text-center rtl:text-right table-auto">
       <thead class="font-semibold text-center text-sm text-[#EEEEEE] bg-[#48B477] border-x border-[#48B477]">
         <tr>

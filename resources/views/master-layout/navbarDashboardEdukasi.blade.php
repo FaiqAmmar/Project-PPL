@@ -20,9 +20,51 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
   <style>
-    input[type="file"] {
-        display: none; /* Hide the default file input */
-      }
+/* Star rating labels */
+/* Star rating labels */
+.star-label {
+    font-size: 24px;
+    color: #D1D5DB; /* Gray star color */
+    cursor: pointer;
+}
+
+/* Hide default radio buttons */
+input[type="radio"].hidden {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* Hover state for stars */
+.star-label:hover,
+.star-label:hover ~ .star-label {
+    color: #EAB308; /* Yellow star color */
+}
+
+/* Checked state for stars */
+input[type="radio"]:checked ~ label,
+input[type="radio"]:checked ~ label ~ label {
+    color: #EAB308; /* Yellow star color */
+}
+/* Button style */
+.rating-button {
+    padding: 10px 20px;
+    background-color: #48B477;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.rating-button:hover {
+    background-color: #34D399;
+}
+
+.rating-button:focus {
+    outline: none;
+}
 
     .custom-file-input {
       margin: 0px 10px 0px 0px;
@@ -108,6 +150,7 @@
       background: black; 
       border-radius: 10px;
     }
+
   </style>
 </head>
 
@@ -120,7 +163,7 @@
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          underline underline-offset-8 text-[#48B477]" href="/edukasi">Edukasi</a>
+          underline underline-offset-8 text-[#48B477]" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -129,7 +172,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477]" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          underline underline-offset-8 text-[#48B477]" href="/edukasi">Edukasi</a>
+          underline underline-offset-8 text-[#48B477]" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -138,7 +181,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap
           hover:underline underline-offset-8 text-black hover:text-[#48B477]" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          underline underline-offset-8 text-[#48B477]" href="/edukasi">Edukasi</a>
+          underline underline-offset-8 text-[#48B477]" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 

@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="relative h-96 overflow-y-auto mt-4 px-14">
-    <table class="text-xs w-full text-center rtl:text-right table-auto">
+    <table id="scrollbar" class="text-xs w-full text-center rtl:text-right table-auto">
       <thead class="font-semibold text-center text-sm text-[#EEEEEE] bg-[#48B477] border-x border-[#48B477]"">
         <tr>
           <th scope="col" class="px-2 py-2 w-10">No</th>

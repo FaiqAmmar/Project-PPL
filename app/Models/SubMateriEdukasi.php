@@ -21,12 +21,12 @@ class SubMateriEdukasi extends Model
         'body',
         'modul',
         'video',
-        'materi_id',
+        'materi_edukasi_id',
     ];
 
     public function materiEdukasi(): BelongsTo
     {
-        return $this->belongsTo(MateriEdukasi::class,'materi_id');
+        return $this->belongsTo(MateriEdukasi::class,'materi_edukasi_id');
     }
 
     public function ulasan(): HasMany

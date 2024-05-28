@@ -31,8 +31,8 @@
       </div>
       <div class="flex flex-row mb-3 w-full gap-[51px]">
         <div class="flex flex-row gap-6">
-          <label for="nama" class="flex font-bold items-center">Email</label>
-          <input id="nama" name="nama" type="text" placeholder="nama@email.com" value="{{ $currentuser->email }}"
+          <label for="email" class="flex font-bold items-center">Email</label>
+          <input id="email" name="email" type="text" placeholder="nama@email.com" value="{{ $currentuser->email }}"
           class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 font-light rounded-full flex w-64" required></input>
         </div>
         <div class="flex flex-row gap-[104px]">

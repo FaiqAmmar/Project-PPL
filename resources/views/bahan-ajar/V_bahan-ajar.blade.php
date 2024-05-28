@@ -8,7 +8,7 @@
     <div class="flex flex-col gap-4 p-6">
       <div class="flex flex-row justify-between">
         <div class="flex flex-col gap-1">
-          <label class="font-semibold text-4xl text-[#48B477]" for="">Modul Bahan Ajar</label>
+          <label class="font-semibold text-4xl text-[#48B477]" for="">Bahan Ajar</label>
           <p class="font-semibold text-black text-lg">Ajukan Materi yang Ingin Anda Pelajari di Sini!</p>
         </div>
         <div class="flex items-center">

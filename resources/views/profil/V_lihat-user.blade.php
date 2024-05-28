@@ -5,7 +5,7 @@
 <div class="bg-[#48B477]/[0.2] rounded px-14 pt-12">
   <span class="text-3xl font-semibold">Akun Pengguna</span>
   <div class="relative h-96 overflow-y-auto overflow-x-auto mt-4">
-    <table class="text-xs w-full text-left rtl:text-right">
+    <table id="scrollbar" class="text-xs w-full text-left rtl:text-right">
       <thead class="font-bold text-white bg-[#48B477]">
         <tr>
           <th scope="col" class="w-1/3 px-2 py-2">Nama</th>

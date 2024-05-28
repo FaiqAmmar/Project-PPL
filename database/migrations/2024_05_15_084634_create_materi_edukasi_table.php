@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('materi_edukasi', function (Blueprint $table) {
             $table->id();
             $table->string('judul_materi');
-            $table->unsignedBigInteger('jenis_id');
-            $table->foreign('jenis_id')->references('id')->on('jenis_edukasi');
+            $table->unsignedBigInteger('jenis_edukasi_id');
+            $table->foreign('jenis_edukasi_id')->references('id')->on('jenis_edukasi');
             $table->timestamps();
         });
     }

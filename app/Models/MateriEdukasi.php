@@ -21,12 +21,12 @@ class MateriEdukasi extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'judul_materi',
-        'jenis_id',
+        'jenis_edukasi_id',
     ];
 
     public function jenisEdukasi(): BelongsTo
     {
-        return $this->belongsTo(JenisEdukasi::class, 'jenis_id');
+        return $this->belongsTo(JenisEdukasi::class, 'jenis_edukasi_id');
     }
 
     public function subMateri(): HasMany

@@ -82,13 +82,13 @@
       width: 5px;
     }
   
-  /* Track */
-  #scrollbar::-webkit-scrollbar-track {
+    /* Track */
+    #scrollbar::-webkit-scrollbar-track {
       background: #9D9D9D;
       border-radius: 10px;
     }
   
-  /* Handle */
+    /* Handle */
     #scrollbar::-webkit-scrollbar-thumb {
       background: black; 
       border-radius: 10px;
@@ -105,7 +105,7 @@
         <img class="w-8 h-8 rounded-full" src="{{ url('assets/img/logo.png') }}" alt="logo">
         @if (Auth::user()->roles_id == 2)
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -114,7 +114,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           underline underline-offset-8 text-[#48B477]" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
@@ -123,7 +123,7 @@
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           underline underline-offset-8 text-[#48B477]" href="/modul">Modul</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
-          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi">Edukasi</a>
+          hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/edukasi/2/1">Edukasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 
           hover:underline underline-offset-8 text-black hover:text-[#48B477] transition-all duration-150" href="/konsultasi">Konsultasi</a>
           <a class="ml-10 self-center text-xl font-semibold sm:text-base whitespace-nowrap 

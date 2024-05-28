@@ -16,12 +16,12 @@ class UlasanEdukasi extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'ulasan',
-        'sub_id',
+        'sub_materi_edukasi_id',
         'user_id',
     ];
     public function subMateriEdukasi(): BelongsTo
     {
-        return $this->belongsTo(SubMateriEdukasi::class,'sub_id');
+        return $this->belongsTo(SubMateriEdukasi::class,'sub_materi_edukasi_id');
     }
     public function user(): BelongsTo
     {
