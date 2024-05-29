@@ -41,6 +41,6 @@ class C_Konsultasi extends Controller
         $validatedKonsul['user_id'] = $user;
         $newKonsul = Konsultasi::create($validatedKonsul);
 
-        return redirect()->route('konsultasi')->with('success','');
+        return redirect()->back()->with('success','');
     }
 }

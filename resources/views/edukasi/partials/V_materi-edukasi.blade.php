@@ -42,7 +42,7 @@
   @foreach ($firstMateris as $materi)
     <div class="flex flex-row justify-between items-center">
       <div class="flex flex-row flex-wrap gap-1">
-        <div class="font-semibold text-[#48B477] text-3xl">
+        <div class="font-semibold text-[#48B477] text-3xl ml-2">
           {{ $materi->judul_materi }}
         </div>
         @if (Auth::user()->roles_id == 1)
@@ -99,45 +99,55 @@
           <!-- Modal Tambah -->
           <div id="modal-tambah-3" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 h-auto w-auto max-w-md max-h-full">
+            <div class="relative p-4 w-full max-w-screen-md max-h-full">
               <!-- Modal content -->
-              <div class="relative bg-white rounded-lg">
+              <div class="relative bg-white rounded-lg shadow">
                 <!-- Modal header -->
-                <div class="flex items-center justify-center pt-3 px-6">
-                  <h3 class="text-2xl font-bold text-black mb-4">
+                <div class="flex items-center justify-center pt-4 px-4">
+                  <h3 class="text-xl font-bold text-black">
                     Tambah Sub Materi
                   </h3>
                 </div>
                 <!-- Modal body -->
-                <div class="flex flex-col justify-center px-6 pb-4 gap-5">
+                <div class="px-4 pb-2">
                   <input type="hidden" name="materi_edukasi_id" value="{{ $materi->id }}">
-                  <input id="judul" name="judul" type="text" placeholder="Masukkan Sub Materi"
-                  class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></input>
-                  <textarea id="body" name="body" type="text" placeholder="Masukkan Sub Materi" style="resize: none" cols="10" rows="5"
-                  class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></textarea>
-                  <div class="flex flex-row gap-10">                                
-                    <div class="form-field w-[47%]">
-                      <label class="font-semibold text-black text-lg" for="modul">File Modul</label>
-                      <label for="fileModul" class="custom-file-label">
-                        <span id="fileModulText">Pilih File PDF</span>
-                      </label>
-                      <input type="file" accept=".pdf" name="modul" id="fileModul" class="hidden">
+                  <div>
+                    <div class="flex flex-col py-2 px-4">
+                      <label class="font-semibold text-black text-lg" for="judul">Judul Sub Materi</label>
+                      <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
+                      type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" required>
                     </div>
-                    <div class="form-field w-[47%]">
-                      <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
-                      <label for="fileVideo" class="custom-file-label">
-                        <span id="fileVideoText">Pilih File Video MP4</span>
-                      </label>
-                      <input type="file" accept="video/mp4" name="video" id="fileVideo" class="hidden">
+                    <div class="flex flex-col py-2 px-4">
+                      <label class="font-semibold text-black text-lg" for="body">Deskripsi Sub Materi</label>
+                      <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
+                      name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required></textarea>
                     </div>
-                  </div>
-                  <div class="flex flex-row gap-6 justify-center mt-4">
-                    <button type="submit" 
-                    class="w-1/2 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
-                    hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Simpan</button>
-                    <button type="button" data-modal-hide="modal-tambah-3"
-                    class="w-1/2 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
-                    hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
+                    <div class="flex flex-col py-2 px-4">
+                      <div class="flex flex-row gap-10">                                
+                        <div class="form-field w-[47%]">
+                          <label class="font-semibold text-black text-lg" for="modul">File Modul</label>
+                          <label for="fileModul" class="custom-file-label">
+                            <span id="fileModulText">Pilih File PDF</span>
+                          </label>
+                          <input type="file" accept=".pdf" name="modul" id="fileModul" class="hidden" required>
+                        </div>
+                        <div class="form-field w-[47%]">
+                          <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
+                          <label for="fileVideo" class="custom-file-label">
+                            <span id="fileVideoText">Pilih File Video MP4</span>
+                          </label>
+                          <input type="file" accept="video/mp4" name="video" id="fileVideo" class="hidden">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-row mt-2 gap-24 justify-center">
+                      <button type="submit" 
+                      class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
+                      hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Simpan</button>
+                      <button type="button" data-modal-hide="modal-tambah-3" id="cancelButton"
+                      class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
+                      hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -147,11 +157,13 @@
       </div>
     @endif
     </div>
+    <hr class="w-full border-2 rounded-full border-[#48B477] mt-1">
     @if ($materi->subMateri != null)
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col mt-2 gap-1">
     @foreach ($materi->subMateri as $sub)
       <a href="/edukasi/{{ $first->id }}/{{$sub->id}}"
-      class="bg-[#48B477]/[0.3] w-full px-2 rounded-lg hover:underline hover:font-semibold">
+      class=" w-full px-2 rounded-lg 
+      {{ $currentSubId == $sub->id ? 'bg-[#48B477]/[0.3] font-semibold' : 'hover:bg-[#48B477]/[0.3] hover:underline hover:font-semibold' }}">
         {{$sub->judul}}
       </a>
       @endforeach

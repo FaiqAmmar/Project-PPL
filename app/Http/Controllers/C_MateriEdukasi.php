@@ -59,7 +59,7 @@ class C_MateriEdukasi extends Controller
 
         MateriEdukasi::create($Jenis);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','');
     }
 
     /**

@@ -52,7 +52,7 @@ class C_Modul extends Controller
         }
 
 
-        return redirect('/modul')->with('success','');
+        return redirect()->back()->with('success','');
     }
     public function update_modul(Request $request, $id)
     {
@@ -63,6 +63,6 @@ class C_Modul extends Controller
         ]);
 
         $currentmodul->update($validatedStatus);
-        return redirect('/modul')->with('success','');
+        return redirect()->back()->with('success','');
     }
 }

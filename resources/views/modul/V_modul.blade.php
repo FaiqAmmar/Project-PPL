@@ -146,30 +146,30 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
           <div>
             <div class="flex flex-col py-2 px-4">
               <label class="font-semibold text-black text-lg" for="judul_modul">Judul Modul</label>
-              <input class="rounded-xl border-dashed border-[#48B477]	border-4 focus:border-[#48B477] focus:ring-transparent" 
-              type="text" name="judul_modul" id="judul_modul" placeholder="Isi Judul Disini" autocomplete="off">
+              <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
+              type="text" name="judul_modul" id="judul_modul" placeholder="Isi Judul Disini" autocomplete="off" required>
+            </div>
+            <div class="flex flex-col py-2 px-4">
+              <label class="font-semibold text-black text-lg" for="deskripsi_modul">Deskripsi Modul</label>
+              <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
+              name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required></textarea>
             </div>
             <div class="flex flex-col py-2 px-4">
               <div class="flex flex-row gap-10">                                
                 <div class="form-field w-[47%]">
-                  <label class="font-semibold text-black text-lg" for="modul">File Modul</label>
+                  <label class="font-semibold text-black text-lg" for="modul" required>File Modul</label>
                   <label for="fileModul" class="custom-file-label">
                     <span id="fileModulText">Pilih File PDF</span>
                   </label>
                   <input type="file" accept=".pdf" name="modul" id="fileModul" class="hidden">
                 </div>
                 <div class="form-field w-[47%]">
-                  <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
+                  <label class="font-semibold text-black text-lg" for="video" required>Video Modul</label>
                   <label for="fileVideo" class="custom-file-label">
                     <span id="fileVideoText">Pilih File Video MP4</span>
                   </label>
                   <input type="file" accept="video/mp4" name="video" id="fileVideo" class="hidden">
                 </div>
-              </div>
-              <div class="flex flex-col">
-                <label class="font-semibold text-black text-lg" for="deskripsi_modul">Deskripsi Modul</label>
-                <textarea class="h-auto p-2 rounded-xl border-dashed border-[#48B477]	border-4 focus:border-[#48B477] focus:ring-transparent"
-                name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off"></textarea>
               </div>
             </div>
             <div class="flex flex-row mt-2 gap-24 justify-center">
@@ -187,39 +187,39 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
 </div> 
 
 <script>
-  // Function to update file input text
-  function updateFileInputText(fileInput, textElement, defaultText) {
-    fileInput.addEventListener('change', function() {
-      const fileName = this.files[0] ? this.files[0].name : defaultText;
-      textElement.textContent = fileName !== defaultText ? fileName : defaultText;
-    });
-  }
-
-  // Update File Modul input text
-  updateFileInputText(
-    document.getElementById('fileModul'),
-    document.getElementById('fileModulText'),
-    'Pilih File PDF'
-  );
-
-  // Update Video Modul input text
-  updateFileInputText(
-    document.getElementById('fileVideo'),
-    document.getElementById('fileVideoText'),
-    'Pilih File Video MP4'
-  );
-
-    // Reset form function
-    function resetForm() {
-    document.getElementById('modulForm').reset();
-    document.getElementById('fileModulText').textContent = 'Choose a PDF file';
-    document.getElementById('fileVideoText').textContent = 'Choose an MP4 video';
-  }
-
-  // Event listener for cancel button
-  document.getElementById('cancelButton').addEventListener('click', function() {
-    resetForm();
+// Function to update file input text
+function updateFileInputText(fileInput, textElement, defaultText) {
+  fileInput.addEventListener('change', function() {
+    const fileName = this.files[0] ? this.files[0].name : defaultText;
+    textElement.textContent = fileName !== defaultText ? fileName : defaultText;
   });
+}
+
+// Update File Modul input text
+updateFileInputText(
+  document.getElementById('fileModul'),
+  document.getElementById('fileModulText'),
+  'Pilih File PDF'
+);
+
+// Update Video Modul input text
+updateFileInputText(
+  document.getElementById('fileVideo'),
+  document.getElementById('fileVideoText'),
+  'Pilih File Video MP4'
+);
+
+  // Reset form function
+  function resetForm() {
+  document.getElementById('modulForm').reset();
+  document.getElementById('fileModulText').textContent = 'Choose a PDF file';
+  document.getElementById('fileVideoText').textContent = 'Choose an MP4 video';
+}
+
+// Event listener for cancel button
+document.getElementById('cancelButton').addEventListener('click', function() {
+  resetForm();
+});
 </script>
 
 @endsection

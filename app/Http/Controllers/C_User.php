@@ -81,6 +81,31 @@ class C_User extends Controller
         $currentuser->update($validatedProfile);
         return redirect('/profil')->with('success', 'Profil Anda Berhasil Diubah!');
     }
+
+    public function update_pp(Request $request)
+    {
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        $validatedProfile= $request->validate([
+            'foto_profil' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
+
+        if ($request->hasFile('foto_profil')) {
+            if ($validatedProfile['foto_profil'] !== null) {
+            Storage::delete('public/fotoprofil/' . $validatedProfile['foto_profil']);
+            }
+            $file = $request->file('foto_profil');
+            $extension = $file->getClientOriginalExtension();
+            $nama_file = $currentuser->id.'.'.$extension;
+            $file->storeAs('public/fotoprofil', $nama_file);
+            $validatedProfile['foto_profil'] = $nama_file;
+        }
+        
+        $currentuser->update($validatedProfile);
+
+        return redirect('/profil')->with('success', 'Foto Profil Berhasil Diubah!');
+    }
     public function lihat_user()
     {
         $id = Auth::user()->id;

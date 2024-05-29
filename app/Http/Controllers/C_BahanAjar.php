@@ -25,7 +25,7 @@ class C_BahanAjar extends Controller
         ]);
         BahanAjar::create($validatedBahanAjar);
 
-        return redirect()->route('bahan-ajar')->with('success','');
+        return redirect()->back()->with('success','Bahan Ajar Berhasil Ditambahkan!');
     }
     public function EditBahanAjar()
     {
@@ -43,7 +43,7 @@ class C_BahanAjar extends Controller
         ]);
         $currentBahanAjar->update($validatedBahanAjar);
 
-        return redirect('/edit-bahan-ajar')->with('success', 'Bahan Ajar Berhasil Diubah!');
+        return redirect()->back()->with('success', 'Bahan Ajar Berhasil Diubah!');
     }
     public function BahanAjarDetail()
     {

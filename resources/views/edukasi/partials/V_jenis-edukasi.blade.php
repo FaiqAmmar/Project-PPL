@@ -3,8 +3,9 @@
   <div id="scrollbar-under" class="w-[97%] flex flex-row overflow-x-auto text-sm font-medium gap-3 h-auto">
     @foreach ($jenis as $JenisEdu)
     <div class="flex flex-row relative z-0">
-      <a href="/edukasi/{{ $JenisEdu->id }}" class="z-0 relative flex bg-[#EEEEEE] text-black py-1.5 px-4 rounded-lg
-      hover:bg-[#A4E2BF] hover:text-[#45795C] transition-all duration-100">
+      <a href="/edukasi/{{ $JenisEdu->id }}" class="z-0 relative flex text-black py-1.5 px-4 rounded-lg
+        transition-all duration-100 
+        {{ $currentMainId == $JenisEdu->id ? 'bg-[#A4E2BF] text-[#45795C]' : 'bg-[#EEEEEE] hover:bg-[#A4E2BF] hover:text-[#45795C]' }}">
         {{$JenisEdu->judul_modul}}
       </a>
       <button data-modal-target="modal-edit-1{{$JenisEdu->id}}" data-modal-toggle="modal-edit-1{{$JenisEdu->id}}" type="button"
@@ -91,8 +92,9 @@
   <div id="scrollbar-under" class="flex flex-row overflow-x-auto text-sm font-medium gap-3">
     @foreach ($jenis as $JenisEdu)
     <div class="flex flex-row z-0 relative">
-      <a href="/edukasi/{{ $JenisEdu->id }}" class="z-0 relative flex bg-[#EEEEEE] text-black py-1.5 px-4 rounded-lg
-      hover:bg-[#A4E2BF] hover:text-[#45795C] transition-all duration-100">
+      <a href="/edukasi/{{ $JenisEdu->id }}" class="z-0 relative flex text-black py-1.5 px-4 rounded-lg
+      transition-all duration-100
+      {{ $currentMainId == $JenisEdu->id ? 'bg-[#A4E2BF] text-[#45795C]' : 'bg-[#EEEEEE] hover:bg-[#A4E2BF] hover:text-[#45795C]' }}">
         {{$JenisEdu->judul_modul}}
       </a>
     </div>

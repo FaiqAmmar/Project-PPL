@@ -2,6 +2,56 @@
 @section('title', 'Edit Profil')
 @section('content')
 
+<div class="grid grid-cols-[19%_auto] gap-x-7 mx-4 mt-4 mb-4">
+  <div class="bg-[#48B477] rounded px-8 pt-2 pb-4">
+    <div class="grid grid-rows-[240px_200px] gap-y-9">
+      <div class="flex flex-col justify-center">
+        <div class="relative flex flex-row justify-center">
+          @if (Auth::user()->foto_profil != null)
+          <img class="self-center bg-white w-32 h-32 rounded-full object-cover" src="{{ url('storage/fotoprofil/'. Auth::user()->foto_profil) }}" alt="profile-pic">
+          @else
+          <img class="self-center bg-white w-32 h-32 rounded-full object-cover" src="{{ url('assets/img/anon-pic.png') }}" alt="profile-pic">
+          @endif
+          <button data-modal-target="modal-edit" data-modal-toggle="modal-edit" type="button"
+          class="absolute p-1.5 bg-[#D1E9CA] text-black ml-20 rounded-full
+          hover:bg-[#BCD1B5] transition-all duration-100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path fill="currentColor" fill-rule="evenodd" d="M11.423 1A3.577 3.577 0 0 1 15 4.577c0 .27-.108.53-.3.722l-.528.529l-1.971 1.971l-5.059 5.059a3 3 0 0 1-1.533.82l-2.638.528a1 1 0 0 1-1.177-1.177l.528-2.638a3 3 0 0 1 .82-1.533l5.059-5.059l2.5-2.5c.191-.191.451-.299.722-.299m-2.31 4.009l-4.91 4.91a1.5 1.5 0 0 0-.41.766l-.38 1.903l1.902-.38a1.5 1.5 0 0 0 .767-.41l4.91-4.91a2.077 2.077 0 0 0-1.88-1.88Zm3.098.658a3.59 3.59 0 0 0-1.878-1.879l1.28-1.28c.995.09 1.788.884 1.878 1.88l-1.28 1.28Z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </div>
+        <span class="self-center mt-4 text-2xl font-semibold sm:text-base whitespace-nowrap text-black">{{ Auth::user()->nama }}</span>
+        <hr class="self-center my-2 w-24 border border-black rounded">
+        @if (Auth::user()->roles_id == 1)
+        <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Admin</span>
+        @elseif (Auth::user()->roles_id == 2)
+        <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Pengguna</span>
+        @else
+        <span class="self-center text-xl font-slight sm:text-base whitespace-nowrap text-black">Pemerintah</span>
+        @endif
+      </div>
+      @if (Auth::user()->roles_id == 1)
+      <div class="flex flex-col font-semibold pt-3 text-base gap-y-2 justify-center">
+        <a href="/lihat-gov" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+        hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Akun Pemerintah</a>
+        <a href="/lihat-user" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+        hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Akun Pengguna</a>
+        <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[60px] justify-center items-center self-center rounded-xl
+        hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Edit</a>
+        <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[60px] justify-center items-center self-center rounded-xl text-white
+        hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Logout</a>
+      </div>
+      @else
+      <div class="flex flex-col font-semibold pt-20 text-base gap-y-2 justify-center">
+        <a href="{{ route('edit.profil', $currentuser->id) }}" class="flex bg-[#FFFFFF] w-[150px] h-[45px] justify-center items-center self-center rounded-xl
+          hover:bg-[#E5E5E5] hover:scale-105 transition-all duration-100">Edit</a>
+        <a href="/logout" class="flex bg-[#FF0000] w-[150px] h-[45px] justify-center items-center self-center rounded-xl text-white
+        hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Logout</a>
+      </div>
+      @endif
+    </div>
+  </div>
+
 <div class="bg-[#48B477]/[0.2] rounded px-12 pt-12 pb-4">
   @if ($errors->any())
   <div class="alert alert-danger">

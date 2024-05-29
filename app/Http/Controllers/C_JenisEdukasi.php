@@ -49,6 +49,6 @@ class C_JenisEdukasi extends Controller
         ]);
         $newJenis = JenisEdukasi::create($Jenis);
 
-        return back();
+        return redirect()->back()->with('success', 'Jenis Edukasi Berhasil Ditambah!');
     }
 }

@@ -29,6 +29,6 @@ class C_BalasanKonsultasi extends Controller
         $validatedBalasan['user_id'] = $user;
         $newBalasan = BalasanKonsultasi::create($validatedBalasan);
 
-        return redirect()->route('balasan', ['id'=>$validatedBalasan['konsultasi_id']])->with('success','');
+        return redirect()->back()->with('success','');
     }
 }

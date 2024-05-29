@@ -74,7 +74,7 @@ class C_SubMateriEdukasi extends Controller
             'id'=> 'required',
             'judul' => 'required',            
             'body'=> 'required',
-            'modul'=> 'required|mimes:pdf',
+            'modul'=> 'nullable|mimes:pdf',
             'video' => 'nullable|mimes:mp4', // max size 20MB                    
         ]);
         $update = [
@@ -84,6 +84,9 @@ class C_SubMateriEdukasi extends Controller
         $Jenis = SubMateriEdukasi::where('id', $request->id)->first();
 
         if ($request->hasFile('modul')) {
+            if ($request['modul'] !== null) {
+            Storage::delete('public/sub_moduls/' . $Jenis['modul']);
+            }
             Storage::delete('public/sub_moduls/' . $Jenis['modul']);
             $file = $request->file('modul');
             $extension = $file->getClientOriginalExtension();
