@@ -49,66 +49,66 @@
             </svg>
           </button>
           <form action="{{ route('sub.edit') }}" method="post" enctype="multipart/form-data">
-          @csrf
-          @method('PUT')
-            <!-- Modal Edit -->
-            <div id="modal-edit-3" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
-              class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
-              <div class="relative p-4 w-full max-w-screen-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow">
-                  <!-- Modal header -->
-                  <div class="flex items-center justify-center pt-4 px-4">
-                    <h3 class="text-xl font-bold text-black">
-                      Ubah Sub Materi
-                    </h3>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="px-4 pb-2">
-                    <input type="hidden" name="id" value="{{ $firstSub->id }}">
-                    <div>
-                      <div class="flex flex-col py-2 px-4">
-                        <label class="font-semibold text-black text-lg" for="judul">Judul Sub Materi</label>
-                        <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
-                        type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" value="{{ $firstSub->judul }}" required>
-                      </div>
-                      <div class="flex flex-col py-2 px-4">
-                        <label class="font-semibold text-black text-lg" for="body">Deskripsi Sub Materi</label>
-                        <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
-                        name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required>{{ $firstSub->body }}</textarea>
-                      </div>
-                      <div class="flex flex-col py-2 px-4">
-                        <div class="flex flex-row gap-10">                                
-                          <div class="form-field w-[47%]">
-                            <label class="font-semibold text-black text-lg" for="modul">File Modul</label>
-                            <label for="fileModul" class="custom-file-label">
-                              <span id="fileModulText">Pilih File PDF</span>
-                            </label>
-                            <input type="file" accept=".pdf" name="modul" id="fileModul" class="hidden">
-                          </div>
-                          <div class="form-field w-[47%]">
-                            <label class="font-semibold text-black text-lg" for="video">Video Modul</label>
-                            <label for="fileVideo" class="custom-file-label">
-                              <span id="fileVideoText">Pilih File Video MP4</span>
-                            </label>
-                            <input type="file" accept="video/mp4" name="video" id="fileVideo" class="hidden">
+            @csrf
+            @method('PUT')
+              <!-- Modal Edit -->
+              <div id="modal-edit-3" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-screen-md max-h-full">
+                  <!-- Modal content -->
+                  <div class="relative bg-white rounded-lg shadow">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-center pt-4 px-4">
+                      <h3 class="text-xl font-bold text-black">
+                        Ubah Sub Materi
+                      </h3>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="px-4 pb-2">
+                      <input type="hidden" name="id" value="{{ $firstSub->id }}">
+                      <div>
+                        <div class="flex flex-col py-2 px-4">
+                          <label class="font-semibold text-black text-lg" for="judul">Judul Sub Materi</label>
+                          <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
+                          type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" value="{{ $firstSub->judul }}" required>
+                        </div>
+                        <div class="flex flex-col py-2 px-4">
+                          <label class="font-semibold text-black text-lg" for="body">Deskripsi Sub Materi</label>
+                          <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
+                          name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required>{{ $firstSub->body }}</textarea>
+                        </div>
+                        <div class="flex flex-col py-2 px-4">
+                          <div class="flex flex-row gap-10">                                
+                            <div class="form-field w-[47%]">
+                              <label for="modul" class="font-semi old text-black text-lg block">File Modul</label>
+                              <label for="fileModulNew" class="custom-file-label">
+                                <span id="fileModulTextNew">Pilih File PDF</span>
+                              </label>
+                              <input type="file" accept=".pdf" name="modul" id="fileModulNew" class="hidden">
+                            </div>
+                            <div class="form-field w-[47%]">
+                              <label for="video" class="font-semibold text-black text-lg">Video Modul</label>
+                              <label for="fileVideoNew" class="custom-file-label">
+                                <span id="fileVideoTextNew  ">Pilih File Video MP4</span>
+                              </label>
+                              <input type="file" accept="video/mp4" name="video" id="fileVideoNew" class="hidden">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="flex flex-row mt-2 gap-24 justify-center">
-                        <button type="submit" 
-                        class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
-                        hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Simpan</button>
-                        <button type="button" data-modal-hide="modal-edit-3"
-                        class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
-                        hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
+                        <div class="flex flex-row mt-2 gap-24 justify-center">
+                          <button type="submit" 
+                          class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
+                          hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Simpan</button>
+                          <button type="button" data-modal-hide="modal-edit-3"
+                          class="w-1/4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FF0000]
+                          hover:bg-[#E50000] hover:scale-105 transition-all duration-100">Batal</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
           @else
           <a class="flex text-[#48B477] hover:text-[#39905f] transition-all duration-100 items-end mb-1 "
           href="{{ url('storage/sub_moduls/' . $firstSub->modul) }}" download="{{$firstSub->modul}}">
@@ -261,79 +261,85 @@
 </div>
 
 <script>
-// Function to update file input text
-function updateFileInputText(fileInput, textElement, defaultText) {
-  fileInput.addEventListener('change', function() {
-    const fileName = this.files[0] ? this.files[0].name : defaultText;
-    textElement.textContent = fileName !== defaultText ? fileName : defaultText;
-  });
-}
-
-// Update File Modul input text
-updateFileInputText(
-  document.getElementById('fileModul'),
-  document.getElementById('fileModulText'),
-  'Pilih File PDF'
-);
-
-// Update Video Modul input text
-updateFileInputText(
-  document.getElementById('fileVideo'),
-  document.getElementById('fileVideoText'),
-  'Pilih File Video MP4'
-);
-
-  // Reset form function
-  function resetForm() {
-  document.getElementById('modulForm').reset();
-  document.getElementById('fileModulText').textContent = 'Choose a PDF file';
-  document.getElementById('fileVideoText').textContent = 'Choose an MP4 video';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const ratingContainer = document.getElementById('ratingContainer');
-  const radioButtons = ratingContainer.querySelectorAll('input[type="radio"]');
-  const labels = ratingContainer.querySelectorAll('.star-label');
-
-  labels.forEach((label, index) => {
-    label.addEventListener('click', () => {
-      const value = index + 1;
-      radioButtons.forEach((radio, i) => {
-        radio.checked = i < value;
+    function updateFileInputText(fileInput, textElement, defaultText) {
+      fileInput.addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : defaultText;
+        textElement.textContent = fileName;
       });
-      updateStarColors();
+    }
+
+    // Update File Modul New input text
+    updateFileInputText(
+      document.getElementById('fileModulNew'),
+      document.getElementById('fileModulTextNew'),
+      'Pilih File PDF'
+    );
+
+    // Update Video Modu New input text
+    updateFileInputText(
+      document.getElementById('fileVideoNew'),
+      document.getElementById('fileVideoTextNew '),
+      'Pilih File Video MP4'
+    );
+
+        // Update File Modul input text
+        updateFileInputText(
+      document.getElementById('fileModul'),
+      document.getElementById('fileModulText'),
+      'Pilih File PDF'
+    );
+
+    // Update Video Modul input text
+    updateFileInputText(
+      document.getElementById('fileVideo'),
+      document.getElementById('fileVideoText'),
+      'Pilih File Video MP4'
+    );
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const ratingContainer = document.getElementById('ratingContainer');
+    const radioButtons = ratingContainer.querySelectorAll('input[type="radio"]');
+    const labels = ratingContainer.querySelectorAll('.star-label');
+
+    labels.forEach((label, index) => {
+      label.addEventListener('click', () => {
+        const value = index + 1;
+        radioButtons.forEach((radio, i) => {
+          radio.checked = i < value;
+        });
+        updateStarColors();
+      });
+
+    label.addEventListener('mouseover', () => {
+      const value = index + 1;
+      labels.forEach((_, i) => {
+        if (i < value) {
+          labels[i].style.color = '#EAB308'; // Apply yellow color up to hovered star
+        } else {
+          labels[i].style.color = '#D1D5DB'; // Reset to gray for stars beyond hovered one
+        }
+    });
     });
 
-  label.addEventListener('mouseover', () => {
-    const value = index + 1;
-    labels.forEach((_, i) => {
-      if (i < value) {
-        labels[i].style.color = '#EAB308'; // Apply yellow color up to hovered star
-      } else {
-        labels[i].style.color = '#D1D5DB'; // Reset to gray for stars beyond hovered one
-      }
-  });
-  });
-
-    label.addEventListener('mouseleave', () => {
-      updateStarColors();
+      label.addEventListener('mouseleave', () => {
+        updateStarColors();
+      });
     });
+
+    function updateStarColors() {
+      let foundChecked = false;
+      radioButtons.forEach((radio, i) => {
+        if (radio.checked) {
+          foundChecked = true;
+          labels[i].style.color = '#EAB308'; // Apply yellow color for checked stars
+        } else {
+          labels[i].style.color = foundChecked ? '#D1D5DB' : '#EAB308'; // Reset to gray for unchecked stars
+        }
+      });
+    }
+
+    updateStarColors(); // Set initial state based on checked stars
   });
-
-  function updateStarColors() {
-    let foundChecked = false;
-    radioButtons.forEach((radio, i) => {
-      if (radio.checked) {
-        foundChecked = true;
-        labels[i].style.color = '#EAB308'; // Apply yellow color for checked stars
-      } else {
-        labels[i].style.color = foundChecked ? '#D1D5DB' : '#EAB308'; // Reset to gray for unchecked stars
-      }
-    });
-  }
-
-  updateStarColors(); // Set initial state based on checked stars
-});
 
 </script>
 

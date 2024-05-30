@@ -87,7 +87,6 @@ class C_SubMateriEdukasi extends Controller
             if ($request['modul'] !== null) {
             Storage::delete('public/sub_moduls/' . $Jenis['modul']);
             }
-            Storage::delete('public/sub_moduls/' . $Jenis['modul']);
             $file = $request->file('modul');
             $extension = $file->getClientOriginalExtension();
             $nama_file = $update['judul'].'.'.$extension;

@@ -21,7 +21,6 @@
   <title>Agro Edu | @yield('title')</title>
   <style>
     /* Star rating labels */
-    /* Star rating labels */
     .star-label {
       font-size: 24px;
       color: #D1D5DB; /* Gray star color */
@@ -46,41 +45,25 @@
       color: #EAB308; /* Yellow star color */
     }
 
-
-    input[type="file"] {
-      display: none; /* Hide the default file input */
-    }
-
     .custom-file-input {
-      margin: 0px 10px 0px 0px;
-      padding: 5px 20px;
-      border-radius: 12px;
-      border-color: #48B477;
-      border-width: 4px;
-      border-style: dashed;
-      background-color: #FFFFFF;
-      transition: 0.1s;
-      cursor: pointer;
-      display: inline-block;
-      color: #9CA3AF;
-      size: 
-    }
-    .custom-file-input:hover {
-      background-color: #39905f;
+      display: none;
     }
 
     .custom-file-label {
       display: inline-block;
       padding: 6px 20px;
       font-weight: semibold;
-      border-color: #48B477;
-      border-width: 4px;
-      border-style: dashed;
+      border: 1px solid black;
       background-color: #FFFFFF;
       color: #9CA3AF;
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+    }
+
+    .custom-file-label:hover {
+      background-color: #39905f;
+      color: #FFFFFF;
     }
 
     /* Form field styles */
@@ -99,7 +82,7 @@
       border-radius: 8px;
       outline: none;
       transition: border-color 0.3s ease;
-    }
+  }
     .form-field input[type="text"]:focus,
     .form-field textarea:focus {
       border-color: #39905f;

@@ -187,39 +187,38 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
 </div> 
 
 <script>
-// Function to update file input text
-function updateFileInputText(fileInput, textElement, defaultText) {
-  fileInput.addEventListener('change', function() {
-    const fileName = this.files[0] ? this.files[0].name : defaultText;
-    textElement.textContent = fileName !== defaultText ? fileName : defaultText;
-  });
-}
+    function updateFileInputText(fileInput, textElement, defaultText) {
+      fileInput.addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : defaultText;
+        textElement.textContent = fileName;
+      });
+    }
 
-// Update File Modul input text
-updateFileInputText(
-  document.getElementById('fileModul'),
-  document.getElementById('fileModulText'),
-  'Pilih File PDF'
-);
+    // Update File Modul input text
+    updateFileInputText(
+      document.getElementById('fileModul'),
+      document.getElementById('fileModulText'),
+      'Pilih File PDF'
+    );
 
-// Update Video Modul input text
-updateFileInputText(
-  document.getElementById('fileVideo'),
-  document.getElementById('fileVideoText'),
-  'Pilih File Video MP4'
-);
+    // Update Video Modul input text
+    updateFileInputText(
+      document.getElementById('fileVideo'),
+      document.getElementById('fileVideoText'),
+      'Pilih File Video MP4'
+    );
 
-  // Reset form function
-  function resetForm() {
-  document.getElementById('modulForm').reset();
-  document.getElementById('fileModulText').textContent = 'Choose a PDF file';
-  document.getElementById('fileVideoText').textContent = 'Choose an MP4 video';
-}
+    // Reset form function
+    function resetForm() {
+      document.getElementById('modulForm').reset();
+      document.getElementById('fileModulText').textContent = 'Pilih File PDF';
+      document.getElementById('fileVideoText').textContent = 'Pilih File Video MP4';
+    }
 
-// Event listener for cancel button
-document.getElementById('cancelButton').addEventListener('click', function() {
-  resetForm();
-});
+    // Event listener for cancel button
+    document.getElementById('cancelButton').addEventListener('click', function() {
+      resetForm();
+    });
 </script>
 
 @endsection

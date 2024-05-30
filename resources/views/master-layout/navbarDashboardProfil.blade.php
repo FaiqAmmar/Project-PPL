@@ -20,46 +20,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
   <style>
-    input[type="file"]::file-selector-button {
-      margin: 0px 10px 0px 0px;
-      padding: 5px 20px;
-      border-radius: 25px;
-      background-color: #48B477;
-      transition: 0.1s;
-    }
-    input[type="file"]::file-selector-button:hover {
-      background-color: #48B477;
-      text-decoration: underline;
-      transition: 0.1s;
-    } 
-    input[type="file"]::file-selector-button:active {
-      background-color: #39905f;
-      transition: 0.1s;
-    }
-    .file-input-wrapper {
-      position: relative;
-    }
-    .file-input {
-      display: none;
-    }
-    .file-input-label {
-      display: inline-block;
-      margin: 0px 10px 0px 0px;
-      padding: 5px 32px;
-      border-radius: 25px;
-      background-color: #48B477;
-      color: white;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-    .file-input-label:hover {
-      background-color: #39905f;
-      transition: 0.1s;
-    } 
-    .file-input-label:active {
-      background-color: #39905f;
-      transition: 0.1s;
-    }
+    
     /* width */
     #scrollbar::-webkit-scrollbar {
       width: 5px;

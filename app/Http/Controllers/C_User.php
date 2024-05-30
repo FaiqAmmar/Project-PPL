@@ -57,20 +57,8 @@ class C_User extends Controller
             'province_code'=> 'required',
             'city_code'=> 'required',
             'district_code'=> 'required',
-            'foto_profil' => 'nullable|mimes:png,jpg,jpeg',
             'password' => 'nullable|min:8',
         ], $messages);
-
-        if ($request->hasFile('foto_profil')) {
-            if ($validatedProfile['foto_profil'] !== null) {
-            Storage::delete('public/fotoprofil/' . $validatedProfile['foto_profil']);
-            }
-            $file = $request->file('foto_profil');
-            $extension = $file->getClientOriginalExtension();
-            $nama_file = $currentuser->id.'.'.$extension;
-            $file->storeAs('public/fotoprofil', $nama_file);
-            $validatedProfile['foto_profil'] = $nama_file;
-        }
 
         if ($request->filled('password')) {
             $validatedProfile['password'] = Hash::make($request->password);

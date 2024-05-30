@@ -20,40 +20,25 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <title>Agro Edu | @yield('title')</title>
   <style>
-    input[type="file"] {
-        display: none; /* Hide the default file input */
-      }
-
     .custom-file-input {
-      margin: 0px 10px 0px 0px;
-      padding: 5px 20px;
-      border-radius: 12px;
-      border-color: #48B477;
-      border-width: 4px;
-      border-style: dashed;
-      background-color: #FFFFFF;
-      transition: 0.1s;
-      cursor: pointer;
-      display: inline-block;
-      color: #9CA3AF;
-      size: 
-    }
-    .custom-file-input:hover {
-      background-color: #39905f;
+      display: none;
     }
 
     .custom-file-label {
       display: inline-block;
       padding: 6px 20px;
       font-weight: semibold;
-      border-color: #48B477;
-      border-width: 4px;
-      border-style: dashed;
+      border: 1px solid black;
       background-color: #FFFFFF;
       color: #9CA3AF;
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+    }
+
+    .custom-file-label:hover {
+      background-color: #39905f;
+      color: #FFFFFF;
     }
 
     /* Form field styles */
