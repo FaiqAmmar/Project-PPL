@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class C_Modul extends Controller
 {
-    public function index()
+    public function modul()
     {
         $modul = Modul::get();
 
         return view("modul.V_modul", compact("modul"));
     }
-    public function nambah_modul(Request $request)
+    public function tambah(Request $request)
     {
         $messages = [
             'judul_modul.required' => 'isi file',
@@ -54,7 +54,7 @@ class C_Modul extends Controller
 
         return redirect()->back()->with('success','');
     }
-    public function update_modul(Request $request, $id)
+    public function ubah(Request $request, $id)
     {
         $currentmodul = Modul::find($id);
 

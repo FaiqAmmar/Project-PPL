@@ -10,7 +10,7 @@ use App\Models\RatingEdukasi;
 
 class C_JenisEdukasi extends Controller
 {
-    public function index()
+    public function dataJenisEdukasi()
     {
         $jenis = JenisEdukasi::orderBy('created_at', 'desc')->with('materiEdukasi')->get(); //untuk menampilkan semua jenis di header                
         $first = JenisEdukasi::orderBy('created_at', 'desc')->first(); //untuk menampilkan jenis yang terbaru
@@ -31,7 +31,7 @@ class C_JenisEdukasi extends Controller
         // dd($materi);
         return view('edukasi.V_edukasi', compact('jenis', 'first', 'firstMateris', 'firstSub','firstRating','avgRating'));
     }
-    public function update_jenis_edukasi(Request $request, $id)
+    public function edit(Request $request, $id)
     {
         $currentJenisEdukasi = JenisEdukasi::find($id);
 
@@ -42,7 +42,7 @@ class C_JenisEdukasi extends Controller
 
         return redirect()->back()->with('success', 'Jenis Edukasi Berhasil Diubah!');
     }
-    public function store(Request $request)
+    public function tambahData(Request $request)
     {
         $Jenis = $request->validate([
             'judul_modul' => 'required'

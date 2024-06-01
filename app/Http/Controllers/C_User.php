@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class C_User extends Controller
 {
-    public function index()
+    public function profil()
     {
         $id = Auth::user()->id;
         $roles_id = Auth::user()->roles_id;
@@ -21,7 +21,7 @@ class C_User extends Controller
 
         return view("profil.V_profil", compact('currentuser'));
     }
-    public function edit_profil($id)
+    public function edit($id)
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -31,7 +31,7 @@ class C_User extends Controller
 
         return view('profil.V_profil-edit', compact('currentuser', "provinces","cities","districts"));
     }
-    public function update_profil(Request $request)
+    public function setFormEdit(Request $request)
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -70,7 +70,7 @@ class C_User extends Controller
         return redirect('/profil')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
-    public function update_pp(Request $request)
+    public function setFormPhoto(Request $request)
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -94,7 +94,7 @@ class C_User extends Controller
 
         return redirect('/profil')->with('success', 'Foto Profil Berhasil Diubah!');
     }
-    public function lihat_user()
+    public function akunPengguna()
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
@@ -102,7 +102,7 @@ class C_User extends Controller
 
         return view('profil.V_lihat-user', compact('currentuser','user'));
     }
-    public function lihat_gov()
+    public function akunPemerintah()
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);

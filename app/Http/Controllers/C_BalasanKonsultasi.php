@@ -10,7 +10,7 @@ use App\Models\BalasanKonsultasi;
 
 class C_BalasanKonsultasi extends Controller
 {
-    public function index(Request $request, $id)
+    public function BalasanKonsultasi(Request $request, $id)
     {
         $konsultasi = Konsultasi::where("id", $id)->first();
         $balasan = BalasanKonsultasi::where("konsultasi_id", $id)->orderBy('created_at', 'asc')->get(); //untuk menampilkan semua jenis di header                
@@ -18,7 +18,7 @@ class C_BalasanKonsultasi extends Controller
 
         return view('konsultasi.V_balasan', compact('konsultasi','balasan', 'first'));
     }
-    public function store(Request $Request)
+    public function sendDataKonsultasi(Request $Request)
     {
         $user = Auth::user()->id;
 

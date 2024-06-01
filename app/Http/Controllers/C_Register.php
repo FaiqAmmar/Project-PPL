@@ -11,7 +11,10 @@ use Vermaysha\Wilayah\Models\District;
 
 class C_Register extends Controller
 {
-    public function user()
+    public function Daftar() {
+        return view("auth.V_register-role");
+    }
+    public function PeranUser()
     {   
         $roles_id = 2;
         $provinces = Province::orderBy('name')->get();
@@ -19,7 +22,7 @@ class C_Register extends Controller
         $districts = District::orderBy('name')->get();
         return view("auth/V_register", compact("roles_id", "provinces","cities","districts"));
     }
-    public function gov()
+    public function PeranGov()
     {
         $roles_id = 3;
         $provinces = Province::orderBy('name')->get();
@@ -27,7 +30,7 @@ class C_Register extends Controller
         $districts = District::orderBy('name')->get();
         return view("auth/V_register", compact("roles_id", "provinces","cities","districts"));
     }
-    public function register_user(Request $request)
+    public function daftarUser(Request $request)
     {
         $messages = [
             'nama.required' => 'nama isi',
@@ -58,7 +61,7 @@ class C_Register extends Controller
         $roles_id = 2;
         return view('auth/V_login', compact('roles_id'));
     }
-    public function register_gov(Request $request)
+    public function daftarGov(Request $request)
     {
         $validatedRegister = $request->validate([
             'nama' => 'required',

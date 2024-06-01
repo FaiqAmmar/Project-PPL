@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class C_Login extends Controller
 {
-    function index()
+    function masuk()
     {
-        return view('V_login-page');
+        return view('auth.V_login');
     }
 
     /**
      * @Route("/login", name="login-page", methods={"GET", "POST"})
      */
-    public function login(Request $request) 
+    public function cekData(Request $request) 
     {
         $request->validate([
             'email' => 'required',

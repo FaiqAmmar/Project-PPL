@@ -28,60 +28,60 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('auth.V_landing');});
 
 //Route Signup
-Route::get('/register-role', function() {return view('auth.V_register-role');})->name('register-role');
-Route::get('/register-user', [C_Register::class ,'user']);
-Route::get('/register-gov', [C_Register::class ,'gov']);
-Route::post('/register-user', [C_Register::class ,'register_user']);
-Route::post('/register-gov', [C_Register::class ,'register_gov']);
+Route::get('/register-role', [C_Register::class ,'Daftar'])->name('register-role');
+Route::get('/register-user', [C_Register::class ,'PeranUser']);
+Route::get('/register-gov', [C_Register::class ,'PeranGov']);
+Route::post('/register-user', [C_Register::class ,'daftarUser']);
+Route::post('/register-gov', [C_Register::class ,'daftarGov']);
 
 //Route Login
-Route::get('/login', function () {return view('auth.V_login');})->name('login');
-Route::post('/login',[C_Login::class, 'login']);
+Route::get('/login', [C_Login::class ,'masuk'])->name('login');
+Route::post('/login',[C_Login::class, 'cekData']);
 Route::get('/logout', [C_login::class ,'logout'])->name('logout');
 
 //Route Profil
-Route::get('/profil', [C_User::class ,'index'])->name('view.profil');
-Route::get('/edit-profil/{id}', [C_User::class ,'edit_profil'])->name('edit.profil');
-Route::put('/edit-profil', [C_User::class ,'update_profil'])->name('update.profil');
-Route::put('/edit-pp', [C_User::class ,'update_pp'])->name('update.profilphoto');
+Route::get('/profil', [C_User::class ,'profil'])->name('view.profil');
+Route::get('/edit-profil/{id}', [C_User::class ,'edit'])->name('edit.profil');
+Route::put('/edit-profil', [C_User::class ,'setFormEdit'])->name('update.profil');
+Route::put('/edit-pp', [C_User::class ,'setFormPhoto'])->name('update.profilphoto');
 Route::middleware(['admin'])->group(function () {
-    Route::get('/lihat-user', [C_User::class , 'lihat_user']);
-    Route::get('/lihat-gov', [C_User::class , 'lihat_gov']);
+    Route::get('/lihat-user', [C_User::class , 'akunPengguna']);
+    Route::get('/lihat-gov', [C_User::class , 'akunPemerintah']);
 });
 
-//Route Dashboard
-Route::get('/modul', [C_Modul::class , 'index'])->withoutMiddleware(['user']);
-Route::post('/tambah-modul', [C_Modul::class , 'nambah_modul'])->name('add.modul')->middleware(['gov']);
-Route::put('/edit-modul/{id}', [C_Modul::class , 'update_modul'])->name('update.modul')->middleware(['admin']);
+//Route Modul
+Route::get('/modul', [C_Modul::class , 'modul'])->withoutMiddleware(['user']);
+Route::post('/tambah-modul', [C_Modul::class , 'tambah'])->name('add.modul')->middleware(['gov']);
+Route::put('/edit-modul/{id}', [C_Modul::class , 'ubah'])->name('update.modul')->middleware(['admin']);
 
 //Route Edukasi
-Route::get('/edukasi', [C_JenisEdukasi::class , 'index']);
-Route::get('/edukasi/{id}', [C_MateriEdukasi::class, 'index'])->name('materi.index');
-Route::get('/edukasi/{materi_edukasi_id}/{sub_id}', [C_MateriEdukasi::class, 'show'])->name('materi.show');
+Route::get('/edukasi', [C_JenisEdukasi::class , 'dataJenisEdukasi']);
+Route::get('/edukasi/{id}', [C_MateriEdukasi::class, 'judulMateri'])->name('materi.index');
+Route::get('/edukasi/{materi_edukasi_id}/{sub_id}', [C_SubMateriEdukasi::class, 'subMateri'])->name('materi.show');
 Route::middleware(['admin'])->group(function () {
-    Route::post('/jenis-edukasi', [C_JenisEdukasi::class , 'store'])->name('jenis.store');
-    Route::put('/jenis-edukasi/{id}', [C_JenisEdukasi::class , 'update_jenis_edukasi'])->name('jenis.edit');
-    Route::post('materi-edukasi', [C_MateriEdukasi::class, 'store'])->name('materi.store');
-    Route::put('/jenis-edukasi/materi/{id}', [C_MateriEdukasi::class , 'update'])->name('materi.edit');
-    Route::post('/jenis-edukasi/materi/subMateri/', [C_SubMateriEdukasi::class,'store'])->name('sub.store');
-    Route::put('/update', [C_SubMateriEdukasi::class, 'update'])->name('sub.edit');
+    Route::post('/jenis-edukasi', [C_JenisEdukasi::class , 'tambahData'])->name('jenis.store');
+    Route::put('/jenis-edukasi/{id}', [C_JenisEdukasi::class , 'edit'])->name('jenis.edit');
+    Route::post('materi-edukasi', [C_MateriEdukasi::class, 'tambahData'])->name('materi.store');
+    Route::put('/jenis-edukasi/materi/{id}', [C_MateriEdukasi::class , 'edit'])->name('materi.edit');
+    Route::post('/jenis-edukasi/materi/subMateri/', [C_SubMateriEdukasi::class,'tambahData'])->name('sub.store');
+    Route::put('/update', [C_SubMateriEdukasi::class, 'edit'])->name('sub.edit');
 });
 Route::withoutMiddleware(['admin'])->group(function () {
-    Route::post('/ulasan', [C_SubMateriEdukasi::class,'ulasan'])->name('sub.ulasan');
-    Route::post('/rating', [C_SubMateriEdukasi::class,'rating'])->name('sub.rating');
+    Route::post('/ulasan', [C_SubMateriEdukasi::class,'sendKomentar'])->name('sub.ulasan');
+    Route::post('/rating', [C_SubMateriEdukasi::class,'sendRating'])->name('sub.rating');
 });
 
 //Route Konsultasi
-Route::get('/konsultasi', [C_Konsultasi::class,'index'])->name('konsultasi');
-Route::post('/tambah-konsultasi', [C_Konsultasi::class,'store'])->name('konsultasi.store')->middleware(['user']);     
-Route::get('/balasan-konsultasi/{id}', [C_BalasanKonsultasi::class,'index'])->name('balasan');
-Route::post('/tambah-balasan-konsultasi', [C_BalasanKonsultasi::class,'store'])->name('balasan.store')->withoutMiddleware(['admin']);
+Route::get('/konsultasi', [C_Konsultasi::class,'konsultasi'])->name('konsultasi');
+Route::post('/tambah-konsultasi', [C_Konsultasi::class,'sendKonsultasi'])->name('konsultasi.store')->middleware(['user']);     
+Route::get('/balasan-konsultasi/{id}', [C_BalasanKonsultasi::class,'BalasanKonsultasi'])->name('balasan');
+Route::post('/tambah-balasan-konsultasi', [C_BalasanKonsultasi::class,'sendDataKonsultasi'])->name('balasan.store')->withoutMiddleware(['admin']);
 
 //Route Bahan Ajar
-Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'BahanAjarDetail'])->name('detail-bahan-ajar')->middleware(['admin']);
+Route::get('/detail-bahan-ajar', [C_BahanAjar::class ,'bahanAjarDetail'])->name('detail-bahan-ajar')->middleware(['admin']);
 Route::withoutMiddleware(['admin'])->group(function () {
-    Route::get('/bahan-ajar', [C_BahanAjar::class , 'BahanAjar'])->name('bahan-ajar');
-    Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'create_bahan_ajar'])->name('add.bahan-ajar');
-    Route::get('/edit-bahan-ajar', [C_BahanAjar::class ,'EditBahanAjar'])->name('edit.bahan-ajar');
-    Route::put('/edit-bahan-ajar/{id}', [C_BahanAjar::class , 'update_bahan_ajar'])->name('update.bahan-ajar');
+    Route::get('/bahan-ajar', [C_BahanAjar::class , 'viewBahanAjar'])->name('bahan-ajar');
+    Route::post('/tambah-bahan-ajar', [C_BahanAjar::class , 'ajukan'])->name('add.bahan-ajar');
+    Route::get('/edit-bahan-ajar', [C_BahanAjar::class ,'LihatDetailAjuan'])->name('edit.bahan-ajar');
+    Route::put('/edit-bahan-ajar/{id}', [C_BahanAjar::class , 'setLihatDetailAjuan'])->name('update.bahan-ajar');
 });

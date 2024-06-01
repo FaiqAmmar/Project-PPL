@@ -10,7 +10,7 @@ use App\Models\BalasanKonsultasi;
 
 class C_Konsultasi extends Controller
 {
-    public function index()
+    public function konsultasi()
     {
         $konsultasi = Konsultasi::orderBy('created_at', 'desc')->get(); //untuk menampilkan semua jenis di header 
         $balasanArray = [];
@@ -31,7 +31,7 @@ class C_Konsultasi extends Controller
         }
         return view('konsultasi.V_konsultasi', compact('konsultasi', 'balasanArray', 'balasan', 'firstbalasan'));
     }
-    public function store(Request $Request)
+    public function sendKonsultasi(Request $Request)
     {
         $user = Auth::user()->id;
 
