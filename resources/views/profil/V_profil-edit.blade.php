@@ -90,15 +90,6 @@
   </div>
 
 <div class="bg-[#48B477]/[0.2] rounded px-12 pt-12 pb-4">
-  @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-  @endif
   <span class="text-3xl font-semibold">Edit Profil</span>
   <form action="{{ route('update.profil', $currentuser->id) }}" method="post" enctype="multipart/form-data">
     @csrf
@@ -107,7 +98,7 @@
       <div class="flex flex-row mb-3 w-full gap-[51px]">
         <div class="flex flex-row gap-20">
           <label for="nama" class="flex font-bold items-center">Nama</label>
-          <input id="nama" name="nama" type="text" placeholder="Nama Lengkap" value="{{ $currentuser->nama }}"
+          <input id="nama" name="nama" type="text" placeholder="Nama Lengkap" value="{{ $currentuser->nama }}" oninvalid="this.setCustomValidity('Mohon Isi Kolom Nama')"
           class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 font-light rounded-full flex w-64" required></input>
         </div>
         <div class="flex flex-row gap-20">
@@ -123,7 +114,7 @@
       <div class="flex flex-row mb-3 w-full gap-[50px]">
         <div class="flex flex-row gap-[85px]">
           <label for="email" class="flex font-bold items-center">Email</label>
-          <input id="email" name="email" type="text" placeholder="nama@email.com" value="{{ $currentuser->email }}"
+          <input id="email" name="email" type="text" placeholder="nama@email.com" value="{{ $currentuser->email }}" oninvalid="this.setCustomValidity('Mohon Isi Kolom Email')"
           class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 font-light rounded-full flex w-64" required></input>
         </div>
         <div class="flex flex-row gap-[74px]">
@@ -161,7 +152,7 @@
       <div class="flex flex-row mb-3 w-full gap-[50px]">
         <div class="flex flex-row gap-[52px]">
           <label for="nomor_handphone" class="flex font-bold items-center w-20 leading-5">Nomor Handphone</label>
-          <input id="nomor_handphone" name="nomor_handphone" type="text" placeholder="08**********" value="{{ $currentuser->nomor_handphone }}"
+          <input id="nomor_handphone" name="nomor_handphone" type="text" placeholder="08**********" value="{{ $currentuser->nomor_handphone }}" oninvalid="this.setCustomValidity('Mohon Isi Kolom Nomor Handphone')"
           class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 font-light rounded-full flex w-64" required></input>
         </div>
         <div class="flex flex-row gap-[50px]">
@@ -179,7 +170,7 @@
       </div>
       <div class="flex flex-row mb-6 w-full gap-[74px]">
         <label for="alamat" class="flex font-bold items-center">Alamat</label>
-        <input id="alamat" name="alamat" type="text" placeholder="Alamat Lengkap" value="{{ $currentuser->alamat }}"
+        <input id="alamat" name="alamat" type="text" placeholder="Alamat Lengkap" value="{{ $currentuser->alamat }}" oninvalid="this.setCustomValidity('Mohon Isi Kolom Alamat')"
         class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 font-light rounded-full flex w-full mr-[50px]" required></input>
       </div>
       <div class="justify-end flex flex-row gap-5 font-semibold text-white text-base mr-24">

@@ -8,12 +8,12 @@
     <form action="/login" method="POST" class="flex flex-col justify-center">
       @csrf
       <label class="text-3xl font-bold ml-2 mb-4" for="email">Email</label>
-      <input class="h-14 rounded-xl pl-7 focus:outline-none focus:ring-1 focus:ring-[#48B477] focus:border-[#48B477]" 
+      <input class="h-14 rounded-xl pl-7 focus:outline-none focus:ring-1 focus:ring-[#48B477] focus:border-[#48B477]" oninvalid="this.setCustomValidity('Mohon Isi Kolom Email')"
       id="email" type="email" value="{{ old('email') }}" name="email" placeholder="contoh : satriabelvanararya@gmail.com" required>
       <div class="flex justify-between items-baseline mt-7">
         <label class="text-3xl font-bold ml-2 mb-4" for="password">Password</label>
       </div>
-      <input class="h-14 rounded-xl pl-7 focus:outline-none focus:ring-1 focus:ring-[#48B477] focus:border-[#48B477]" 
+      <input class="h-14 rounded-xl pl-7 focus:outline-none focus:ring-1 focus:ring-[#48B477] focus:border-[#48B477]"  oninvalid="this.setCustomValidity('Mohon Isi Kolom Password')"
       id="password" type="password" name="password" placeholder="*******" required>
       <button name="submit" type="submit" class="mt-16 w-full h-14 bg-[#48B477] text-white text-xl font-bold rounded-lg hover:bg-[#39905f] hover:scale-105 hover:shadow-2xl transition">
         Masuk

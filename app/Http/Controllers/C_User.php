@@ -46,12 +46,11 @@ class C_User extends Controller
             'province_code.required'=> 'provinsi isi',
             'city_code.required'=> 'kota isi',
             'district_code.required'=> 'kec isi',
-            'foto_profil' => 'foto isi',
         ];
         $validatedProfile= $request->validate([
             'nama' => 'required',
             'email'=> 'required',
-            'nomor_handphone' => 'required',
+            'nomor_handphone' => 'required|min:12',
             'gender'=> 'required',
             'alamat'=> 'required',
             'province_code'=> 'required',

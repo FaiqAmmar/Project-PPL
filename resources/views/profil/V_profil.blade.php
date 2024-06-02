@@ -2,6 +2,32 @@
 @section('title', 'Profil')
 @section('content')
 
+<!-- Modal Notifikasi -->
+<div id="modal-notif" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 h-auto w-auto max-w-screen-sm max-h-screen-sm">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg">
+      <!-- Modal header -->
+      <div class="flex items-center justify-center pt-3 px-6">
+        <h3 class="text-2xl font-bold text-black mb-4">
+          {{ session('success') }}
+        </h3>
+      </div>
+      <!-- Modal body -->
+      <div class="flex flex-col justify-center items-center px-6 pb-4">
+        <button type="button" data-modal-hide="modal-notif"
+        class="w-1/2 text-white font-medium rounded-lg text-sm py-2.5 text-center bg-[#48B477]
+        hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Kembali</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@if(session('success'))
+<div id="success-message" data-message="{{ session('success') }}"></div>
+@endif
+
 <div class="grid grid-cols-[19%_auto] gap-x-7 mx-4 mt-4 mb-4">
   <div class="bg-[#48B477] rounded px-8 pt-2 pb-4">
     <div class="grid grid-rows-[240px_200px] gap-y-9">
@@ -89,5 +115,7 @@
     addressSpan.textContent = capitalizeText(addressSpan.textContent);
   });
 </script>
+
+<script src="{{ url('/assets/js/notification.js')}}"></script>
 
 @endsection

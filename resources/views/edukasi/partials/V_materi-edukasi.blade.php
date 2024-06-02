@@ -21,7 +21,7 @@
             <!-- Modal body -->
             <div class="flex flex-col justify-center px-6 pb-4">
               <input type="hidden" id="jenis_edukasi_id" name="jenis_edukasi_id" type="text" value="{{ $first->id }}" required></input>
-              <input id="judul_materi" name="judul_materi" type="text" placeholder="Masukkan Materi"
+              <input id="judul_materi" name="judul_materi" type="text" placeholder="Masukkan Materi" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')"
               class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></input>
               <div class="flex flex-row gap-6 justify-center mt-4">
                 <button type="submit" 
@@ -70,7 +70,7 @@
                 <!-- Modal body -->
                 <div class="flex flex-col justify-center px-6 pb-4">
                   <input id="judul_materi" name="judul_materi" type="text" placeholder="Ubah Materi" value="{{ $materi->judul_materi }}"
-                  class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></input>
+                  class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required></input>
                   <div class="flex flex-row gap-6 justify-center mt-4">
                     <button type="submit" 
                     class="w-1/2 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
@@ -115,12 +115,12 @@
                     <div class="flex flex-col py-2 px-4">
                       <label class="font-semibold text-black text-lg" for="judul">Judul Sub Materi</label>
                       <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
-                      type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" required>
+                      type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required>
                     </div>
                     <div class="flex flex-col py-2 px-4">
                       <label class="font-semibold text-black text-lg" for="body">Deskripsi Sub Materi</label>
                       <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
-                      name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required></textarea>
+                      name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Deskripsi')" required></textarea>
                     </div>
                     <div class="flex flex-col py-2 px-4">
                       <div class="flex flex-row gap-10">                                

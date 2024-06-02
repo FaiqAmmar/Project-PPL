@@ -48,7 +48,7 @@
     <input placeholder="Tanya disini" autocomplete="off" 
     class="w-1/3 text-sm rounded-3xl border-0 bg-[#EEEEEE]
     focus:ring-2 focus:ring-[#48B477]"
-    type="text" name="konsultasi" id="konsultasi" required>
+    type="text" name="konsultasi" id="konsultasi" oninvalid="this.setCustomValidity('Mohon Isi Kolom Konsultasi')" required>
     <button type="submit"
     class="p-2 bg-[#48B477] rounded-3xl 
     hover:bg-[#39905f] hover:scale-105 transition-all duration-100">

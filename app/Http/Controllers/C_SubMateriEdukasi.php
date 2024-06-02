@@ -70,7 +70,7 @@ class C_SubMateriEdukasi extends Controller
             $SubMateri->update();
         }
 
-        return redirect()->back()->with('success','');
+        return redirect()->back()->with('success','Data Sub Materi Edukasi Berhasil Ditambah!');
     }
 
     /**
@@ -115,7 +115,7 @@ class C_SubMateriEdukasi extends Controller
 
         SubMateriEdukasi::Where('id', $request->id)->update($update);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Data Sub Materi Edukasi Berhasil Diubah!');
     }
 
     public function sendKomentar(Request $request)
@@ -129,7 +129,7 @@ class C_SubMateriEdukasi extends Controller
         $validatedUlasan['user_id'] = $user;
         UlasanEdukasi::Where('sub_materi_edukasi_id', $request->sub_materi_edukasi_id)->create($validatedUlasan);
 
-        return redirect()->back()->with('success','');
+        return redirect()->back();
     }
     public function sendRating(Request $request)
     {        
@@ -153,6 +153,6 @@ class C_SubMateriEdukasi extends Controller
             RatingEdukasi::create($validatedRating);
         }
     
-        return redirect()->back()->with('success', 'Rating submitted successfully.');
+        return redirect()->back()->with('success', 'Rating telah ditambahkan');
     }
 }

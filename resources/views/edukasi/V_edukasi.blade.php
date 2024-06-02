@@ -32,6 +32,32 @@
 
   <div class="flex flex-row mx-4 gap-4 h-[444px]">
 
+    <!-- Modal Notifikasi -->
+    <div id="modal-notif" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 h-auto w-auto max-w-screen-sm max-h-screen-sm">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg">
+          <!-- Modal header -->
+          <div class="flex items-center justify-center pt-3 px-6">
+            <h3 class="text-2xl font-bold text-black mb-4">
+              {{ session('success') }}
+            </h3>
+          </div>
+          <!-- Modal body -->
+          <div class="flex flex-col justify-center items-center px-6 pb-4">
+            <button type="button" data-modal-hide="modal-notif"
+            class="w-1/2 text-white font-medium rounded-lg text-sm py-2.5 text-center bg-[#48B477]
+            hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Kembali</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if(session('success'))
+    <div id="success-message" data-message="{{ session('success') }}"></div>
+    @endif
+
     @include('edukasi.partials.V_materi-edukasi' , ['materi' => $firstSub, 'currentSubId' => $currentSubId, 'first' => $first])
 
     <div id="scrollbar" class="flex flex-col relative overflow-y-auto w-[78%] bg-[#FFFFFF] rounded-xl py-6 px-8 h-full gap-2">
@@ -70,12 +96,12 @@
                         <div class="flex flex-col py-2 px-4">
                           <label class="font-semibold text-black text-lg" for="judul">Judul Sub Materi</label>
                           <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
-                          type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" value="{{ $firstSub->judul }}" required>
+                          type="text" name="judul" id="judul" placeholder="Masukkan Sub Materi" autocomplete="off" value="{{ $firstSub->judul }}" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required>
                         </div>
                         <div class="flex flex-col py-2 px-4">
                           <label class="font-semibold text-black text-lg" for="body">Deskripsi Sub Materi</label>
                           <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
-                          name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required>{{ $firstSub->body }}</textarea>
+                          name="body" id="body" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Deskripsi')" required>{{ $firstSub->body }}</textarea>
                         </div>
                         <div class="flex flex-col py-2 px-4">
                           <div class="flex flex-row gap-10">                                
@@ -238,7 +264,7 @@
               <form action="{{route('sub.ulasan')}}" method="post" class="flex flex-row gap-4 justify-center mt-3">
               @csrf
                 <input type="hidden" name="sub_materi_edukasi_id" value="{{ $firstSub->id }}">
-                <input placeholder="Ulas disini" autocomplete="off" 
+                <input placeholder="Ulas disini" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Komentar')"
                 class="w-1/3 text-sm rounded-3xl border-0 bg-[#EEEEEE]
                 focus:ring-2 focus:ring-[#48B477]"
                 type="text" name="ulasan" id="ulasan" required>
@@ -342,5 +368,7 @@
   });
 
 </script>
+
+<script src="{{ url('/assets/js/notification.js')}}"></script>
 
 @endsection

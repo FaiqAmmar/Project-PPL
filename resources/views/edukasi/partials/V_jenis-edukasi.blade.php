@@ -33,7 +33,7 @@
             <!-- Modal body -->
             <div class="flex flex-col justify-center px-6 pb-4">
               <input id="judul_modul" name="judul_modul" type="text" placeholder="Ubah Jenis Edukasi" value="{{$JenisEdu->judul_modul}}"
-              class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></input>
+              class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required></input>
               <div class="flex flex-row gap-6 justify-center mt-4">
                 <button type="submit" 
                 class="w-1/2 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
@@ -73,7 +73,7 @@
           <!-- Modal body -->
           <div class="flex flex-col justify-center px-6 pb-4">
             <input id="judul_modul" name="judul_modul" type="text" placeholder="Masukkan Jenis Edukasi"
-            class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" required></input>
+            class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required></input>
             <div class="flex flex-row gap-6 justify-center mt-4">
               <button type="submit" 
               class="w-1/2 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]

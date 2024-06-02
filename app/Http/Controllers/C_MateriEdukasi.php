@@ -59,7 +59,7 @@ class C_MateriEdukasi extends Controller
 
         MateriEdukasi::create($Jenis);
 
-        return redirect()->back()->with('success','');
+        return redirect()->back()->with('success','Data Materi Edukasi Berhasil Ditambah!');
     }
 
     /**
@@ -79,7 +79,7 @@ class C_MateriEdukasi extends Controller
         ]);
         $currentMateriEdukasi->update($validatedMateriEdukasi);
 
-        return redirect()->back()->with('success', 'Materi Edukasi Berhasil Diubah!');
+        return redirect()->back()->with('success', 'Data Materi Edukasi Berhasil Diubah!');
     }
 
     /**

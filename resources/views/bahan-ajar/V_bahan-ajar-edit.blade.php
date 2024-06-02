@@ -2,6 +2,32 @@
 @section('title', 'Edit Bahan Ajar')
 @section('content')
 
+<!-- Modal Notifikasi -->
+<div id="modal-notif" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 h-auto w-auto max-w-screen-sm max-h-screen-sm">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg">
+      <!-- Modal header -->
+      <div class="flex items-center justify-center pt-3 px-6">
+        <h3 class="text-2xl font-bold text-black mb-4">
+          {{ session('success') }}
+        </h3>
+      </div>
+      <!-- Modal body -->
+      <div class="flex flex-col justify-center items-center px-6 pb-4">
+        <button type="button" data-modal-hide="modal-notif"
+        class="w-1/2 text-white font-medium rounded-lg text-sm py-2.5 text-center bg-[#48B477]
+        hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Kembali</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@if(session('success'))
+<div id="success-message" data-message="{{ session('success') }}"></div>
+@endif
+
 <div class="h-[85vh] mx-4 mt-3 mb-2.5 rounded bg-[#FFFFFF]">
   <div class="flex items-center justify-between px-14 pt-8">
     <div class="flex items-center justify-start rtl:justify-end">
@@ -51,7 +77,7 @@
                       <div class="flex flex-col justify-center px-6 pb-4">
                         <textarea name="ajuan" id="ajuan" cols="60" rows="5"
                         class="bg-[#EEEEEE] rounded-xl p-2 border-[#48B477] focus:border-[#48B477] hover:border-[#48B477] focus:ring-0"
-                        style="resize:none">{{ $tablemodul->ajuan }}</textarea>
+                        style="resize:none" oninvalid="this.setCustomValidity('Mohon Isi Kolom Bahan Ajar')">{{ $tablemodul->ajuan }}</textarea>
                         <div class="flex flex-row gap-12 justify-center mt-4">
                           <button type="submit" 
                           class="w-1/3 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#48B477]
@@ -72,5 +98,7 @@
     </table>
   </div>
 </div>
+
+<script src="{{ url('/assets/js/notification.js')}}"></script>
 
 @endsection

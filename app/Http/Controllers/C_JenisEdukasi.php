@@ -40,7 +40,7 @@ class C_JenisEdukasi extends Controller
         ]);
         $currentJenisEdukasi->update($validatedJenisEdukasi);
 
-        return redirect()->back()->with('success', 'Jenis Edukasi Berhasil Diubah!');
+        return redirect()->back()->with('success', 'Data Jenis Edukasi Berhasil Diubah!');
     }
     public function tambahData(Request $request)
     {
@@ -49,6 +49,6 @@ class C_JenisEdukasi extends Controller
         ]);
         $newJenis = JenisEdukasi::create($Jenis);
 
-        return redirect()->back()->with('success', 'Jenis Edukasi Berhasil Ditambah!');
+        return redirect()->back()->with('success', 'Data Jenis Edukasi Berhasil Ditambah!');
     }
 }

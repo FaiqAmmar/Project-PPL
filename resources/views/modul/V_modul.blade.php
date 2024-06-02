@@ -2,15 +2,30 @@
 @section('title', 'Modul')
 @section('content')
 
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+<!-- Modal Notifikasi -->
+<div id="modal-notif" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 h-auto w-auto max-w-screen-sm max-h-screen-sm">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg">
+      <!-- Modal header -->
+      <div class="flex items-center justify-center pt-3 px-6">
+        <h3 class="text-2xl font-bold text-black mb-4">
+          {{ session('success') }}
+        </h3>
+      </div>
+      <!-- Modal body -->
+      <div class="flex flex-col justify-center items-center px-6 pb-4">
+        <button type="button" data-modal-hide="modal-notif"
+        class="w-1/2 text-white font-medium rounded-lg text-sm py-2.5 text-center bg-[#48B477]
+        hover:bg-[#39905f] hover:scale-105 transition-all duration-100">Kembali</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+@if(session('success'))
+<div id="success-message" data-message="{{ session('success') }}"></div>
 @endif
 
 <div class="h-[85vh] mx-4 mt-3 mb-3 rounded bg-[#FFFFFF]">
@@ -147,12 +162,12 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
             <div class="flex flex-col py-2 px-4">
               <label class="font-semibold text-black text-lg" for="judul_modul">Judul Modul</label>
               <input class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal" 
-              type="text" name="judul_modul" id="judul_modul" placeholder="Isi Judul Disini" autocomplete="off" required>
+              type="text" name="judul_modul" id="judul_modul" placeholder="Isi Judul Disini" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Judul')" required>
             </div>
             <div class="flex flex-col py-2 px-4">
               <label class="font-semibold text-black text-lg" for="deskripsi_modul">Deskripsi Modul</label>
               <textarea id="scrollbar" class="bg-[#EEEEEE] focus:border-[#48B477] focus:ring-0 rounded-xl flex font-normal py-1 px-2"
-              name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" required></textarea>
+              name="deskripsi_modul" id="deskripsi_modul" cols="20" rows="5" style="resize:none" placeholder="Isi Deskripsi Disini" autocomplete="off" oninvalid="this.setCustomValidity('Mohon Isi Kolom Deskripsi')" required></textarea>
             </div>
             <div class="flex flex-col py-2 px-4">
               <div class="flex flex-row gap-10">                                
@@ -220,5 +235,7 @@ class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
       resetForm();
     });
 </script>
+
+<script src="{{ url('/assets/js/notification.js')}}"></script>
 
 @endsection

@@ -4,18 +4,18 @@ document.getElementById("province").addEventListener("change", function () {
   citySelect.removeAttribute("style");
   citySelect.removeAttribute("disabled");
   for (var i = 0; i < citySelect.options.length; i++) {
-      var option = citySelect.options[i];
-      if (
-          option.value !== "" &&
-          option.getAttribute("data-province") !== selectedProvinceCode
-      ) {
-          option.style.display = "none";
-      } else {
-          option.style.display = "";
-      }
+    var option = citySelect.options[i];
+    if (
+      option.value !== "" &&
+      option.getAttribute("data-province") !== selectedProvinceCode
+    ) {
+      option.style.display = "none";
+    } else {
+      option.style.display = "";
+    }
   }
   var defaultCityCode = citySelect.querySelector(
-      'option[data-province="' + selectedProvinceCode + '"]'
+    'option[data-province="' + selectedProvinceCode + '"]'
   ).value;
   citySelect.value = defaultCityCode;
 });
@@ -26,18 +26,18 @@ document.getElementById("city").addEventListener("change", function () {
   districtSelect.removeAttribute("style");
   districtSelect.removeAttribute("disabled");
   for (var i = 0; i < districtSelect.options.length; i++) {
-      var option = districtSelect.options[i];
-      if (
-          option.value !== "" &&
-          option.getAttribute("data-city") !== selectedCityCode
-      ) {
-          option.style.display = "none";
-      } else {
-          option.style.display = "";
-      }
+    var option = districtSelect.options[i];
+    if (
+    option.value !== "" &&
+      option.getAttribute("data-city") !== selectedCityCode
+    ) {
+      option.style.display = "none";
+    } else {
+      option.style.display = "";
+    }
   }
   var defaultDistrictCode = districtSelect.querySelector(
-      'option[data-city="' + selectedCityCode + '"]'
+    'option[data-city="' + selectedCityCode + '"]'
   ).value;
   districtSelect.value = defaultDistrictCode;
 });

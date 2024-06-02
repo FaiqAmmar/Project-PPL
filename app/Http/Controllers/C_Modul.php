@@ -52,7 +52,7 @@ class C_Modul extends Controller
         }
 
 
-        return redirect()->back()->with('success','');
+        return redirect()->back()->with('success','Data Modul Berhasil Ditambahkan!');
     }
     public function ubah(Request $request, $id)
     {
@@ -63,6 +63,6 @@ class C_Modul extends Controller
         ]);
 
         $currentmodul->update($validatedStatus);
-        return redirect()->back()->with('success','');
+        return redirect()->back()->with('success','Status Modul Berhasil Diubah!');
     }
 }

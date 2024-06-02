@@ -32,28 +32,17 @@ class C_Register extends Controller
     }
     public function daftarUser(Request $request)
     {
-        $messages = [
-            'nama.required' => 'nama isi',
-            'email.required'=> 'email isi',
-            'password.required'=> 'pass isi',
-            'nomor_handphone.required' => 'hp isi',
-            'gender.required'=> 'gender isi',
-            'alamat.required'=> 'alamat isi',
-            'province_code.required'=> 'provinsi isi',
-            'city_code.required'=> 'kota isi',
-            'district_code.required'=> 'kec isi',
-        ];
         $validatedRegister = $request->validate([
             'nama' => 'required',
             'email'=> 'required',
-            'password'=> 'required',
-            'nomor_handphone' => 'required',
+            'password'=> 'required|min:8',
+            'nomor_handphone' => 'required|min:12',
             'gender'=> 'required',
             'alamat'=> 'required',
             'province_code'=> 'required',
             'city_code'=> 'required',
             'district_code'=> 'required',
-        ], $messages);
+        ]);
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
         $validatedRegister['roles_id'] = '2';
         User::create($validatedRegister);
